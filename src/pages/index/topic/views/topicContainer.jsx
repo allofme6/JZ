@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 
-class loginContainer extends Component {
+export default class topicContainer extends Component {
     render() {
         return (
             <div>
-                1
+                话题讨论
             </div>
-        );
+        )
     }
 }
-
-export default loginContainer

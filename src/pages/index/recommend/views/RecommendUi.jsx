@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-class loginContainer extends Component {
+class RecommendUi extends Component {
     render() {
         return (
             <div>
-                1
+                HomeUi
             </div>
-        );
+        )
     }
 }
 
-export default loginContainer
+export default RecommendUi

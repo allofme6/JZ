@@ -13,13 +13,11 @@ import Index from './pages/index/index/Index';
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <Switch>
-          <Route path="/index" component={Index}></Route>
-          {/* <Route path="/articleDetail" component={ArticleDetail}></Route> */}
-          <Redirect from="/" to="/index" exact></Redirect>
-        </Switch>
-      </div>
+      <Switch>
+        <Route path="/index" component={Index}></Route>
+        {/* <Route path="/articleDetail" component={ArticleDetail}></Route> */}
+        <Redirect from="/" to="/index" exact></Redirect>
+      </Switch>
     )
   }
 

@@ -3,8 +3,7 @@ import {connect} from 'react-redux'
 import {increment} from '../actionCreator'
 
 const mapStateToProps = (state)=>{
-    console.log((state.get('home')).toJS())
-    return (state.get('home')).toJS()
+    return (state.get('recommend')).toJS()
 }
 const mapDispatchToProps = (dispatch)=>{
     return {

@@ -1,5 +1,6 @@
 import {combineReducers} from 'redux-immutable'
-import {homeReducer as home} from 'pages/index/home/'
+import {reducer as recommend} from 'pages/index/recommend/'
+
 export default combineReducers({
-    home
+    recommend
 })

@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 
-class loginContainer extends Component {
+export default class publishContainer extends Component {
     render() {
         return (
             <div>
-                1
+                发布
             </div>
-        );
+        )
     }
 }
-
-export default loginContainer

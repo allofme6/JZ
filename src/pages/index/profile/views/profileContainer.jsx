@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 
-class loginContainer extends Component {
+export default class profileContainer extends Component {
     render() {
         return (
             <div>
-                1
+                我的
             </div>
-        );
+        )
     }
 }
-
-export default loginContainer
