@@ -8,6 +8,7 @@ const IndexContainer = styled.div`
     flex-direction: column;
     main {
         flex: 1;
+        overflow-y: scroll;
     }
     footer {
         height: .48rem;

@@ -1,4 +1,4 @@
-import Profile from './views/profileContainer'
+import Profile from './views/ProfileContainer'
 
 export {
     Profile
