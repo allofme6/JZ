@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const border = ({width='1px', style='solid', color='#ccc', radius=0, comp}) => {
     return styled(comp) `
       position: relative;
-      border-radius: ${radius};
+      border-radius: ${radius}px;
       &::after {
         /* 用以解决边框layer遮盖内容 */
         pointer-events: none;
@@ -37,3 +37,5 @@ const border = ({width='1px', style='solid', color='#ccc', radius=0, comp}) => {
       }
     `
   }
+
+  export default border

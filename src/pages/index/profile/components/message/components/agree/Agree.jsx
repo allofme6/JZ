@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class ProfilePublishUI extends Component {
+class Agree extends Component {
     render() {
         return (
             <div>
-                
+                点赞
             </div>
         );
     }
 }
 
-export default ProfilePublishUI;
+export default Agree;

@@ -10,7 +10,7 @@ class Card extends Component {
             <CardContainer 
                 left={this.props.left} 
                 top={this.props.top} 
-                onClick={()=>{this.props.handleClick(this.props.type)}}>
+                onClick={()=>{this.props.handleClick && this.props.handleClick(this.props.type)}}>
                 <img src={card} alt=""/>
             </CardContainer>
         );

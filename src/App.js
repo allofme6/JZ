@@ -9,14 +9,14 @@ import './assets/styles/reset.css'
 // import Index from './pages/index/index/'
 // import { ArticleDetail } from './pages/articleDetail/index'
 import Index from './pages/index/index/Index';
-import {Wallet} from './pages/index/profile/wallet/'
-import {Draft} from './pages/index/profile/draft/'
-import {ProfileTopic} from './pages/index/profile/profileTopic/'
-import {Record} from './pages/index/profile/record/'
-import {Collection} from './pages/index/profile/collection/'
-import {Setup} from './pages/index/profile/setup/'
-import {ProfilePublish} from './pages/index/profile/profilePublish/'
-import {Message} from './pages/index/profile/message/'
+import {Wallet} from 'profileComponents/wallet/'
+import {Draft} from 'profileComponents/draft/'
+import {ProfileTopic} from 'profileComponents/profileTopic/'
+import {Record} from 'profileComponents/record/'
+import {Collection} from 'profileComponents/collection/'
+import {Setup} from 'profileComponents/setup/'
+import {ProfilePublish} from 'profileComponents/profilePublish/'
+import {Message} from 'profileComponents/message/'
 
 
 
