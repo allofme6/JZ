@@ -12,7 +12,7 @@ import record from 'images/profile/record.png'
 import collection from 'images/profile/collection.png'
 import setup from 'images/profile/setup.png'
 
-import Card from '../components/card/Card'
+import Card from 'components/card/Card'
 
 
 class ProfileUI extends Component {

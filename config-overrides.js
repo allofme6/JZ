@@ -43,5 +43,6 @@ module.exports = override(
     ['components']: path.resolve(__dirname, 'src/components'),
     ['utils']: path.resolve(__dirname, 'src/utils'),
     ['store']: path.resolve(__dirname, 'src/store'),
+    ['profileComponents']: path.resolve(__dirname, 'src/pages/index/profile/components'),
   })
 )

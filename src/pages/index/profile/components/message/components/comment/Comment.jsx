@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Collection extends Component {
+class Comment extends Component {
     render() {
         return (
             <div>
-                我的收藏
+                评论
             </div>
         );
     }
 }
 
-export default Collection;
+export default Comment;
