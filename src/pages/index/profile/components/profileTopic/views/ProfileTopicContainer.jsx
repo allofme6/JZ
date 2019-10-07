@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
-
+import React, { Component } from 'react'
+import ProfileTopicUI from './ProfileTopicUI'
 class ProfileTopicContainer extends Component {
     render() {
         return (
-            <div>
-                我的讨论
-            </div>
-        );
+            <ProfileTopicUI/>
+        )
     }
 }
 
-export default ProfileTopicContainer;
+export default ProfileTopicContainer
