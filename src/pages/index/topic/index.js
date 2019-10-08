@@ -1,4 +1,4 @@
-import Topic from './views/topicContainer'
+import Topic from './views/TopicContainer'
 
 export {
     Topic

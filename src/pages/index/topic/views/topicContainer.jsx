@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 
+import TopicUI from './TopicUI'
 export default class topicContainer extends Component {
     render() {
-        return (
-            <div>
-                话题讨论
-            </div>
-        )
+        return <TopicUI></TopicUI>           
     }
 }
