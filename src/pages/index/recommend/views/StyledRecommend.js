@@ -1,20 +1,22 @@
-import styled from 'styled-components'
-   
+import styled from 'styled-components'   
 
 const RecommendContainer = styled.div`
     background:#fff;
-   
 `
 const TopContainer = styled.div`
     height:100%;
     ul{
         padding: 0 .28rem 0 .28rem;
         height: 100%;
+        display:flex;
+        justify-content:space-between;
+        flex-wrap:wrap;
+        width:100%;
         li{
             margin-top:.22rem;
-            float: left;
+            width:1.47rem;
             img{
-                width:1.47rem;
+                width:100%;
                 height:1.46rem;
             }
             p{
@@ -23,7 +25,7 @@ const TopContainer = styled.div`
                 font-family:PingFang SC;
                 margin-top:.12rem;
                 width:1.43rem;
-                height:.37rem;
+                height: .37rem;
                 text-align:left;
             }
             .banners{
@@ -54,9 +56,6 @@ const TopContainer = styled.div`
                     margin-top:.21rem
                 }
             }
-        }
-        li:nth-child(2n){
-           float:right
         }
 }
 
