@@ -73,9 +73,13 @@ const ArticleDetailContainer = styled.div`
   }
     width:100%;
     .auth{
-      padding:0 .22rem  .49rem .18rem;
+      padding:.24rem .22rem  .49rem .18rem;
       font-size:.14rem;
       line-height:.2rem;
+    }
+    footer{
+      width:100%;
+      height:.49rem;
     }
 
 `
