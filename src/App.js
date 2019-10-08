@@ -7,7 +7,7 @@ import {Route , Switch , Redirect} from 'react-router-dom'
 import './assets/styles/reset.css'
 
 // import Index from './pages/index/index/'
-// import { ArticleDetail } from './pages/articleDetail/index'
+import {ArticleDetail}  from './pages/index/recommend/'
 import Index from './pages/index/index/Index';
 import {Wallet} from 'profileComponents/wallet/'
 import {Draft} from 'profileComponents/draft/'
@@ -27,6 +27,7 @@ export default class App extends Component {
     return (
       <Switch>
         <Route path="/index" component={Index}></Route>
+        <Route path="/articleDetail" component={ArticleDetail}></Route>
         <Route path="/wallet" component={Wallet}></Route>
         <Route path="/draft" component={Draft}></Route>
         <Route path="/topic" component={ProfileTopic}></Route>

@@ -37,5 +37,4 @@ const border = ({width='1px', style='solid', color='#ccc', radius=0, comp}) => {
       }
     `
   }
-
   export default border
