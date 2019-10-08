@@ -13,7 +13,7 @@ class ProfilePublishUI extends Component {
             <ProfilePublishContainer>
                 <div className="publish-card">
                     <NavBar colors="#2F2F2F" aligns="left" titleText="可爱的小住户"></NavBar>
-                    <Card left="1.29rem" top=".38rem"></Card>
+                    <Card  top=".38rem"></Card>
                     <div className="cover">更改封面</div>
                     <div className="edit">编辑个人资料</div>
                 </div>
@@ -22,7 +22,7 @@ class ProfilePublishUI extends Component {
                     {/* <EmptyTip
                         actionTitle= "去发布"
                         tipTitle  = "还未发布过内容"
-                        bearPosition= "top: .59rem;left: .93rem;"
+                        bearPosition= "top: .59rem;"
                         tipPosition = "top: 2.11rem;"
                         actionPosition = "top: 2.33rem;"
                     ></EmptyTip> */}

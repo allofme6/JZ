@@ -15,9 +15,8 @@ const RecordContainer = styled.div`
                 flex-wrap: wrap;
                 justify-content: space-between;
                 li{
-                    width: 1.68rem;
+                    width: 47.67%;
                     height: 1.36rem;
-                    background-color: red;
                     margin-bottom:.1rem;
                     img{
                         width: 100%;
