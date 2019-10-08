@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
+import RecordUI from './RecordUI';
 class RecordContainer extends Component {
     render() {
         return (
-            <div>
-                浏览记录
-            </div>
+            <RecordUI/>
         );
     }
 }

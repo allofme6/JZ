@@ -4,8 +4,8 @@ import {Switch,Route,Redirect,withRouter} from 'react-router-dom'
 import {MessageContainer,NavBox} from '../StyledMessage'
 
 import NavBar from 'components/navBar/NavBar'
-import Agree from '../components/agree/Agree'
-import Comment from '../components/comment/Comment'
+import {Agree} from '../components/agree/'
+import {Comment} from '../components/comment'
 
 import tips from 'images/profile/tips.png';
 
