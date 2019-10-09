@@ -20,7 +20,7 @@ class CollectionUI extends Component {
                     <Item></Item>
                 </div> */}
                  <EmptyTip
-                    bearPosition="top: 1.74rem;left: .99rem;"
+                    bearPosition="top: 1.74rem;"
                     tipTitle="我的收藏空空入也"
                     tipPosition="top: 3.29rem"
                 ></EmptyTip>

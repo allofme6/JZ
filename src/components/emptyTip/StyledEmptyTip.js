@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
 const EmptyTipContainer = styled.div`
+    display: flex;
+    justify-content: center;
     .bear{
         width: 1.68rem;
         height: 1.43rem;
