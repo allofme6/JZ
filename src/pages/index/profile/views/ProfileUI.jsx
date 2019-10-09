@@ -29,7 +29,7 @@ class ProfileUI extends Component {
                             <img src={tips} alt="" className="tips"/>
                         </div>
                     </div>
-                    <Card className="card-img-box" top=".45rem" left="1.29rem" type="profilepublish" {...this.props}/>
+                    <Card className="card-img-box" top="14%"  type="profilepublish" {...this.props}/>
                     <h4 onClick={()=>{this.props.handleClick('profilepublish')}}>可爱的小住户</h4>
                 </div>
                 <div className="profile-options">

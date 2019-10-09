@@ -19,7 +19,7 @@ class ProfileTopicUI extends Component {
                     <Item/>
                 </div>
                 {/* <EmptyTip
-                    bearPosition="top: 1.89rem;left: 1.04rem;"
+                    bearPosition="top: 1.89rem;"
                     tipTitle= "还未参与过讨论"
                     actionTitle= "去讨论"
                     tipPosition= "top: 3.78rem;"
