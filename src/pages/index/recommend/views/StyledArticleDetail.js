@@ -80,6 +80,11 @@ const ArticleDetailContainer = styled.div`
     footer{
       width:100%;
       height:.49rem;
+      box-shadow: 0px -1px 17px #cecdcd;
+      .left{
+        width:1.09rem;
+        height:.28rem;
+      }
     }
 
 `
