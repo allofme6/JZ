@@ -1,4 +1,4 @@
-import Publish from './views/ublishContainer'
+import Publish from './views/PublishContainer'
 
 export {
     Publish
