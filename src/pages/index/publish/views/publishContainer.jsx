@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
+import PublishUi from './PublishUi'
 
-export default class publishContainer extends Component {
+export default class PublishContainer extends Component {
     render() {
         return (
-            <div>
-                发布
-            </div>
+            <PublishUi onBack={this.close}></PublishUi>
         )
+    }
+
+    close = () => {
+        this.props.history.go(-1)
     }
 }

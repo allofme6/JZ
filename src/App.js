@@ -8,6 +8,7 @@ import './assets/styles/reset.css'
 
 // import Index from './pages/index/index/'
 import {ArticleDetail}  from './pages/index/recommend/'
+import {Publish}  from './pages/index/publish/'
 import Index from './pages/index/index/Index';
 import {Wallet} from 'profileComponents/wallet/'
 import {Draft} from 'profileComponents/draft/'
@@ -17,7 +18,6 @@ import {Collection} from 'profileComponents/collection/'
 import {Setup} from 'profileComponents/setup/'
 import {ProfilePublish} from 'profileComponents/profilePublish/'
 import {Message} from 'profileComponents/message/'
-
 
 
 
@@ -36,6 +36,7 @@ export default class App extends Component {
         <Route path="/setup" component={Setup}></Route>
         <Route path="/profilepublish" component={ProfilePublish}></Route>
         <Route path="/message" component={Message}></Route>
+        <Route path="/publish" component={Publish}></Route>
 
 
 

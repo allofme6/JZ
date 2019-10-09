@@ -43,7 +43,7 @@ class Index extends Component {
                             </Link>
                         </li>
                         <li>
-                            <Link to={`${path}/publish`}>
+                            <Link to={`/publish`}>
                                 <img src={publish} alt=""/>
                                 <p>发布</p>
                             </Link>
