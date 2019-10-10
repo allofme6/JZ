@@ -9,6 +9,17 @@ const GlobalStyle = createGlobalStyle`
     .am-image-picker-list {
         padding: .09rem .15rem 0 !important;
     }
+    .am-button {
+        border: 1px solid rgba(85,180,180,1) !important;
+        width: .6rem !important;
+        font-size: .12rem !important;
+        height: .47rem !important;
+        line-height: .3rem !important;
+        color: #55B4B4 !important;
+        border-radius: .15rem !important;
+        height: .31rem !important;
+        border: 1px solid rgba(85,180,180,1) !important;
+    }
 `
 
 const PublishMainContainer = styled.div`
@@ -56,21 +67,33 @@ const NavBarContainer = styled.div`
             justify-content: center;
             align-items: center;
             margin-right: .21rem;
-            width: .6rem;
+            /* width: .6rem;
             height: .31rem;
             background: #fff;
             border: 1px solid rgba(85,180,180,1);
             border-radius: .15rem;
             font-size: .12rem;
-            color: #55B4B4;
+            color: #55B4B4; */
+            .am-button {
+                border: 1px solid rgba(85,180,180,1) !important;
+                width: .6rem !important;
+                font-size: .12rem !important;
+                height: .47rem !important;
+                line-height: .3rem !important;
+                color: #55B4B4 !important;
+                border-radius: .15rem !important;
+                height: .31rem !important;
+                border: 1px solid rgba(85,180,180,1) !important;
+            }
         }
         .publish-save {
             display: flex;
             justify-content: center;
             align-items: center;
+            background: #55B4B4;
+            border-radius: .15rem;
             width: .6rem;
             height: .31rem;
-            background: #55B4B4;
             border: 1px solid rgba(85,180,180,1);
             border-radius: .15rem;
             font-size: .12rem;
