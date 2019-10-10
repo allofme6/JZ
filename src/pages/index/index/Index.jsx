@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Recommend } from '../recommend/'
 import { Topic } from '../topic/'
 import { Publish } from '../publish/'
-import { Profile } from '../profile/'
+import { ProfileContainer } from '../profile/'
 
 import recommend from 'images/recommend.png'
 import topic from 'images/topic.png'
@@ -24,7 +24,7 @@ class Index extends Component {
                         <Route path={`${path}/recommend`} component={Recommend} />
                         <Route path="/index/topic" component={Topic} />
                         <Route path="/index/publish" component={Publish} />
-                        <Route path="/index/profile" component={Profile} />
+                        <Route path="/index/profile" component={ProfileContainer} />
                         <Redirect to="/index/recommend" ></Redirect>
                     </Switch>
                 </main>
