@@ -1,9 +1,5 @@
-export const increment = ()=>{
-    return (dispatch)=>{
-        setTimeout(()=>{
-            dispatch({
-                type:'increment'
-            })
-        },3000)
+export const showDialog = ()=>{
+    return {
+        type : 'showDialog'
     }
 }

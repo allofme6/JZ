@@ -1,11 +1,18 @@
 import React from 'react'
 
 import { NavBar} from 'antd-mobile'
+// import { ActionSheet, WingBlank, WhiteSpace, Button, Toast } from 'antd-mobile';
 
 import {
   ArticleDetailContainer,
   SlideContainer,
-} from '../../StyledArticleDetail'
+} from './StyledArticleDetail'
+
+import Foot from '../../components/Foot'
+import Comments from '../../components/Comments'
+
+import { GlobalStyle } from 'components/styled/styledPublish.js'
+
 
 import detail from 'images/Details.png'
 import backD from 'images/backD.png'
@@ -14,14 +21,13 @@ import backD from 'images/backD.png'
 const ArticleDetailUi=(props)=>{
     return (
       <ArticleDetailContainer>
+        <GlobalStyle/>
         <div className="boxs">
-
-        <NavBar>
-          <img onClick={props.onBack} src={backD} alt=""/></NavBar>
-        <div>
+        <div className="nav"><NavBar><img onClick={props.onBack} src={backD} alt=""/></NavBar></div>
+        <div className="bigpic">
           <img className="pic" src={detail} alt=""/>
         </div>
-        <p>
+        <p className="details1">
         北欧客厅装饰画沙发背景墙现代简约餐厅墙面壁画卧室组合挂画 栖息之鹿+黑白钟表款占墙面积175*96cm
         </p>
         <SlideContainer></SlideContainer>
@@ -38,9 +44,8 @@ const ArticleDetailUi=(props)=>{
           本文版权归好好住编辑部所有，任何形式转载请联系作者。
           </p>
 
-          <footer>
-            <div className="left"></div>
-          </footer>
+         <Foot onClick={props.onClick}></Foot>
+         <Comments onClick={props.onDown}  display = {props.visible === true ? 'block' :'none'}></Comments>
 
         </div>
 

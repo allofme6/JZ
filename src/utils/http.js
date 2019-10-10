@@ -8,13 +8,13 @@ const Get = (url) => {
                 return axios.get(url)
                     .then(function (response) {
                     // handle success
-                    console.log(response)
+                    // console.log(response)
                     })
             }
 const Post = (url , params) => {
                 return axios.post(url, qs.stringify(params))
                     .then(function (response) {
-                        console.log(response)
+                        // console.log(response)
                     })
             }
 

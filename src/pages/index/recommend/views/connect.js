@@ -1,14 +1,16 @@
 import {connect} from 'react-redux'
 // import {toJs} from 'immutable'
-import {increment} from '../actionCreator'
+import { showDialog } from '../actionCreator'
 
 const mapStateToProps = (state)=>{
-    return (state.get('recommend')).toJS()
+    return {
+        visible : state.recommend.visible
+    }
 }
 const mapDispatchToProps = (dispatch)=>{
     return {
-        increment : ()=>{
-            dispatch(increment())
+        showDialog : ()=>{
+            dispatch(showDialog())
         }
     }
 }

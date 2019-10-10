@@ -11,6 +11,12 @@ import collect from 'images/collect.png'
 import touxiang from 'images/touxiang.png'
 
 class Tops extends Component {
+  constructor(props) {
+    super(props)
+    // this.state = {
+    //   collectActive:false
+    // }
+  }
   render() {
     return (
       <TopContainer>
@@ -22,8 +28,8 @@ class Tops extends Component {
           <div className="banners">
             <img className="touxiang" src={touxiang} alt=""/>
             <span>久处不也</span>
-            <img src={collect} alt="" className="collect"/>
-            <span className="cNum">312</span>
+            <p onClick={this.props.onClick} className={this.props.className}></p>
+            <span onClick={this.props.onClick} className={this.props.className}>241</span>
           </div>
         </li>
 
@@ -33,8 +39,8 @@ class Tops extends Component {
           <div className="banners">
             <img className="touxiang" src={touxiang} alt=""/>
             <span>久处不也</span>
-            <img src={collect} alt="" className="collect"/>
-            <span className="cNum">312</span>
+            <p onClick={this.props.onClick} className={this.props.className}></p>
+            <span onClick={this.props.onClick} className={this.props.className}>241</span>
           </div>
         </li>
 
@@ -44,8 +50,8 @@ class Tops extends Component {
           <div className="banners">
             <img className="touxiang" src={touxiang} alt=""/>
             <span>久处不也</span>
-            <img src={collect} alt="" className="collect"/>
-            <span className="cNum">312</span>
+            <p onClick={this.props.onClick} className={this.props.className}></p>
+            <span onClick={this.props.onClick} className={this.props.className}>241</span>
           </div>
         </li>
 
@@ -55,8 +61,8 @@ class Tops extends Component {
           <div className="banners">
             <img className="touxiang" src={touxiang} alt=""/>
             <span>久处不也</span>
-            <img src={collect} alt="" className="collect"/>
-            <span className="cNum">312</span>
+            <p onClick={this.props.onClick} className={this.props.className}></p>
+            <span onClick={this.props.onClick} className={this.props.className}>241</span>
           </div>
         </li>
         </ul>
@@ -67,6 +73,13 @@ class Tops extends Component {
   handleClick = ()=>{
     this.props.history.push('/articleDetail')
   }
+
+  // handleCollect =()=>{
+  //   console.log(1)
+  //   this.setState({
+  //     collectActive: !this.state.collectActive
+  //   })
+  // }
 }
 
 export default withRouter(Tops)

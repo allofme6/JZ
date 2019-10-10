@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 import {Route , Switch , Redirect} from 'react-router-dom'
 
 import './assets/styles/reset.css'
+import './assets/styles/animated.css'
 
 // import Index from './pages/index/index/'
 import {ArticleDetail}  from './pages/index/recommend/'
