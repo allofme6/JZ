@@ -3,6 +3,13 @@ import qs from 'querystring'
 import { Component } from 'react'
 
 // import 
+const get = ({url}) => {
+                return  fetch(url)
+                .then(response => response.json())
+                .then(result => {
+                    return result
+                })
+            }
 
 const Get = (url) => {
                 return axios.get(url)
@@ -23,5 +30,6 @@ Component.prototype.$post = Post
 
 export default {
     Get,
-    Post
+    Post,
+    get
 }

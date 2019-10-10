@@ -22,7 +22,7 @@ class Index extends Component {
                 <main>
                     <Switch>
                         <Route path={`${path}/recommend`} component={Recommend} />
-                        <Route path="/index/topic" component={Topic} />
+                        <Route path="/index/topicTalk" component={Topic} />
                         <Route path="/index/publish" component={Publish} />
                         <Route path="/index/profile" component={Profile} />
                         <Redirect to="/index/recommend" ></Redirect>
@@ -37,7 +37,7 @@ class Index extends Component {
                             </Link>
                         </li>
                         <li>
-                            <Link to={`${path}/topic`}>
+                            <Link to={`/topicTalk`}>
                                 <img src={topic} alt=""/>
                                 <p>话题讨论</p>
                             </Link>
