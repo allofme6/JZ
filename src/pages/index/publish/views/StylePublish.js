@@ -5,7 +5,8 @@ const OptionStyle = createGlobalStyle`
         border-radius: .15rem .15rem 0 0;
     }
     .am-action-sheet-button-list .am-action-sheet-button-list-item::before {
-        height: 0;
+        top: auto !important;
+        bottom: 0 !important;
     }
 `
 
