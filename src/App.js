@@ -9,8 +9,12 @@ import './assets/styles/reset.css'
 // import Index from './pages/index/index/'
 import {ArticleDetail}  from './pages/index/recommend/'
 import {Publish}  from './pages/index/publish/'
+<<<<<<< HEAD
 import {Topic}  from './pages/index/topic/'
 import {TopicSearch}  from './pages/index/topic/components/topicSearch/'
+=======
+import {PublishMain} from 'publishComponents/publishMain/'
+>>>>>>> master
 import Index from './pages/index/index/Index';
 import {Wallet} from 'profileComponents/wallet/'
 import {Draft} from 'profileComponents/draft/'
@@ -39,8 +43,13 @@ export default class App extends Component {
         <Route path="/profilepublish" component={ProfilePublish}></Route>
         <Route path="/message" component={Message}></Route>
         <Route path="/publish" component={Publish}></Route>
+<<<<<<< HEAD
         <Route path="/topicTalk" component={Topic}></Route>
         <Route path="/topicSearch" component={TopicSearch}></Route>
+=======
+        <Route path="/publishMain" component={PublishMain}></Route>
+        
+>>>>>>> master
 
 
 

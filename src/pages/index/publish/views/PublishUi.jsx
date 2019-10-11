@@ -36,8 +36,7 @@ let showActionSheet = () => {
     ActionSheet.showActionSheetWithOptions({
       options: BUTTONS,
       cancelButtonIndex: BUTTONS.length - 1,
-      destructiveButtonIndex: BUTTONS.length - 2,
-      // title: 'title',
+    //   destructiveButtonIndex: BUTTONS.length - 2,
       maskClosable: true,
       'data-seed': 'logId',
     },
