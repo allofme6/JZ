@@ -14,7 +14,7 @@ class TopicUI extends Component {
                     <div className="nav-arrow" onClick={this.props.onBackClick}>
                         <img src={arrow} alt=""/>
                     </div>
-                    <div className = "TopicSearch" onClick={() => this.props.onSearchClick("topicSearch")}>
+                    <div className = "TopicSearch" onClick={() => this.props.onChangeClick("topicSearch")}>
                         <img src={search} alt=""/>
                         <input type="text" placeholder="搜索话题" />
                     </div>
@@ -44,6 +44,7 @@ class TopicUI extends Component {
                                     return (
                                         <li 
                                             key = {value}
+                                            onClick={() => this.props.onChangeClick("topicDetail")}
                                         >
                                             <img src={text} alt=""/>
                                             <div className="content-texts">

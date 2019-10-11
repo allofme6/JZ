@@ -121,7 +121,13 @@ const TopicContainer = styled.div`
     }
     
 `
+const TopicBody = styled.div`
+    width: 100%;
+    height: 100%;
+    background: #fff;
+`
 
 export {
-    TopicContainer
+    TopicContainer,
+    TopicBody
 }
