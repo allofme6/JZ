@@ -20,6 +20,15 @@ const GlobalStyle = createGlobalStyle`
         height: .31rem !important;
         border: 1px solid rgba(85,180,180,1) !important;
     }
+    .am-modal-button {
+        font-size: .15rem !important;
+    }
+    .am-modal-button-group-h .am-modal-button:first-child {
+        color: #CC494F !important;
+    }
+    .am-modal-button-group-h .am-modal-button:nth-child(2) {
+        color: #171717 !important;
+    }
 `
 
 const PublishMainContainer = styled.div`
@@ -98,6 +107,9 @@ const NavBarContainer = styled.div`
             border-radius: .15rem;
             font-size: .12rem;
             color: #fff;
+        }
+        .am-modal-button-group-h.am-modal-button-group-normal {
+            font-size: .15rem !important;
         }
     }
 `

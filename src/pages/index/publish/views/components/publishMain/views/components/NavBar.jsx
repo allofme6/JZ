@@ -30,10 +30,10 @@ function handleBack(props) {
 
 const alert = Modal.alert;
 
-const showAlert = () => {
-  const alertInstance = alert('', 'Are you sure???', [
-    { text: 'Cancel', onPress: () => console.log('cancel'), style: 'default' },
-    { text: 'OK', onPress: () => console.log('ok') },
+const showAlert = (question) => {
+  const alertInstance = alert('', question , [
+    { text: '不保存', onPress: () => console.log('cancel'), style: 'default' },
+    { text: '保存', onPress: () => console.log('ok') },
   ]);
   setTimeout(() => {
     // 可以调用close方法以在外部close

@@ -11,7 +11,7 @@ const IndexContainer = styled.div`
         overflow-y: scroll;
     }
     footer {
-        height: .48rem;
+        height: 48px;
         .tabBar {
             height: 100%;
             display: flex;
@@ -22,10 +22,10 @@ const IndexContainer = styled.div`
                 flex: 1;
                 display: flex;
                 img {
-                    width: .2rem;
-                    height: .2rem;
-                    margin-top: .03rem;
-                    margin-bottom: .05rem;
+                    width: 20px;
+                    height: 20px;
+                    margin-top: 3px;
+                    margin-bottom: 5px;
                 }
                 a {
                     display: flex;
@@ -34,10 +34,10 @@ const IndexContainer = styled.div`
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
-                    font-size: .12rem;
+                    font-size: 12px;
                     font-family: PingFang SC;
                     font-weight: 400;
-                    line-height: .16rem;
+                    line-height: 16px;
                     color: rgba(130,130,130,1);
                     opacity: 1;
                 }
