@@ -15,11 +15,12 @@ class SetupUI extends Component {
                 <div className="setup-list">
                     <SetItem
                         title="编辑个人资料"
-                        handleActions={this.props.handleActions('profileData')}
-                    />
+                        handleActions={this.props.handleActions('presonal')}
+                    >
+                    </SetItem>
                     <SetItem
                         title="账号与安全"
-                        handleActions={this.props.handleActions('profileData')}
+                        handleActions={this.props.handleActions('profileAccount')}
                     />
                 </div>
             </SetupContainer>
