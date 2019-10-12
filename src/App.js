@@ -18,6 +18,9 @@ import {Setup} from 'profileComponents/setup/'
 import {ProfilePublish} from 'profileComponents/profilePublish/'
 import {Message} from 'profileComponents/message/'
 
+//登录注册
+import {Register} from './pages/register/'
+import {Login} from './pages/login/'
 
 
 
@@ -26,6 +29,10 @@ export default class App extends Component {
   render() {
     return (
       <Switch>
+
+        <Route path="/register" component={Register}></Route>
+        <Route path="/login" component={Login}></Route>
+
         <Route path="/index" component={Index}></Route>
         <Route path="/articleDetail" component={ArticleDetail}></Route>
         <Route path="/wallet" component={Wallet}></Route>

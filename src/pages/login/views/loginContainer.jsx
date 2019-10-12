@@ -1,13 +1,76 @@
-import React, { Component } from 'react'
+import React,{Component} from 'react'
+import LoginUI from './LoginUI'
+import {GlobalStyle} from 'components/styled/styledPublish'
 
-class loginContainer extends Component {
-    render() {
+import {withRouter} from 'react-router-dom'
+import { Toast} from 'antd-mobile';
+
+
+class Login extends Component{
+    constructor(){
+        super()
+        this.timer=null
+        this.state={
+           username:'',
+           password:''
+        }
+        this.staticState={
+        }
+    }
+    render(){
         return (
-            <div>
-                1
-            </div>
-        );
+            <>
+                <GlobalStyle/>
+                <LoginUI 
+                    usernamer={this.state.username}
+                    getUsername={this.getUsername}
+                    testUsername={this.testUsername}
+                    password={this.state.password}
+                    getPassword={this.getPassword}
+                    testPassword={this.testPassword}
+                >
+                </LoginUI>
+            </>
+            
+        )
+    }
+    loginClick=()=>{
+        console.log(this.props)
+        this.props.history.push('login')
+    }
+    registerClick=()=>{
+        console.log(this.props)
+        this.props.history.push({pathname:'/register/'})
+    }
+    getUsername=(e)=>{
+        console.log(e.target.value)
+        this.setState({
+            username:e.target.value
+        })
+    }
+    getPassword=(e)=>{
+        console.log(e.target.value)
+        this.setState({
+            password:e.target.value
+        })
+    }
+    testUsername=()=>{
+        console.log('test')
+        if(!(/^1[3456789]\d{9}$/.test(this.state.username))){
+            console.log(this.state.username)
+            this.phoneToast()
+        }
+    }
+    testPassword=()=>{
+        if(!(/^[\w_-]{9,9}$/.test(this.state.password))){
+           this.passwordToast()
+        }
+    }
+    phoneToast(){
+        Toast.info('账号格式错误')
+    }
+    phoneToast(){
+        Toast.info('密码长度为9个字符')
     }
 }
-
-export default loginContainer
+export default withRouter(Login)
