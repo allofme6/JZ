@@ -50,18 +50,21 @@ const DetailContainer = styled.div`
     }
     .content{
         width: 100%;
+        padding: 0 .25rem;
+        position: relative;
         .talk{
             color: #333333;
             font-size: .14rem;
             font-weight: 800;
             margin: .16rem auto 0;
             padding-bottom: .1rem;
-            width: 3.25rem;
+            width: 100%;
             border-bottom: solid .01rem #B2A8A8;
         }
         .item{
-            width: 3.25rem;
+            width: 100%;
             margin: 0 auto;
+            padding: 0 
             .person{
                 display: flex;
                 flex-directive: row;
@@ -94,6 +97,37 @@ const DetailContainer = styled.div`
                 color: #707070;
                 font-size: .14rem;
                 margin-top: .2rem;
+            }
+            .context-img{
+                padding-top: .08rem;
+                display: flex;
+                flex-directive: row;
+                img:nth-child(1){
+                    width: .9rem;
+                    height: .9rem;
+                    padding-right: .1rem;
+                }
+                img:nth-child(2){
+                    width: .9rem;
+                    height: .9rem;
+                }
+            }
+        }
+        .join-review{
+            position: relative;
+            bottom: .15rem;
+            margin: 0 auto;
+            width: .87rem;
+            height: .31rem;
+            border-radius: .15rem;
+            color: #fff;
+            font-size: .12rem;
+            line-height: .31rem;
+            background: #55B4B4;
+            img{
+                width: .12rem;
+                height: .11rem;
+                margin: -.03rem .05rem 0 .12rem;
             }
         }
     }

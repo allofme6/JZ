@@ -54,7 +54,7 @@ const TopicContainer = styled.div`
         display: flex;
         flex-directive: row;
         .classify-nav{
-            width: .8rem;
+            flex: 16;
             height: 100%;
             background: #F4F4F4;
             li{
@@ -83,8 +83,7 @@ const TopicContainer = styled.div`
             }
         }
         .content-right{
-            flex: 1;
-            width: 100%;
+            flex: 59;
             height: 100%;
             ul{
                 width: 100%;

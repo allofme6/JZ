@@ -15,6 +15,7 @@ import {Profile} from './pages/index/profile/';
 import {Topic} from './pages/index/topic/';
 import {TopicSearch} from './pages/index/topic/components/topicSearch/';
 import {TopicDetail} from './pages/index/topic/components/topicDetail/';
+import {JoinTalk} from './pages/index/topic/components/joinTalk/';
 
 
 
@@ -32,6 +33,7 @@ export default class App extends Component {
         <Route path="/topicTalk" component={Topic}></Route>
         <Route path="/topicSearch" component={TopicSearch}></Route>
         <Route path="/topicDetail" component={TopicDetail}></Route>
+        <Route path="/joinTalk" component={JoinTalk}></Route>
 
         <Route path="/profile" component={Profile}></Route>
 

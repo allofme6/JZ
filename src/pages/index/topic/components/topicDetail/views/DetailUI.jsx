@@ -3,7 +3,9 @@ import {DetailContainer} from '../styledDetail'
 
 import arrow from 'images/topic/detailArrow.png'
 import personImg from 'images/topic/detailPerson.png'
-
+import contextImg1 from 'images/topic/contextImg1.png'
+import contextImg2 from 'images/topic/contextImg2.png'
+import add from 'images/topic/add.png'
 
 class DetailUI extends Component {
     render(){
@@ -41,6 +43,13 @@ class DetailUI extends Component {
                             门窗感应器，设置凌晨至早七点，门打开则激活小米
                             网关大嗓门播放噪音。    
                         </p>
+                        <div className="context-img">
+                            <img src={contextImg1} alt=""/>
+                            <img src={contextImg2} alt=""/>
+                        </div>
+                    </div>
+                    <div className="join-review" onClick={()=>this.props.onJoinClick("joinTalk")}>
+                        <img src={add} alt=""/>参与讨论
                     </div>
                 </div>
             
