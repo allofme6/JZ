@@ -8,7 +8,6 @@ import back from 'images/back.png'
 
 class NavBar extends Component {
     render() {
-        console.log(this.props.history);
         return (
             <NavBarContainer  
                 aligns={this.props.aligns} 
@@ -17,7 +16,14 @@ class NavBar extends Component {
                     <img src={back} alt=""/>
                 </div>
                 <div className="content">{this.props.titleText}</div>
-                <div className="stance"></div>
+                <div className="stance" onClick={
+                    ()=>{
+                        if(this.props.rightAction){ 
+                            this.props.rightAction()
+                        } }
+                    }>
+                    {this.props.children}
+                </div>
             </NavBarContainer>
         )
     }
