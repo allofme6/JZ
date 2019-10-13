@@ -7,16 +7,11 @@ import { withRouter } from 'react-router-dom'
 import { GlobalStyle } from 'components/styled/styledPublish.js'
 
 import logos from 'images/logos.png'
-import collect from 'images/collect.png'
+// import collect from 'images/collect.png'
 import touxiang from 'images/touxiang.png'
 
 class Tops extends Component {
-  constructor(props) {
-    super(props)
-    // this.state = {
-    //   collectActive:false
-    // }
-  }
+
   render() {
     return (
       <TopContainer>
@@ -74,12 +69,6 @@ class Tops extends Component {
     this.props.history.push('/articleDetail')
   }
 
-  // handleCollect =()=>{
-  //   console.log(1)
-  //   this.setState({
-  //     collectActive: !this.state.collectActive
-  //   })
-  // }
 }
 
 export default withRouter(Tops)

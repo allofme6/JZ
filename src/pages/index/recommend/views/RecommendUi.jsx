@@ -12,10 +12,11 @@ const RecommendUi =(props)=> {
         return (
             <RecommendContainer >
                <Search></Search>
-               <Tops onClick={props.onClick} className={props.collectActive === true ? 'active' : ''}></Tops>
+               <Tops 
+               onClick={props.onClick} 
+               className={props.collectActive === true ? 'active' : ''}></Tops>
             </RecommendContainer>
         )
-    
     }
    
 

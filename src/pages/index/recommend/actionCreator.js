@@ -1,5 +1,11 @@
-export const showDialog = ()=>{
+export const handleCollect = ()=>{
     return {
-        type : 'showDialog'
+        type : 'handleCollect'
+    }
+}
+
+export const changeState = () => {
+    return {
+        type : 'changeState'
     }
 }

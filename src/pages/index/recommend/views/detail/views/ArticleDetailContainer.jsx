@@ -2,29 +2,31 @@ import React, { Component } from 'react'
 
 import ArticleDetailUi from './ArticleDetailUi'
 
-// import {Provider} from 'react-redux'
+import connect from '../../connect'
 
-// import connect from '../../connect'
-
-// import store from 'store/index.js'
-// @connect
  class ArticleDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
       visible: false,
+      isShow:false,
+      hidden:true
     }
   }
   render() {
     return (
-      // <Provider store={store}>
         <ArticleDetailUi 
         onBack={this.handleBack}
-        onClick={this.showDialog}
+        onClickUp={this.showDialog}
         onDown ={this.hiddenDialog}
         visible={this.state.visible}
+        onClickCollectUp={this.showCollect}
+        isShow={this.state.isShow}
+        changeState={this.props.changeState}
+        collectActive={this.props.collectActive}
+        color={this.props.color}
+        handleCollect={this.props.handleCollect}
         ></ArticleDetailUi>
-      // </Provider>
     )
   }
   handleBack = () => {
@@ -33,20 +35,31 @@ import ArticleDetailUi from './ArticleDetailUi'
   showDialog = () => {
     this.setState(
       {
-        visible:!this.state.visible
-      }
+        visible:!this.state.visible,
+      },
     )
   }
   hiddenDialog=() => {
     this.setState(
       {
-        visible:false
+        visible:false,
+        isShow:false
+        
       }
     )
-    console.log(1)
   }
-
- 
+  showCollect=() => {
+    this.setState(
+      {
+        isShow:!this.state.isShow
+      },
+       ()=>{
+      console.log(this.state.isShow)
+     }
+      )
+      
+  }
+  
   
 }
-export default ArticleDetail
+export default connect(ArticleDetail)

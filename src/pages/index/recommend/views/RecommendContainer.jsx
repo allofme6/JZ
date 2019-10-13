@@ -2,27 +2,21 @@ import React, { Component } from 'react'
 import RecommendUi from './RecommendUi'
 import connect from './connect'
 class RecommendContainer extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-          collectActive:false
-        }
-      }
+    // constructor(props) {
+    //     super(props)
+    //   }
     render() {
         return (
             <RecommendUi 
-            collectActive={this.state.collectActive}
-            onClick={this.handleCollect} 
+            collectActive={this.props.collectActive}
+            onClick={this.props.handleCollect} 
             >   
             </RecommendUi>
         )
     }
-    handleCollect =()=>{
-        console.log(1)
-        this.setState({
-          collectActive: !this.state.collectActive
-        })
-      }
+    // componentDidMount(){
+    //   console.log(this.props.collectActive)
+    // }
 }
 
 export default connect(RecommendContainer)

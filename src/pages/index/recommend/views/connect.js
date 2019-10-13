@@ -1,16 +1,20 @@
 import {connect} from 'react-redux'
 // import {toJs} from 'immutable'
-import { showDialog } from '../actionCreator'
+import { handleCollect ,changeState } from '../actionCreator'
 
 const mapStateToProps = (state)=>{
     return {
-        visible : state.recommend.visible
+        collectActive: state.recommend.collectActive,
+        color: state.recommend.color,
     }
 }
 const mapDispatchToProps = (dispatch)=>{
     return {
-        showDialog : ()=>{
-            dispatch(showDialog())
+        handleCollect : ()=>{
+            dispatch(handleCollect())
+        },
+        changeState : ()=>{
+            dispatch(changeState())
         }
     }
 }

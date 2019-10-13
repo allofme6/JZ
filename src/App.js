@@ -9,6 +9,7 @@ import './assets/styles/animated.css'
 
 // import Index from './pages/index/index/'
 import {ArticleDetail}  from './pages/index/recommend/'
+import {ArticleCollects} from './pages/index/recommend/'
 import Index from './pages/index/index/Index';
 import {Wallet} from 'profileComponents/wallet/'
 import {Draft} from 'profileComponents/draft/'
@@ -29,6 +30,7 @@ export default class App extends Component {
       <Switch>
         <Route path="/index" component={Index}></Route>
         <Route path="/articleDetail" component={ArticleDetail}></Route>
+        <Route path="/articleCollect" component={ArticleCollects}></Route>
         <Route path="/wallet" component={Wallet}></Route>
         <Route path="/draft" component={Draft}></Route>
         <Route path="/topic" component={ProfileTopic}></Route>

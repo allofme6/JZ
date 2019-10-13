@@ -1,27 +1,19 @@
-// import {Map} from 'immutable'
-
-// const defaultState = Map({
-//     count:1
-// })
-
-// export default (state = defaultState,action)=>{
-//     switch (action.type) {
-//         case 'increment':
-//             return state.set('count', state.get('count') + 1)
-//         default:
-//             return state
-//     }
-// }
-
 const defaultState = {
-    visible: false,
+    collectActive:false,
+    color: false,
 }
 
 export default  (state=defaultState, action) =>{
     switch (action.type){
-        case 'showDialog':
+        case 'handleCollect':
             return {
-                visible: ! state.visible
+                collectActive: !state.collectActive,
+                color: state.color
+            }
+        case 'changeState':
+            return {
+                color: ! state.color,
+                collectActive: state.collectActive,
             }
             default:
                 return state

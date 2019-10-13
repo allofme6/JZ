@@ -5,6 +5,8 @@ import iconStyled from 'components/styled/iconb.js'
 import iconStyleds from 'components/styled/iconc.js'
 import iconStyledz from 'components/styled/iconz.js'
 import iconStyledss from 'components/styled/iconss.js'
+import iconStyleda from 'components/styled/icona.js'
+
 
 
 const ArticleDetailContainer =
@@ -88,6 +90,19 @@ const ArticleDetailContainer =
       line-height:.2rem;
       color:#333333;
     }
+    .mask{
+      background: rgba(0, 0, .49, 0.52) !important;
+      z-index: 10;
+      height: 100%;
+      width: 100%;
+      position:absolute;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+    
+    }
+   
 `
 
 const SlideContainer  = border({
@@ -184,7 +199,13 @@ const FooterContainer = iconStyled(
         }
       }
     }
-    
+    /* .am-action-sheet-body{
+      .logId{
+        .am-action-sheet-button-list-item{
+          color:#00D182
+        }
+      }
+    } */
   `
 )
 
@@ -390,8 +411,6 @@ const CommentsContainer = styled.div`
 }
 `
 
-
-
 const DzCommentContainer = iconStyledz(
   styled.i`
       width:.5rem;
@@ -405,15 +424,101 @@ const DzCommentContainer = iconStyledz(
       position: absolute;
       right:.2rem;
       top:.33rem;
-      .cnums{
+      >span{
         display: inline-block;
         font-size:.12rem;
         color:#7D7D7D;
         padding-right:.07rem;
-
+        &.active{
+          color:red;
+          z-index: 1002;
+        }
+      }
+      &.active{
+        color:red;
+        z-index: 1000;
       }
   `
 )
+
+const CollectContainer = styled.div`
+  background:#fff;
+  width:100%;
+  height:1.49rem;
+  display: ${props => props.display};
+  z-index:1111;
+  position: relative;
+  .collectcontainer{
+    background:#fff;
+    width:100%;
+    height:1.49rem;
+    padding-left:.15rem;
+    /* position:absolute!important;
+    top:-1rem; */
+    position:fixed !important;
+    left:0;
+    right:0;
+    /* top:0; */
+    bottom:0;
+    display: ${props => props.display};
+    .first{
+      padding : .17rem 0 0 0;
+      >span:nth-child(1){
+        font-size:.17rem;
+        color:#333333;       
+      }
+      >span:nth-child(2){
+        padding : .17rem 0 0 .09rem;
+        font-size:.17rem;
+        color:#00D182;
+      }
+    }
+    .second{
+      display:flex;
+      box-sizing:content-box;
+      >span:nth-child(1){
+        color:#9A9A9A;
+        height:100%;
+        font-size:.12rem;
+        padding-top:.11rem;
+      }
+    }
+    .third{
+      display:flex;
+      position: relative;
+      top:-.6rem;
+      .add{
+        color:#9A9A9A;
+        height:100%;
+        font-size:.12rem;
+        padding-top:.11rem;
+        padding-left:.09rem;
+      }
+    }
+  }
+`
+
+const CollectBorder = border({
+  color: '#707070',
+  comp: styled.em`
+    width:2.77rem;
+    height:100%;
+    margin:.2rem .15rem .88rem .07rem;
+    background:#fff;
+  `
+})
+
+const AddContainer =iconStyleda(
+  styled.i`
+    font-family: 'iconfont';
+    font-size:.32rem;
+    width:.32rem;
+    height:.32rem;
+    
+  `
+)
+
+
 export {
   ArticleDetailContainer,
   SlideContainer,
@@ -425,5 +530,8 @@ export {
   DzCommentContainer,
   Border1Container,
   Border2Container,
-  SendContainer
+  SendContainer,
+  CollectContainer,
+  CollectBorder,
+  AddContainer
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Icon } from 'antd-mobile';
-import { CSSTransition } from 'react-transition-group'
+// import { CSSTransition } from 'react-transition-group'
 
 
 import {
@@ -10,28 +10,25 @@ import {
   Border2Container,
   SendContainer
 } from '../detail/views/StyledArticleDetail'
+import { GlobalStyle } from 'components/styled/styledPublish.js'
 
 import { withRouter } from 'react-router-dom'
 
 import commentlogo from 'images/commentlogo.png'
- class Comments extends Component {
-  constructor(props){
-    super(props)
-  }
+class Comments extends Component {
   render() {
     return (
-      <CSSTransition
-      timeout={200}
-      classNames={{
-        appear:'animated',
-        appearActive:'bounceInUp',
-        exit:'animated',
-        exitActive:'bounceInDown'
-      }}
-      // visible={this.props.visible}
-      
-    >
+    //   <CSSTransition
+    //   timeout={200}
+    //   classNames={{
+    //     appear:'animated',
+    //     appearActive:'bounceInUp',
+    //     exit:'animated',
+    //     exitActive:'bounceInDown'
+    //   }}
+    // >
       <CommentsContainer display = {this.props.display}>
+        <GlobalStyle/>
         <div className="title">
           <p className="comments">3条评论</p>
           <Icon type="cross" size="lg" color='#000000' onClick={this.props.onClick} />
@@ -40,7 +37,14 @@ import commentlogo from 'images/commentlogo.png'
         <div className="commentfoot">
           <p className="commentl">全部评论</p>
           <div className="authcomment1">
-            <DzCommentContainer><span className="cnums">3</span>&#xe601;</DzCommentContainer>
+            <DzCommentContainer 
+              onClick={this.props.changeState} 
+              className={this.props.color === true ? 'active' : ''}>
+              <span 
+                onClick={this.props.changeState} 
+                className={this.props.color === true ? 'active' : ''}
+              >3</span>&#xe601;
+            </DzCommentContainer>
             <img className="ctouxiang" src={commentlogo} alt=""/>
             <div className="ccontext">
               <p className="nicheng">
@@ -109,7 +113,7 @@ import commentlogo from 'images/commentlogo.png'
         </footer>
         
       </CommentsContainer>
-    </CSSTransition>
+    // </CSSTransition>
     )
   }
 }
