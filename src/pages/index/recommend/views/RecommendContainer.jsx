@@ -4,7 +4,10 @@ import connect from './connect'
 class RecommendContainer extends Component {
     render() {
         return (
-            <RecommendUi>    
+            <RecommendUi 
+            collectActive={this.props.collectActive}
+            onClick={this.props.handleCollect} 
+            >   
             </RecommendUi>
         )
     }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import {
     RecommendContainer
@@ -8,15 +8,17 @@ import Search from 'components/search/Search'
 
 import Tops from './components/Tops'
 
-class RecommendUi extends Component {
-    render() {
+const RecommendUi =(props)=> {
         return (
             <RecommendContainer >
                <Search></Search>
-               <Tops></Tops>
+               <Tops 
+               collectActive = {props.collectActive}
+               onClick={props.onClick} 
+               className={props.collectActive === true ? 'active' : ''}></Tops>
             </RecommendContainer>
         )
     }
-}
+   
 
 export default RecommendUi

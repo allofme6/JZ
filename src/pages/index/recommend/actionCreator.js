@@ -1,9 +1,11 @@
-export const increment = ()=>{
-    return (dispatch)=>{
-        setTimeout(()=>{
-            dispatch({
-                type:'increment'
-            })
-        },3000)
+export const handleCollect = ()=>{
+    return {
+        type : 'handleCollect'
+    }
+}
+
+export const changeState = () => {
+    return {
+        type : 'changeState'
     }
 }

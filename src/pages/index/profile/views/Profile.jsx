@@ -9,7 +9,7 @@ import {Draft} from 'profileComponents/draft/'
 import {ProfileTopic} from 'profileComponents/profileTopic/'
 import {Record} from 'profileComponents/record/'
 import {Collection} from 'profileComponents/collection/'
-import {Setup,Presonal,Intro,NickName} from 'profileComponents/setup/'
+import {Setup,Presonal,Intro,NickName,AccessSecurity} from 'profileComponents/setup/'
 import {ProfilePublish} from 'profileComponents/profilePublish/'
 import {Message} from 'profileComponents/message/'
 
@@ -29,8 +29,10 @@ class Profile extends Component {
                     <Route path={`${path}/setup/intro`} component={Intro}></Route>
                     <Route path={`${path}/setup/nickname`} component={NickName}></Route>
                     <Route path={`${path}/profilepublish`} component={ProfilePublish}></Route>
+                    <Route path={`${path}/profileAccount`} component={ProfilePublish}></Route>
                     <Route path={`${path}/message`} component={Message}></Route>
                     <Route path={`${path}/presonal`} component={Presonal}></Route>
+                    <Route path={`${path}/accesssecurity`} component={AccessSecurity}></Route>
                     <Redirect from={path} exact to={'/index/profile'}></Redirect>
                 </Switch>
             </ProfileBody>

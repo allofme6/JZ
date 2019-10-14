@@ -7,10 +7,13 @@ import { withRouter } from 'react-router-dom'
 import { GlobalStyle } from 'components/styled/styledPublish.js'
 
 import logos from 'images/logos.png'
+// import collect from 'images/collect.png'
 import collect from 'images/collect.png'
+import activecollect from 'images/activecollect.png'
 import touxiang from 'images/touxiang.png'
 
 class Tops extends Component {
+
   render() {
     return (
       <TopContainer>
@@ -22,8 +25,9 @@ class Tops extends Component {
           <div className="banners">
             <img className="touxiang" src={touxiang} alt=""/>
             <span>久处不也</span>
-            <img src={collect} alt="" className="collect"/>
-            <span className="cNum">312</span>
+            {/* <p onClick={this.props.onClick} className={this.props.className}></p> */}
+            <img src={this.props.collectActive === true ? activecollect:collect } alt="" onClick={this.props.handleCollect} />
+            <span onClick={this.props.onClick} className={this.props.className}>241</span>
           </div>
         </li>
 
@@ -33,8 +37,8 @@ class Tops extends Component {
           <div className="banners">
             <img className="touxiang" src={touxiang} alt=""/>
             <span>久处不也</span>
-            <img src={collect} alt="" className="collect"/>
-            <span className="cNum">312</span>
+            <img src={this.props.collectActive === true ? activecollect:collect } alt="" onClick={this.props.handleCollect} />
+            <span onClick={this.props.onClick} className={this.props.className}>241</span>
           </div>
         </li>
 
@@ -44,8 +48,8 @@ class Tops extends Component {
           <div className="banners">
             <img className="touxiang" src={touxiang} alt=""/>
             <span>久处不也</span>
-            <img src={collect} alt="" className="collect"/>
-            <span className="cNum">312</span>
+            <img src={this.props.collectActive === true ? activecollect:collect } alt="" onClick={this.props.handleCollect} />
+            <span onClick={this.props.onClick} className={this.props.className}>241</span>
           </div>
         </li>
 
@@ -55,8 +59,8 @@ class Tops extends Component {
           <div className="banners">
             <img className="touxiang" src={touxiang} alt=""/>
             <span>久处不也</span>
-            <img src={collect} alt="" className="collect"/>
-            <span className="cNum">312</span>
+            <img src={this.props.collectActive === true ? activecollect:collect } alt="" onClick={this.props.handleCollect} />
+            <span onClick={this.props.onClick} className={this.props.className}>241</span>
           </div>
         </li>
         </ul>
@@ -67,6 +71,7 @@ class Tops extends Component {
   handleClick = ()=>{
     this.props.history.push('/articleDetail')
   }
+
 }
 
 export default withRouter(Tops)

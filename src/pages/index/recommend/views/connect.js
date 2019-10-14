@@ -1,14 +1,20 @@
 import {connect} from 'react-redux'
 // import {toJs} from 'immutable'
-import {increment} from '../actionCreator'
+import { handleCollect ,changeState } from '../actionCreator'
 
 const mapStateToProps = (state)=>{
-    return (state.get('recommend')).toJS()
+    return {
+        collectActive: state.recommend.collectActive,
+        color: state.recommend.color,
+    }
 }
 const mapDispatchToProps = (dispatch)=>{
     return {
-        increment : ()=>{
-            dispatch(increment())
+        handleCollect : ()=>{
+            dispatch(handleCollect())
+        },
+        changeState : ()=>{
+            dispatch(changeState())
         }
     }
 }

@@ -1,14 +1,21 @@
-import {Map} from 'immutable'
+const defaultState = {
+    collectActive:false,
+    color: false,
+}
 
-const defaultState = Map({
-    count:1
-})
-
-export default (state = defaultState,action)=>{
-    switch (action.type) {
-        case 'increment':
-            return state.set('count', state.get('count') + 1)
-        default:
-            return state
+export default  (state=defaultState, action) =>{
+    switch (action.type){
+        case 'handleCollect':
+            return {
+                collectActive: !state.collectActive,
+                color: state.color
+            }
+        case 'changeState':
+            return {
+                color: ! state.color,
+                collectActive: state.collectActive,
+            }
+            default:
+                return state
     }
 }
