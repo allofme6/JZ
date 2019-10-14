@@ -2,7 +2,7 @@ import React from 'react'
 import { NavBarBorderContainer } from '../styleCollection'
 import back from 'images/back.png'
 import { withRouter } from 'react-router-dom'
-import { Modal, Button } from 'antd-mobile';
+import { Modal, Button } from 'antd-mobile'
 
 
 export default withRouter((props) => {

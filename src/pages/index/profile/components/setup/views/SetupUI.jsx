@@ -20,7 +20,7 @@ class SetupUI extends Component {
                     </SetItem>
                     <SetItem
                         title="账号与安全"
-                        handleActions={this.props.handleActions('profileAccount')}
+                        handleActions={this.props.handleActions('accesssecurity')}
                     />
                 </div>
             </SetupContainer>
