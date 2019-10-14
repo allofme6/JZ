@@ -36,7 +36,7 @@ const TopContainer = styled.div`
                     width:.22rem;
                     height:.22rem
                 }
-                span{
+                span:nth-child(1){
                     display:inline-block;
                     font-size:.12rem;
                     color:#707070;
@@ -45,18 +45,24 @@ const TopContainer = styled.div`
                     margin-top: .2rem;
                     margin-left:.05rem;
                 }
-                .collect{
+                >img:nth-last-of-type(1){
                     margin-top:.18rem;
                     width:.22rem;
                     height:.22rem;
                     margin-left:.22rem;
                 }
-                .cNum{
+                >span{
+                    display: inline-block;
+                    font-size:.12rem;
+                    color:#7D7D7D;
                     margin-left:.02rem;
-                    margin-top:.21rem
-                }
+                    margin-top:.21rem;
+                    &.active{
+                        color:#FFCC00;
+                    }
             }
         }
+    }
 }
 
 `
