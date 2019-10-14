@@ -11,7 +11,9 @@ class Card extends Component {
                 left={this.props.left} 
                 top={this.props.top} 
                 onClick={()=>{this.props.handleClick && this.props.handleClick(this.props.type)}}>
-                <img src={card} alt=""/>
+                    <div className="card-img-box">
+                        <img src={card} alt=""/>
+                    </div>
             </CardContainer>
         );
     }

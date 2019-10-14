@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
     html {
+<<<<<<< HEAD
         font-size: 26.67vw;
     }
     .am-toast>span {
@@ -19,6 +20,9 @@ const GlobalStyle = createGlobalStyle`
                 color:#fff;
             }
         }
+=======
+        font-size:26.67vw;
+>>>>>>> master
     }
 `
 

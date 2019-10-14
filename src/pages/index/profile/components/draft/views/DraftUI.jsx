@@ -20,7 +20,7 @@ class DraftUI extends Component {
                     <Item></Item>
                 </div>
                  {/* <EmptyTip
-                    bearPosition="top: 1.71rem;left: .96rem;"
+                    bearPosition="top: 1.71rem;"
                     tipTitle="草稿箱空空入也"
                     tipPosition="top: 3.26rem"
                 ></EmptyTip> */}

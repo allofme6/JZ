@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
+import SetupUI from './SetupUI'
+
 
 class SetupContainer extends Component {
     render() {
-        return (
-            <div>
-                设置
-            </div>
-        );
+        return <SetupUI
+            handleActions={this.handleActions}
+        />
+    }
+    handleActions= (type)=>{
+        return ()=>{
+            this.props.history.push(`${type}`)
+        }
     }
 }
 

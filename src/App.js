@@ -8,6 +8,8 @@ import './assets/styles/reset.css'
 
 // import Index from './pages/index/index/'
 import {ArticleDetail}  from './pages/index/recommend/'
+import {Publish}  from './pages/index/publish/'
+import {PublishMain} from 'publishComponents/publishMain/'
 import Index from './pages/index/index/Index';
 import {Wallet} from 'profileComponents/wallet/'
 import {Draft} from 'profileComponents/draft/'
@@ -21,7 +23,9 @@ import {Message} from 'profileComponents/message/'
 //登录注册
 import {Register} from './pages/register/'
 import {Login} from './pages/login/'
+import { ForgetPassword } from './pages/forgetPassword/'
 
+import {Profile} from './pages/index/profile/'
 
 
 
@@ -32,21 +36,14 @@ export default class App extends Component {
 
         <Route path="/register" component={Register}></Route>
         <Route path="/login" component={Login}></Route>
+        <Route path='/forgetPassword' component={ForgetPassword}></Route>
 
         <Route path="/index" component={Index}></Route>
         <Route path="/articleDetail" component={ArticleDetail}></Route>
-        <Route path="/wallet" component={Wallet}></Route>
-        <Route path="/draft" component={Draft}></Route>
-        <Route path="/topic" component={ProfileTopic}></Route>
-        <Route path="/record" component={Record}></Route>
-        <Route path="/collection" component={Collection}></Route>
-        <Route path="/setup" component={Setup}></Route>
-        <Route path="/profilepublish" component={ProfilePublish}></Route>
-        <Route path="/message" component={Message}></Route>
+        <Route path="/publish" component={Publish}></Route>
+        <Route path="/publishMain" component={PublishMain}></Route>
+        <Route path="/profile" component={Profile}></Route>
 
-
-
-        {/* <Route path="/articleDetail" component={ArticleDetail}></Route> */}
         <Redirect from="/" to="/index" exact></Redirect>
       </Switch>
     )

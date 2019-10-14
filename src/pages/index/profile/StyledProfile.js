@@ -7,10 +7,12 @@ const ProfileContainer = styled.div`
         height: 3.61rem;
         width: 100%;
         background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         position: relative;
         .profile-setUp{
             position: absolute;
-            left: .16rem;
             top: 2.71rem;
             box-shadow:0px -3px 10px rgba(0,65,60,0.16);
             border-radius: .1rem;
@@ -22,7 +24,6 @@ const ProfileContainer = styled.div`
             flex-direction: column;
             justify-content: space-around;
             position: absolute;
-            left: .16rem;
             top: .17rem;
             box-shadow:0px -3px 10px rgba(0,65,60,0.16);
             border-radius: .1rem;
@@ -34,7 +35,6 @@ const ProfileContainer = styled.div`
         .profile-wallet{
             box-shadow:0px -3px 10px rgba(0,65,60,0.16);
             position: absolute;
-            left: .16rem;
             top: -0.47rem;
             z-index: 1;
             border-radius: .1rem;
@@ -119,6 +119,15 @@ const ProfileContainer = styled.div`
     }
 
 `
+
+const ProfileBody = styled.div`
+    width:100%;
+    height: 100%;
+    background-color: #fff;
+`
+
+
 export { 
-    ProfileContainer
+    ProfileContainer,
+    ProfileBody
 }

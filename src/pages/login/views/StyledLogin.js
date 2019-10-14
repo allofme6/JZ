@@ -108,7 +108,7 @@ const LoginContainer = styled.div `
                     }
                 }
             }
-            >div{
+            >div.sure{
                 width:100%;
                 height:.36rem;
                 border-radius:.05rem;
@@ -117,6 +117,15 @@ const LoginContainer = styled.div `
                 text-align:center;
                 line-height:.36rem;
                 color:#fff;
+            }
+            .forget{
+                float:right;
+                height:.14rem;
+                font-size:.12rem;
+                line-height:.14rem;
+                color:#ccc;
+                text-align:right;
+                margin-top:.02rem
             }
         }
         footer{

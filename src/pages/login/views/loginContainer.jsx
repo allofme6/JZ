@@ -22,18 +22,23 @@ class Login extends Component{
             <>
                 <GlobalStyle/>
                 <LoginUI 
+                    loginClick={this.loginClick}
+                    registerClick={this.registerClick}
                     usernamer={this.state.username}
                     getUsername={this.getUsername}
                     testUsername={this.testUsername}
                     password={this.state.password}
                     getPassword={this.getPassword}
                     testPassword={this.testPassword}
+                    match={this.props.match}
+                    findPassword={this.findPassword}
                 >
                 </LoginUI>
             </>
             
         )
     }
+
     loginClick=()=>{
         console.log(this.props)
         this.props.history.push('login')
@@ -66,10 +71,15 @@ class Login extends Component{
            this.passwordToast()
         }
     }
+    findPassword=()=>{
+        console.log('find',this.props)
+        this.props.history.push({pathname:'/forgetPassword'})
+        
+    }
     phoneToast(){
         Toast.info('账号格式错误')
     }
-    phoneToast(){
+    passwordToast(){
         Toast.info('密码长度为9个字符')
     }
 }

@@ -12,6 +12,7 @@ import tips from 'images/profile/tips.png';
 
 class MessageUI extends Component {
     render() {
+        let path = this.props.match.url
         return (
             <MessageContainer>
                 <NavBar
@@ -22,14 +23,14 @@ class MessageUI extends Component {
                 <div className="navList">
                     <NavBox>
                         <span 
-                            className={ this.props.location.pathname === "/message/agree" ? "agree active" : "agree" }
+                            className={ this.props.location.pathname === `${path}/agree` ? "agree active" : "agree" }
                             onClick = {()=>{this.props.handleClick('agree')}}
                         >
                             我收到的点赞
                             <img src={tips} alt=""/>
                         </span>
                         <span 
-                            className={ this.props.location.pathname === "/message/comment" ? "comment active" : "comment" }
+                            className={ this.props.location.pathname === `${path}/comment` ? "comment active" : "comment" }
                             onClick = {()=>{this.props.handleClick('comment')}}
                         >
                             我收到的评论
@@ -38,9 +39,9 @@ class MessageUI extends Component {
                     </NavBox>
                 </div>
                 <Switch>
-                    <Route path='/message/agree' component={Agree}></Route>
-                    <Route path='/message/comment' component={Comment}></Route>
-                    <Redirect from='/message' exact to="/message/comment"></Redirect>
+                    <Route path={`${path}/agree`} component={Agree}></Route>
+                    <Route path={`${path}/comment`} component={Comment}></Route>
+                    <Redirect from={path} exact to={`${path}/agree`}></Redirect>
                 </Switch>
             </MessageContainer>
         ) 
