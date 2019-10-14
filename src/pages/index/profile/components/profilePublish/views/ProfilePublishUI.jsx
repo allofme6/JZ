@@ -15,7 +15,7 @@ class ProfilePublishUI extends Component {
                     <NavBar colors="#2F2F2F" aligns="left" titleText="可爱的小住户"></NavBar>
                     <Card  top=".38rem"></Card>
                     <div className="cover">更改封面</div>
-                    <div className="edit">编辑个人资料</div>
+                    <div className="edit" onClick={()=>{this.props.changeRoute('/profile/presonal')}}>编辑个人资料</div>
                 </div>
                 <div className="publish-main">
                     <h3>我的发布</h3>
