@@ -52,6 +52,8 @@ const ArticleDetailUi=(props)=>{
             handleCollect={props.handleCollect}
             collectActive={props.collectActive}
             onClickCollectUp={props.onClickCollectUp}
+            isMask = {props.isMask}
+            showMask = {props.showMask}
             ></Foot>
           
           <Comments
@@ -64,10 +66,10 @@ const ArticleDetailUi=(props)=>{
             <Collect
               handleCollect={props.handleCollect}
               display = {props.isShow === true ? 'block' : 'none' } 
-            ></Collect>
+              ></Collect>
             
         </div>
-          <div className={props.collectActive === true ? 'mask':''}></div>
+          <div className={props.isMask === true ? 'mask':''} onClick={props.showMask}></div>
           <div className={props.visible === true ? 'mask':''}></div>
 
       </ArticleDetailContainer>

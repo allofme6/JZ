@@ -176,18 +176,10 @@ const FooterContainer = iconStyled(
       height:100%;
       padding:0.16rem 0 .14rem .59rem;
       display:flex;
-      >p{
+      >img{
         width:.2rem;
         height:.2rem;
-        background-image:url("./collect.png");
-        background-repeat:no-repeat;
-        background-size:100% 100%;
-        &.active{
         z-index:10;
-        background-image:url("./activecollect.png");
-        background-repeat:no-repeat;
-        background-size:100% 100%;
-      }
       }
       >span{
         display: inline-block;

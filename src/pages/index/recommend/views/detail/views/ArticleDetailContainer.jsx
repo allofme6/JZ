@@ -10,7 +10,8 @@ import connect from '../../connect'
     this.state = {
       visible: false,
       isShow:false,
-      hidden:true
+      hidden:true,
+      isMask:false
     }
   }
   render() {
@@ -26,6 +27,8 @@ import connect from '../../connect'
         collectActive={this.props.collectActive}
         color={this.props.color}
         handleCollect={this.props.handleCollect}
+        isMask = {this.state.isMask}
+        showMask = {this.showMask}
         ></ArticleDetailUi>
     )
   }
@@ -49,16 +52,28 @@ import connect from '../../connect'
     )
   }
   showCollect=() => {
-    this.setState(
-      {
-        isShow:!this.state.isShow
-      },
-       ()=>{
-      console.log(this.state.isShow)
-     }
-      )
-      
+    if(this.props.collectActive === false){
+      this.setState(
+        {
+          isShow:!this.state.isShow,
+          isMask:!this.state.isMask
+        },)
+    } 
   }
+  showMask = () => {
+    if(this.props.collectActive === true){
+      this.setState({
+        isMask : this.state.isMask
+      })
+    }else if(this.props.collectActive === false){
+      this.setState({
+        isMask : !this.state.isMask
+      })
+      console.log(1)
+      this.showCollect()
+    }
+  }
+  
   
   
 }

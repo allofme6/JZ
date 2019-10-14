@@ -22,9 +22,8 @@ export default (props)=>{
         <div className="slider"></div>
         <div className="one"><input type="text" placeholder="收藏夹名称"/></div>
         <BorderContainer></BorderContainer>
-        <div className="one"><input type="text" placeholder="收藏夹描述"/></div>
+        <div className="one three"><textarea name="" id="" placeholder='收藏夹描述' cols="30" rows="100"></textarea></div>
       </div>
-      <div className="two"></div>
     </ArticleCollectsContainer>
   )
 

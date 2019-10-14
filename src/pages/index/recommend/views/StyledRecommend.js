@@ -45,21 +45,11 @@ const TopContainer = styled.div`
                     margin-top: .2rem;
                     margin-left:.05rem;
                 }
-
-                >p{
+                >img:nth-last-of-type(1){
                     margin-top:.18rem;
                     width:.22rem;
                     height:.22rem;
                     margin-left:.22rem;
-                    background-image:url("./collect.png");
-                    background-repeat:no-repeat;
-                    background-size:100% 100%;
-                    &.active{
-                    z-index:10001;
-                    background-image:url("./activecollect.png");
-                    background-repeat:no-repeat;
-                    background-size:100% 100%;
-                    }
                 }
                 >span{
                     display: inline-block;

@@ -5,6 +5,6 @@ export default class profileContainer extends Component {
         return  <ProfileUI handleClick={this.handleClick}></ProfileUI>
     }
     handleClick = (type)=>{
-        this.props.history.push(`/${type}`)
+        type === "index" ? this.props.history.push('/index') : this.props.history.push(`/profile/${type}`)
     }
 }

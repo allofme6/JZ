@@ -18,15 +18,6 @@ import commentlogo from 'images/commentlogo.png'
 class Comments extends Component {
   render() {
     return (
-    //   <CSSTransition
-    //   timeout={200}
-    //   classNames={{
-    //     appear:'animated',
-    //     appearActive:'bounceInUp',
-    //     exit:'animated',
-    //     exitActive:'bounceInDown'
-    //   }}
-    // >
       <CommentsContainer display = {this.props.display}>
         <GlobalStyle/>
         <div className="title">
@@ -113,7 +104,6 @@ class Comments extends Component {
         </footer>
         
       </CommentsContainer>
-    // </CSSTransition>
     )
   }
 }

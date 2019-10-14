@@ -27,11 +27,18 @@ const ArticleCollectsContainer = styled.div`
         font-size:.17rem
       }
     }
+    .three{
+      >textarea{
+        border:0;
+        color:#9D9D9D;
+        font-size:.17rem
+      }
+    }
   }
-  .two{
+  /* .two{
     height:5.33rem;
     background:#ffffff;
-  }
+  } */
 
 `
 const BorderContainer = border({

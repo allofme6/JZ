@@ -10,17 +10,10 @@ import './assets/styles/animated.css'
 // import Index from './pages/index/index/'
 import {ArticleDetail}  from './pages/index/recommend/'
 import {ArticleCollects} from './pages/index/recommend/'
+import {Publish}  from './pages/index/publish/'
+import {PublishMain} from 'publishComponents/publishMain/'
 import Index from './pages/index/index/Index';
-import {Wallet} from 'profileComponents/wallet/'
-import {Draft} from 'profileComponents/draft/'
-import {ProfileTopic} from 'profileComponents/profileTopic/'
-import {Record} from 'profileComponents/record/'
-import {Collection} from 'profileComponents/collection/'
-import {Setup} from 'profileComponents/setup/'
-import {ProfilePublish} from 'profileComponents/profilePublish/'
-import {Message} from 'profileComponents/message/'
-
-
+import {Profile} from './pages/index/profile/'
 
 
 
@@ -31,18 +24,10 @@ export default class App extends Component {
         <Route path="/index" component={Index}></Route>
         <Route path="/articleDetail" component={ArticleDetail}></Route>
         <Route path="/articleCollect" component={ArticleCollects}></Route>
-        <Route path="/wallet" component={Wallet}></Route>
-        <Route path="/draft" component={Draft}></Route>
-        <Route path="/topic" component={ProfileTopic}></Route>
-        <Route path="/record" component={Record}></Route>
-        <Route path="/collection" component={Collection}></Route>
-        <Route path="/setup" component={Setup}></Route>
-        <Route path="/profilepublish" component={ProfilePublish}></Route>
-        <Route path="/message" component={Message}></Route>
+        <Route path="/publish" component={Publish}></Route>
+        <Route path="/publishMain" component={PublishMain}></Route>
+        <Route path="/profile" component={Profile}></Route>
 
-
-
-        {/* <Route path="/articleDetail" component={ArticleDetail}></Route> */}
         <Redirect from="/" to="/index" exact></Redirect>
       </Switch>
     )

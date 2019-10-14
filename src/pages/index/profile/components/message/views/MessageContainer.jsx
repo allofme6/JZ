@@ -7,7 +7,7 @@ class MessageContainer extends Component {
         return <MessageUI handleClick={this.handleClick}></MessageUI>
     }
     handleClick = (type)=>{
-        this.props.history.push(`/message/${type}`)
+        this.props.history.push(`${this.props.match.path}/${type}`)
     }
 }
 

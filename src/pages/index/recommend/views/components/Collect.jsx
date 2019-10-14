@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import {CollectContainer,CollectBorder,AddContainer} from '../detail/views/StyledArticleDetail'
 import { withRouter } from 'react-router-dom'
 import { GlobalStyle } from 'components/styled/styledPublish.js'
+// import { Icon } from 'antd-mobile';
+
 
 class Collect extends Component {
     render(){
@@ -10,6 +12,7 @@ class Collect extends Component {
         <CollectContainer display = {this.props.display}>
           <GlobalStyle/>
           <div className="collectcontainer">
+            {/* <Icon type="cross" size="lg" color='#000000' onClick={this.props.onClick} /> */}
             <p className="first">
               <span>收藏成功</span>
               <span onClick={this.handleToCollect}>查看</span>
@@ -28,14 +31,9 @@ class Collect extends Component {
     }
     handleCollets= () => {
       this.props.history.push('/articleCollect')
-      this.props.handleCollect()
     }
     handleToCollect =() => {
-      this.props.history.push('/collection')
+      this.props.history.push('/profile/collection')
     }
-    componentDidMount(){
-      console.log(this)
-    }
-    
   }
 export default withRouter(Collect)

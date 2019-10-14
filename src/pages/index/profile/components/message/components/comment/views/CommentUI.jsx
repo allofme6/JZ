@@ -10,7 +10,7 @@ class CommentUI extends Component {
         return (
             <CommentContainer>
                 {/* <EmptyTip 
-                    bearPosition="top: 1.12rem; left: 1.04rem;"
+                    bearPosition="top: 1.12rem;"
                     tipPosition="top: 2.65rem;"
                     tipTitle="您还没有收到消息"
                 /> */}
