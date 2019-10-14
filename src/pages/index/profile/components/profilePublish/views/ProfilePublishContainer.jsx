@@ -5,8 +5,11 @@ import ProfilePublish from './ProfilePublishUI'
 class ProfilePublishContainer extends Component {
     render() {
         return (
-           <ProfilePublish></ProfilePublish>
+           <ProfilePublish changeRoute={this.changeRoute}></ProfilePublish>
         )
+    }
+    changeRoute = (type)=>{
+        this.props.history.push(type)
     }
 }
 

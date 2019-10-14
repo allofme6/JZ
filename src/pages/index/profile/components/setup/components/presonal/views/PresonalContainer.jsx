@@ -36,7 +36,6 @@ class PresonalContainer extends Component {
     }
 
     changeRoute = (url) => {
-        console.log(this)
         this.props.history.push(url)
     }
 }
