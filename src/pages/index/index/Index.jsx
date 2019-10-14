@@ -45,13 +45,8 @@ class Index extends PureComponent {
                             </Link>
                         </li>
                         <li>
-<<<<<<< HEAD
                             <Link to={`/topicTalk`}>
                                 <img src={topic} alt=""/>
-=======
-                            <Link to={`${path}/topic`}>
-                                <img src={this.state.path === '/index/topic' ? topicActive : topic} alt=""/>
->>>>>>> master
                                 <p>话题讨论</p>
                             </Link>
                         </li>
