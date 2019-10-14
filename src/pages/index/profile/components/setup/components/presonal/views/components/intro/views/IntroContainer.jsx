@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import IntroUi from './IntroUi'
 
 
-import IntroUI from './IntroUI'
+import IntroUI from './IntroUI1'
 import {Toast} from 'antd-mobile'
 
 export default class Intro extends Component {
