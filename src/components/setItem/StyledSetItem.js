@@ -27,6 +27,7 @@ const ItemWrapper = border({
             align-items: center;
         }
         .forward{
+            z-index: 1;
             img{
                 width: .13rem;
                 height: .13rem;
