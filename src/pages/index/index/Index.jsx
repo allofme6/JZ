@@ -30,7 +30,7 @@ class Index extends PureComponent {
                 <main>
                     <Switch>
                         <Route path={`${path}/recommend`} component={Recommend} />
-                        <Route path="/index/topic" component={Topic} />
+                        <Route path="/index/topicTalk" component={Topic} />
                         <Route path="/index/publish" component={Publish} />
                         <Route path="/index/profile" component={ProfileContainer} />
                         <Redirect to="/index/recommend" ></Redirect>
@@ -45,8 +45,8 @@ class Index extends PureComponent {
                             </Link>
                         </li>
                         <li>
-                            <Link to={`${path}/topic`}>
-                                <img src={this.state.path === '/index/topic' ? topicActive : topic} alt=""/>
+                            <Link to={`/topicTalk`}>
+                                <img src={topic} alt=""/>
                                 <p>话题讨论</p>
                             </Link>
                         </li>
