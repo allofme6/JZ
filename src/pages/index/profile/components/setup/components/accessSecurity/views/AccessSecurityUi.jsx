@@ -10,6 +10,7 @@ export default (props) => {
             <NavBar 
                 aligns="left"
                 titleText="账号安全"
+                isBack = "true"
             />
             <OptionStyle>
                 <SetItem 
@@ -19,6 +20,7 @@ export default (props) => {
                 </SetItem>
                 <SetItem 
                     title='修改密码'
+                    handleActions={()=>{props.changeRoute('/profile/setup/changePwd')}}
                 />
             </OptionStyle>
         </div>

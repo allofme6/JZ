@@ -6,6 +6,9 @@ import IntroUI from './IntroUI1'
 import {Toast} from 'antd-mobile'
 
 export default class Intro extends Component {
+    state = {
+        value : ''
+    }
     render() {
         return (
             <IntroUI
@@ -24,7 +27,6 @@ export default class Intro extends Component {
             },
             true
             )
-        console.log(this.state.value);
     }
     getValue = (value)=>{
         this.setState({
