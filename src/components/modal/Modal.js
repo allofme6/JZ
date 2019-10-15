@@ -6,8 +6,8 @@ const alert = Modal.alert;
 const showAlert = (props) => {
     console.log(props)
   const alertInstance = alert('', props.question , [
-    { text: '不保存', onPress: () => console.log('cancel'), style: 'default' },
-    { text: '保存', onPress: () => props.changeRouter && props.changeRouter() },
+    { text: '取消', onPress: () => console.log('cancel'), style: 'default' },
+    { text: '确定', onPress: () => props.changeRouter && props.changeRouter() },
   ]);
   setTimeout(() => {
     // 可以调用close方法以在外部close

@@ -14,7 +14,7 @@ export default (props) => {
             />
             <OptionStyle>
                 <SetItem 
-                    title={<App name="jahah" question="是否修改手机号" title="修改手机号"></App>}
+                    title={<App name="jahah" changeRouter={()=>{props.changeRoute('/profile/setup/changePhone')}} question="是否修改手机号" title="修改手机号"></App>}
                 >
                 </SetItem>
                 <SetItem 
