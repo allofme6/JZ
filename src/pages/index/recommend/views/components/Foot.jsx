@@ -16,10 +16,14 @@ import activecollect from 'images/activecollect.png'
     return (
       <FooterContainer>
         <div className="left">
-          <div className="lcontext" >
+          {/* <div className="lcontext" >
             <i>&#xe600;</i>
             <span>说点什么</span>
-          </div>
+          </div> */}
+          <div className="authccc">
+            <i>&#xe600;</i>
+            <input className="lcontext" type="text" placeholder="说点什么"/>
+          </div> 
         </div>
         <ChatContainer onClick={this.props.onClickUp}>&#xe51b;<span className="cnums">3</span></ChatContainer>
         <div><div className="cc" onClick={this.props.onClickCollectUp} >
@@ -39,9 +43,9 @@ import activecollect from 'images/activecollect.png'
       </FooterContainer>
     )
   }
-  componentDidMount(){
-    console.log(this)
-  }
+  // componentDidMount(){
+  //   console.log(this)
+  // }
   
 }
 

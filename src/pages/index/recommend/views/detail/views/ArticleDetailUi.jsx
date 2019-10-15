@@ -1,4 +1,5 @@
 import React from 'react'
+import Zmage from 'react-zmage'
 
 import { NavBar} from 'antd-mobile'
 // import { ActionSheet, WingBlank, WhiteSpace, Button, Toast } from 'antd-mobile';
@@ -26,7 +27,7 @@ const ArticleDetailUi=(props)=>{
         <div className="boxs">
           <div className="nav"><NavBar><img onClick={props.onBack} src={backD} alt=""/></NavBar></div>
           <div className="bigpic">
-            <img className="pic" src={detail} alt=""/>
+            <Zmage hotKey={{close: true}} className="pic" src={detail} alt=""/>
           </div>
           <p className="details1">
           北欧客厅装饰画沙发背景墙现代简约餐厅墙面壁画卧室组合挂画 栖息之鹿+黑白钟表款占墙面积175*96cm

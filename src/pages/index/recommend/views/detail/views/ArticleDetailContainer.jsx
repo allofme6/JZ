@@ -65,12 +65,6 @@ import connect from '../../connect'
       this.setState({
         isMask : this.state.isMask
       })
-    }else if(this.props.collectActive === false){
-      this.setState({
-        isMask : !this.state.isMask
-      })
-      console.log(1)
-      this.showCollect()
     }
   }
   

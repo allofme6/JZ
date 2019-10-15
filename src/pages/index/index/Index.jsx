@@ -33,6 +33,7 @@ class Index extends PureComponent {
                         <Route path="/index/topic" component={Topic} />
                         <Route path="/index/publish" component={Publish} />
                         <Route path="/index/profile" component={ProfileContainer} />
+
                         <Redirect to="/index/recommend" ></Redirect>
                     </Switch>
                 </main>
