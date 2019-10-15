@@ -30,6 +30,7 @@ class Profile extends Component {
                     <Route path={`${path}/setup/intro`} component={Intro}></Route>
                     <Route path={`${path}/setup/nickname`} component={NickName}></Route>
                     <Route path={`${path}/setup/changePwd`} component={ChangePw}></Route>
+                    <Route path={`${path}/setup/changePhone`} component={ChangePw}></Route>
                     <Route path={`${path}/profilepublish`} component={ProfilePublish}></Route>
                     <Route path={`${path}/profileAccount`} component={ProfilePublish}></Route>
                     <Route path={`${path}/message`} component={Message}></Route>
