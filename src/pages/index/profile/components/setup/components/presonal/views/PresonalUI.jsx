@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import {
     GlobalStyle , 
-    PresonalContainer , 
-    ChooseButton , 
-    ChooseDate
+    PresonalContainer 
 } 
 from  '../StyledPresonal'
 
@@ -14,76 +12,65 @@ import { Modal, Button, DatePicker} from 'antd-mobile';
 
 const operation = Modal.operation;
 
-class PresonalUI extends Component {
-    render() {
-        let { sex , handleClickSex , birthday , chooseBirthday , changeRoute} = this.props
-        return (
-            <PresonalContainer>
-                <GlobalStyle />
-                <NavBar
-                    titleText="编辑个人资料"
-                    colors ="#000"
-                    algins = "left"
-                    isBack ="true"
+export default (props)=>{
+    let { handleClickSex , sex ,chooseBirthday , changeRoute} = props
+    return (
+        <PresonalContainer>
+            <GlobalStyle />
+            <NavBar
+                titleText="编辑个人资料"
+                colors ="#000"
+                algins = "left"
+                isBack ="true"
+            />
+            <div className="options-list">
+                <SetItem
+                    title="头像"
+                >
+                    <div className="choose">请选择</div>
+                </SetItem>
+                <SetItem
+                    title="昵称"
+                    handleActions={() => {changeRoute('/profile/setup/nickname')}}
+                >
+                    <div className="choose">请选择</div>
+                </SetItem>
+                <SetItem
+                    title={
+                    <Button onClick={() => operation([
+                        { text: '男', onPress: () => handleClickSex('男') },
+                        { text: '女', onPress: () => handleClickSex('女') },
+                        ])}
+                    >
+                        <span>性别</span>
+                    </Button>}
+                >
+                    <div>{sex}</div>
+                </SetItem>
+                <SetItem
+                    title="位置"
                 />
-                <div className="options-list">
-                    <SetItem
-                        title="头像"
-                    >
-                        <div className="choose">请选择</div>
-                    </SetItem>
-                    <SetItem
-                        title="昵称"
-                        handleActions={() => {changeRoute('/profile/setup/nickname')}}
-                    >
-                        <div className="choose">请选择</div>
-                    </SetItem>
-                    <SetItem
-                        title="性别"
-                    >
-                        <ChooseButton>
-                            <Button onClick={() => operation([
-                                { text: '男', onPress: () => handleClickSex('男') },
-                                { text: '女', onPress: () => handleClickSex('女') },
-                                ])}
-                            >
-                                {sex}
-                            </Button>
-                        </ChooseButton>
-                    </SetItem>
-                    <SetItem
-                        title="位置"
-                    />
-                    <SetItem
-                        title="生日"
-                    >
-                        <ChooseDate>
-                            <DatePicker
-                                mode="date"
-                                minDate={new Date(1900, 1, 1, 0, 0, 0)}
-                                maxDate={new Date(Date.now())}
-                                onChange={date => chooseBirthday(date)}
-                            >
-                                <div className="choose-date">{birthday}</div>
-                            </DatePicker>
-                        </ChooseDate>
-                    </SetItem>
-                    <SetItem
-                        title="个人简介"
-                        handleActions={() => {changeRoute('/profile/setup/intro')}}
-                    >
-                        <div className="choose">请选择</div>
-                    </SetItem>
-                </div>
-            </PresonalContainer>
-        );
-    }
+                <SetItem
+                    title={
+                        <DatePicker
+                            mode="date"
+                            minDate={new Date(1900, 1, 1, 0, 0, 0)}
+                            maxDate={new Date(Date.now())}
+                            onChange={date => chooseBirthday(date)}
+                        >
+                            <div className="choose-date">生日</div>
+                        </DatePicker>
+                    }
+                >
+                    <div>请选择</div>
+                </SetItem>
+                <SetItem
+                    title="个人简介"
+                    handleActions={() => {changeRoute('/profile/setup/intro')}}
+                >
+                    <div className="choose">请选择</div>
+                </SetItem>
+            </div>
+        </PresonalContainer>
+    )
 }
-
-
-
-
-
-
-
-export default PresonalUI;

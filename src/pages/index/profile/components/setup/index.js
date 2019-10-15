@@ -4,6 +4,7 @@ import {Presonal} from './components/presonal/'
 import {AccessSecurity} from './components/accessSecurity/'
 import { Intro } from './components/presonal/views/components/intro/index'
 import { NickName } from './components/presonal/views/components/nickname/index'
+import {ChangePw} from './components/accessSecurity/views/components/changePw/index';
 
 
 export{
@@ -11,5 +12,6 @@ export{
     Presonal,
     AccessSecurity,
     Intro,
-    NickName
+    NickName,
+    ChangePw
 }

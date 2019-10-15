@@ -27,17 +27,42 @@ const PresonalContainer = styled.div`
         font-size: .17rem;
         color: #000;
     }
-`
-const ChooseButton = styled.div`
-    .am-button::before {
-        height: 0 !important;
-        border: none !important;
+    .text{
+        width: 100%;
+        position: absolute;
+        z-index: 0;
+        >a{
+            display: inline-block;
+            text-align: left;
+            width: 100%;
+            z-index: 0 !important;
+            &::before{
+                border: 0 !important;
+            }
+            >span{
+                letter-spacing: -.03rem;
+            }
+        }
     }
-    .am-button span {
-        font-size: .17rem !important;
-        color: #000;
+    .middle{
+        >div{
+            z-index: 1 !important;
+            position: relative !important;
+            font-size: .17rem !important;
+            color: #000;
+        }
     }
 `
+// const ChooseButton = styled.div`
+//     .am-button::before {
+//         height: 0 !important;
+//         border: none !important;
+//     }
+//     .am-button span {
+//         font-size: .17rem !important;
+//         color: #000;
+//     }
+// `
 const ChooseDate = styled.div`
     .choose-date {
         font-size: .17rem !important;
@@ -48,6 +73,5 @@ const ChooseDate = styled.div`
 export {
     GlobalStyle,
     PresonalContainer,
-    ChooseButton,
     ChooseDate
 }
