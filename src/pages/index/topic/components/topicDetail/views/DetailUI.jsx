@@ -16,7 +16,7 @@ class DetailUI extends Component {
                        <img src={arrow} alt=""/>
                    </div>
                    <div className="title">
-                        <p>你家做了哪些防盗措施</p>
+                        <p>{(this.props.data["推荐"])[this.props.path]}</p>
                         <p>回答 33</p>
                     </div>
                 </div>

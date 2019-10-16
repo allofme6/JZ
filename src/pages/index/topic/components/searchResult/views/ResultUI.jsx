@@ -2,10 +2,6 @@ import React , {Component} from 'react'
 import {ResultContainer} from '../styledResult'
 
 import arrow from 'images/topic/detailArrow.png'
-import personImg from 'images/topic/detailPerson.png'
-import contextImg1 from 'images/topic/contextImg1.png'
-import contextImg2 from 'images/topic/contextImg2.png'
-import add from 'images/topic/add.png'
 
 class ResultUI extends Component {
     render(){
@@ -26,7 +22,7 @@ class ResultUI extends Component {
                         {
                             (this.props.data).map((value,index)=>{
                                 return(
-                                    <li>
+                                    <li key= {index}>
                                         <div className="title">话题</div>
                                         <h1>{value.title}</h1>
                                         <div className="sketch">{value.sketch}</div>
