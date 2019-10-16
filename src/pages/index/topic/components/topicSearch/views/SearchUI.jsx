@@ -18,7 +18,7 @@ class SearchUI extends Component {
                         <img src={search} alt=""/>
                         <input type="text" placeholder="搜索话题" />
                     </div>
-                    <div className="search-word">搜索</div>
+                    <div className="search-word" onClick={()=>this.props.onResultClick("searchResult")}>搜索</div>
                 </div>
                 <div className="keyword">
                     <img src={keyword} alt=""/>

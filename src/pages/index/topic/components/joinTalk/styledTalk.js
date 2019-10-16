@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import detailHead from 'images/topic/detailHead.png'
 
 const JoinContainer = styled.div`
     width: 100%;
