@@ -44,7 +44,7 @@ class TopicUI extends Component {
                                     return (
                                         <li 
                                             key = {value}
-                                            onClick={() => this.props.onChangeClick("topicDetail")}
+                                            onClick={() => this.props.onChangeClick(`topicDetail/${index}`)}
                                         >
                                             <img src={text} alt=""/>
                                             <div className="content-texts">

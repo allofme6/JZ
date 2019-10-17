@@ -19,7 +19,7 @@ const SearchContainer = styled.div`
         }
         .TopicSearch{
             height: .3rem;
-            width: 2.71rem;
+            flex: 1;
             background: #DDDDDD;
             border-radius: .15rem;
             position: relative;
@@ -42,8 +42,10 @@ const SearchContainer = styled.div`
         .search-word{
             font-size: .12rem;
             color: #666;
+            width: .39rem;
             line-height: .3rem;
             padding-left: .15rem;
+            margin-right: .15rem;
         }
     }
     .keyword{

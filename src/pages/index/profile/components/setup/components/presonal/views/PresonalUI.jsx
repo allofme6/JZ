@@ -26,6 +26,7 @@ export default (props)=>{
             <div className="options-list">
                 <SetItem
                     title="头像"
+                    handleActions={props.handleAlbum}
                 >
                     <div className="choose">请选择</div>
                 </SetItem>
