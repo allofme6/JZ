@@ -25,7 +25,7 @@ class ArticleCollectsContainer extends Component {
   handleBack =() => {
     console.log(1)
       this.props.history.go(-1);
-      Toast.success('提交成功', 30, () => {
+      Toast.success('提交成功', 300, () => {
         
       });  
       setTimeout(() => {
