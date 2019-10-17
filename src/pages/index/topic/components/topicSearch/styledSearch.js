@@ -6,7 +6,7 @@ const SearchContainer = styled.div`
     background: #fff;
     .topic-head{
         display: flex;
-        flex-directive: row;
+        flex-direction: row;
         padding: .07rem 0;
         .nav-arrow{
             width: .2rem;

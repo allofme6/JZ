@@ -12,7 +12,7 @@ const JoinContainer = styled.div`
         height: .44rem;
         border-bottom: solid .01rem #B2A8A8;
         display: flex;
-        flex-directive: row;
+        flex-direction: row;
         .arrow{
             width: .2rem;
             height: .2rem;
