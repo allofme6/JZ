@@ -14,9 +14,11 @@ import {Publish}  from './pages/index/publish/'
 import {PublishMain} from 'publishComponents/publishMain/'
 import Index from './pages/index/index/Index';
 
+//话题讨论
 import {Topic} from './pages/index/topic/';
 import {TopicSearch} from './pages/index/topic/components/topicSearch/';
 import {TopicDetail} from './pages/index/topic/components/topicDetail/';
+import {SearchResult} from './pages/index/topic/components/searchResult/';
 import {JoinTalk} from './pages/index/topic/components/joinTalk/';
 
 
@@ -49,6 +51,7 @@ export default class App extends Component {
         <Route path="/topicTalk" component={Topic}></Route>
         <Route path="/topicSearch" component={TopicSearch}></Route>
         <Route path="/topicDetail" component={TopicDetail}></Route>
+        <Route path="/searchResult" component={SearchResult}></Route>
         <Route path="/joinTalk" component={JoinTalk}></Route>
 
         <Route path="/profile" component={Profile}></Route>
