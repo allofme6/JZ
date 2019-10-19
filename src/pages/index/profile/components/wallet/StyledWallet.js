@@ -1,9 +1,21 @@
-import styled from 'styled-components'
+import styled , { createGlobalStyle } from 'styled-components'
+
+
+const OptionStyle = createGlobalStyle`
+    .am-action-sheet-button-list-item{
+        height: 2rem !important;
+        line-height: 2rem !important;
+    }
+`
 
 const WalletContainer = styled.div`
     width: 100%;
     height: 100%;
     background-color: #fff;
+    .qrcode{
+        width: 1.48rem;
+        height: 1.48rem;
+    }
     .wallet-main{
         padding: .16rem .15rem;
         .wallet-box{
@@ -29,9 +41,22 @@ const WalletContainer = styled.div`
                 border-radius: .05rem;
             }
         }
+        .recharge{
+            margin-top: .1rem;
+            width: 100%;
+            height: .44rem;
+            background-color: #0CC3C0;
+            border-radius: .05rem;
+            line-height: .44rem;
+            text-align: center;
+            font-size: .24rem;
+            color: #fff;
+            font-weight: 500;
+        }
     }
 `
 
 export{
-    WalletContainer
+    WalletContainer,
+    OptionStyle
 }
