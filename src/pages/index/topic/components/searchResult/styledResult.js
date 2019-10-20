@@ -6,6 +6,7 @@ const ResultContainer = styled.div`
     width: 100%;
     height : 100%;
     background: #fff;
+    overflow-y: scroll;
     .result-head{
         width: 100%;
         height: 1.8rem;
