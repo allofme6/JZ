@@ -20,7 +20,7 @@ const Get = (options) => {
 const Post = (url , params) => {
                 return axios.post(url, qs.stringify(params))
                     .then(function (response) {
-                        // console.log(response)
+                       return response
                     })
             }
 

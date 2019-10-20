@@ -6,6 +6,8 @@ import {
 } 
 from  '../StyledPresonal'
 
+import cardImg from 'images/profile/cardImg.png'
+
 import NavBar from 'components/navBar/NavBar'
 import SetItem from 'components/setItem/SetItem'
 import { Modal, Button, DatePicker} from 'antd-mobile';
@@ -25,10 +27,19 @@ export default (props)=>{
             />
             <div className="options-list">
                 <SetItem
-                    title="头像"
-                    handleActions={props.handleAlbum}
+                    title={
+                    <div className="inputs">
+                        <span>头像</span>
+                        <input type="file" 
+                            accept="image/*" 
+                            multiple="" id="file" 
+                            onChange={(e)=>{props.handlecamera(e)}}/> 
+                    </div>}
+                    // handleActions={props.handleAlbum}
                 >
-                    <div className="choose">请选择</div>
+                    <div className="chooseCard">
+                        <img src={cardImg} alt=""/>
+                    </div>
                 </SetItem>
                 <SetItem
                     title="昵称"
@@ -63,7 +74,7 @@ export default (props)=>{
                         </DatePicker>
                     }
                 >
-                    <div>请选择</div>
+                    <div>{props.birthday}</div>
                 </SetItem>
                 <SetItem
                     title="个人简介"
@@ -72,6 +83,7 @@ export default (props)=>{
                     <div className="choose">请选择</div>
                 </SetItem>
             </div>
+            <img src={props.imgsrc} alt=""/>
         </PresonalContainer>
     )
 }

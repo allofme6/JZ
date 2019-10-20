@@ -55,6 +55,8 @@ class ChangePwContainer extends Component {
             }else if(this.state.newpwd !== this.state.confirmpwd){
                 // Toast.fail(content, duration, onClose, mask)
                 Toast.fail("家装宝典：新密码不一致",1,null,true)
+            }else{
+                // 这里做提交请求
             }
             
         }
