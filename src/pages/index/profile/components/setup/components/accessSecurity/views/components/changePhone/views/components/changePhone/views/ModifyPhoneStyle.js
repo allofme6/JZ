@@ -21,7 +21,7 @@ const ModifyPhoneContainer = styled.div`
             }
             .submit {
                 height: .35rem;
-                background: rgb(171,226,225);
+                background: ${props => props.loginButton === 'false' ? 'rgb(171,226,225)' : 'rgb(45,183,181)'};
                 border-radius: .04rem;
                 margin-top: .25rem;
                 display: flex;
@@ -68,8 +68,16 @@ const InputPwdStyle = styled.div`
             justify-content: center;
             align-items: center;
             color: #fff;
-            background: rgb(171,226,225);
+            background: ${props => props.sendmessage === 'false' ? 'rgb(171,226,225)' : 'rgb(45,183,181)'};
             border-radius: .03rem;
+            .am-button {
+                font-size: .12rem;
+                background: none;
+                color: #fff;
+                &::before {
+                    height: 0 !important;
+                }
+            }
         }
     }
 `

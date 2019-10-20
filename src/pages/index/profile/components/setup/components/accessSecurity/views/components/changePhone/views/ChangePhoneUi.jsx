@@ -19,7 +19,9 @@ function showToast(info, changeRoute) {
 export default (props) => {
     return (
         <ChangePhoneContainer>
-            <NavBar>
+            <NavBar
+                isBack={true}
+            >
                 <Button onClick={() => showToast(props.promptInformation , props.changeRoute)}>下一步</Button>
             </NavBar>
             <div className="Verify">
