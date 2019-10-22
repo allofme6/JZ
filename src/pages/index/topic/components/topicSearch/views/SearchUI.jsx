@@ -20,9 +20,6 @@ class SearchUI extends Component {
                     </div>
                     <div className="search-word" onClick={()=>this.props.onResultClick("searchResult")}>搜索</div>
                 </div>
-                <div className="keyword">
-                    <img src={keyword} alt=""/>
-                </div>
             </SearchContainer>
         )
     }

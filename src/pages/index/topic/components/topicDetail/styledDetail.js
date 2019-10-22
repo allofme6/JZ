@@ -6,6 +6,7 @@ const DetailContainer = styled.div`
     width: 100%;
     height : 100%;
     background: #fff;
+    overflow-y: scroll;
     .detail-head{
         width: 100%;
         height: 1.8rem;
@@ -67,7 +68,7 @@ const DetailContainer = styled.div`
             padding: 0 
             .person{
                 display: flex;
-                flex-directive: row;
+                flex-direction: row;
                 height: .5rem;
                 margin-top: .2rem;
                 .person-img{
@@ -101,7 +102,7 @@ const DetailContainer = styled.div`
             .context-img{
                 padding-top: .08rem;
                 display: flex;
-                flex-directive: row;
+                flex-direction: row;
                 img:nth-child(1){
                     width: .9rem;
                     height: .9rem;

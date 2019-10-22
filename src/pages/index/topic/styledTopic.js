@@ -4,6 +4,8 @@ const TopicContainer = styled.div`
     width: 100%;
     height : 100%;
     background: #fff;
+    display: flex;
+    flex-direction column;
     .topic-head{
         display: flex;
         flex-directive: row;
@@ -19,11 +21,11 @@ const TopicContainer = styled.div`
         }
         .TopicSearch{
             height: .3rem;
-            width: 2.95rem;
+            flex: 1;
             background: #DDDDDD;
             border-radius: .15rem;
             position: relative;
-            margin-left: .15rem;
+            margin: 0 .3rem 0 .15rem;
             img{
                 width: .19rem;
                 height: .19rem;
@@ -52,7 +54,7 @@ const TopicContainer = styled.div`
         width: 100%;
         height: 100%;
         display: flex;
-        flex-directive: row;
+        flex-direction: row;
         .classify-nav{
             flex: 16;
             height: 100%;
@@ -85,6 +87,7 @@ const TopicContainer = styled.div`
         .content-right{
             flex: 59;
             height: 100%;
+            overflow-y: scroll;
             ul{
                 width: 100%;
                 height: 100%;
@@ -95,7 +98,7 @@ const TopicContainer = styled.div`
                     margin-top: .25rem;
                     padding-left: .27rem;
                     display: flex;
-                    flex-directive:row;
+                    flex-direction:row;
                     img{
                         width: .7rem;
                         height: .7rem;

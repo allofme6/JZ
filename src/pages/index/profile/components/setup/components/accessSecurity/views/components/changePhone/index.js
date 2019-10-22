@@ -1,5 +1,5 @@
-import ChangePhone from './views/ChangePhone'
+import VerifyPwd from './views/ChangePhoneContainer'
 
 export {
-    ChangePhone
+    VerifyPwd
 }

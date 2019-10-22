@@ -7,4 +7,7 @@ export default class profileContainer extends Component {
     handleClick = (type)=>{
         type === "index" ? this.props.history.push('/index') : this.props.history.push(`/profile/${type}`)
     }
+    componentDidMount(){
+        // 这里做获取头像请求或者是个人信息请求
+    }
 }

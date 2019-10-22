@@ -7,6 +7,10 @@ class RecordContainer extends Component {
             <RecordUI/>
         );
     }
+    componentDidMount(){
+        // 这里做浏览记录的请求
+        // this.$get()
+    }
 }
 
 export default RecordContainer;
