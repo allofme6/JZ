@@ -89,6 +89,7 @@ const ArticleDetailContainer =
       font-size:.14rem;
       line-height:.2rem;
       color:#333333;
+      bottom:0;
     }
     .mask{
       background: rgba(0, 0, .49, 0.52) !important;
