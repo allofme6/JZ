@@ -64,6 +64,7 @@ const PublishContainer = styled.div`
             img {
                 width: .68rem;
             }
+            
         }
         .publish-camera {
             position: absolute;
@@ -71,6 +72,12 @@ const PublishContainer = styled.div`
             left: 1.67rem;
             img {
                 width: .41rem;
+            }
+            input {
+                position: absolute;
+                height: .4rem;
+                width: .4rem;
+                opacity: 0;
             }
         }
     }
