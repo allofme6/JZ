@@ -11,7 +11,7 @@ import Tops from './components/Tops'
 const RecommendUi =(props)=> {
         return (
             <RecommendContainer >
-               <Search></Search>
+               <Search onChangeClick={props.onChangeClick}></Search>
                <Tops 
                collectActive = {props.collectActive}
                onClick={props.onClick} 

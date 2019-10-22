@@ -9,7 +9,7 @@ import './assets/styles/animated.css'
 
 // import Index from './pages/index/index/'
 import {ArticleDetail}  from './pages/index/recommend/'
-import {ArticleCollects} from './pages/index/recommend/'
+import {ArticleCollects,Articleresult,ArticleSearch} from './pages/index/recommend/'
 import {Publish}  from './pages/index/publish/'
 import {PublishMain} from 'publishComponents/publishMain/'
 import Index from './pages/index/index/Index';
@@ -42,6 +42,8 @@ export default class App extends Component {
 
         <Route path="/index" component={Index}></Route>
         <Route path="/articleDetail" component={ArticleDetail}></Route>
+        <Route path="/articleSearch" component={ArticleSearch}></Route>
+        <Route path="/articleresult" component={Articleresult}></Route>
         <Route path="/articleCollect" component={ArticleCollects}></Route>
         <Route path="/publish" component={Publish}></Route>
 
