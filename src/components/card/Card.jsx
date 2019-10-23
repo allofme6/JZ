@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {CardContainer} from './StyledCard'
 
 
-import card from 'images/profile/cardImg.png'
+
 
 class Card extends Component {
     render() {
@@ -12,7 +12,7 @@ class Card extends Component {
                 top={this.props.top} 
                 onClick={()=>{this.props.handleClick && this.props.handleClick(this.props.type)}}>
                     <div className="card-img-box">
-                        <img src={card} alt=""/>
+                        <img src={this.props.cardImg} alt=""/>
                     </div>
             </CardContainer>
         );

@@ -18,7 +18,7 @@ class WalletContainer extends Component {
         let data = (await this.$get({
             url: 'https://luckych.club/pay'
         })).data
-        const BUTTONS = [<img className="qrcode" src={data.image}/>]
+        const BUTTONS = [<img className="qrcode" src={data.image} alt="扫码支付"/>]
         ActionSheet.showActionSheetWithOptions({
             options: BUTTONS,
             // cancelButtonIndex: BUTTONS.length - 1,
