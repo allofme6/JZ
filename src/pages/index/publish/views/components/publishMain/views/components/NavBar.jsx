@@ -12,8 +12,8 @@ export default withRouter((props) => {
                 <img src={back} alt=""/>
             </div>
             <div className="publish-operation">
-                <div className="publish-drafts">
-                    <App question="要保存到草稿箱吗？" title="草稿箱"></App>
+                <div className={`publish-drafts ${props.fromPage === 'publish' ? 'active' : ''}`}>
+                    <App addDrafts={props.addDrafts} question="要保存到草稿箱吗？" title="草稿箱"></App>
                 </div>
                 <div onClick={props.publish} className="publish-save">
                     发布
@@ -30,10 +30,10 @@ function handleBack(props) {
 
 const alert = Modal.alert;
 
-const showAlert = (question) => {
+const showAlert = (question, addDrafts) => {
   const alertInstance = alert('', question , [
     { text: '不保存', onPress: () => console.log('cancel'), style: 'default' },
-    { text: '保存', onPress: () => console.log('ok') },
+    { text: '保存', onPress: () => addDrafts() },
   ]);
   setTimeout(() => {
     // 可以调用close方法以在外部close
@@ -43,5 +43,5 @@ const showAlert = (question) => {
 };
 
 const App = (props) => (
-    <Button onClick={() => showAlert(props.question)}>{props.title}</Button>
+    <Button onClick={() => showAlert(props.question, props.addDrafts)}>{props.title}</Button>
 )

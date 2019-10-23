@@ -8,10 +8,21 @@ export default (props) => {
     return (
         <PublishMainContainer>
             <GlobalStyle />
+            <div className={`cover ${props.contentToast ? 'active' : ''}`}>内容不能为空</div>
             <NavBar
                 publish={props.publish}
+                addDrafts={props.addDrafts}
+                fromPage={props.fromPage}
             ></NavBar>
             <div className="publish-inputBox">
+                <div className={`titleBox ${props.fromPage === 'publish' ? 'active' : ''}`}>
+                    标题:<input
+                            className="title" 
+                            type="text"
+                            value={props.title}
+                            onChange={props.changeTitle}
+                        />
+                </div>
                 <textarea
                     placeholder="多多分享想法和经验。参与合适的话题会获得更多浏览"
                     value={props.publishContent}
@@ -26,11 +37,9 @@ export default (props) => {
             <div className="imgWarp">
                 {
                     props.files.map((item, index) => {
-                        console.log(item.url)
                         return (
                             <div
                                 key={index} 
-
                                 className="imgBox" 
                                 style={{
                                     backgroundImage: `url(${item.url})`,
