@@ -29,7 +29,7 @@ export default (props)=>{
                     </div>
                 </div>
                 <Card className="card-img-box" top="14%"  type="profilepublish" {...props}/>
-                <h4 onClick={()=>{props.handleClick('profilepublish')}}>可爱的小住户</h4>
+                <h4 onClick={()=>{props.handleClick('profilepublish')}}>{props.userName}</h4>
             </div>
             <div className="profile-options">
                 <div className="profile-wallet profile-item" onClick={()=>{props.handleClick('wallet')}}>

@@ -27,7 +27,7 @@ const Post = (url , params) => {
 Component.prototype.$get = Get
 Component.prototype.$post = Post
 React.Component.prototype.$wx = window.wx
-export default {
+export  {
     Get,
     Post,
     get

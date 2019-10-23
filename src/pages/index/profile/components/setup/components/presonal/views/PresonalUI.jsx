@@ -35,7 +35,6 @@ export default (props)=>{
                             multiple="" id="file" 
                             onChange={(e)=>{props.handlecamera(e)}}/> 
                     </div>}
-                    // handleActions={props.handleAlbum}
                 >
                     <div className="chooseCard">
                         <img src={cardImg} alt=""/>
