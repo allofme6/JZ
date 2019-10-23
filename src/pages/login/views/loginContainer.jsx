@@ -7,7 +7,8 @@ import { Toast} from 'antd-mobile'
 
 import Http from 'utils/http'
 import connect from './connect'
-
+const store =  require('store') 
+console.log(store)
 @connect
 class Login extends Component{
     constructor(){
@@ -75,9 +76,7 @@ class Login extends Component{
                 Toast.info(result.msg,1)
                
                 this.props.initID(result.data)      //======>传ID
-                setTimeout(()=>{
-                    console.log(this.props)
-                })
+                store.set('userMessage',{userID:result.data})
             }else if(result.code='500'){
                 Toast.info(result.message,1)
             }

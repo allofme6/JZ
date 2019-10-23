@@ -6,7 +6,7 @@ export default (state = defaultState,action)=>{
     switch(action.type){
         case INIT_ID :  
         console.log(action.id,{ userMessage: action.id})
-        return { userMessage: action.id}; break;
+        return { userMessage: action.id}; 
         default: return state
     }
     

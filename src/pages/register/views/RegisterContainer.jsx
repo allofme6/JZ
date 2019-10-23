@@ -122,9 +122,6 @@ class Register extends Component{
         console.log(this.state.resultPhone)
         if(this.state.resultPhone){
             let result = (await this.$post('/api/user/sendMessage',{phone:this.state.phoneNumber})).data
-            console.log(result)
-            let result1 = await this.$get('/ajax/movieOnInfoList?token=')
-            console.log('000000',result)
             if(result.code=='200'){
                 Toast.info('已发送',3);
                 this.setState({

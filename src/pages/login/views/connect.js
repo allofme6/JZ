@@ -1,8 +1,11 @@
 import {connect} from 'react-redux'
 import {initID}  from '../actionCreator'
-const mapStateToProps = (state)=>{
+
+
+const mapStateToProps = (state,action)=>{
+
     return {
-        userMessage : state.login.userMessage
+        userMessage : state.login ? state.login.userMessage :{}
     }
 }
 const mapDispatchToProps = (dispatch)=>{
