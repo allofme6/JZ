@@ -42,15 +42,15 @@ class Login extends Component{
             
         )
     }
-    componentDidMount(){
-        console.log(this.props)
-        this.props.initID('feng')
-        // console.log(this.props)
-    }
-    componentDidUpdate(){
-        // this.props.initID('feng')
-        console.log(this.props)
-    }
+    // componentDidMount(){
+    //     console.log(this.props)
+    //     this.props.initID('feng')
+    //     // console.log(this.props)
+    // }
+    // componentDidUpdate(){
+    //     // this.props.initID('feng')
+    //     console.log(this.props)
+    // }
 
     loginClick=()=>{
         console.log(this.props)
@@ -68,7 +68,7 @@ class Login extends Component{
             }else{
                 method = 'email'
             }
-            let result =await Http.post('/api/user/login',{
+            let result =await this.$post('/api/user/login',{
                 method : this.state.username,
                 password : this.state.password
             })

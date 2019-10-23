@@ -68,7 +68,7 @@ class Register extends Component{
     }
     submit=async ()=>{
         if(this.state.phoneNumber&&this.state.verificationCode&&this.state.password){
-            let result =await Http.post('/api/user/regist',{
+            let result =await this.$post('/api/user/regist',{
                 phone : this.state.phoneNumber,
                 code  : this.state.verificationCode,
                 password : this.state.password
@@ -88,7 +88,7 @@ class Register extends Component{
     sentToast=async ()=> {
         console.log(this.state.resultPhone)
         if(this.state.resultPhone){
-            let result = await Http.Post('/api/user/auth')   //发送验证码
+            let result = await this.$post('/api/user/auth')   //发送验证码
             if(result.code = '200'){
                 Toast.info('已发送',3)
                 this.setState({
@@ -117,7 +117,7 @@ class Register extends Component{
     sentToast=async ()=> {
         console.log(this.state.resultPhone)
         if(this.state.resultPhone){
-            let result = await Http.Post('api/user/auth',{phone:this.state.phoneNumber})
+            let result = await this.$post('api/user/auth',{phone:this.state.phoneNumber})
             if(result.code==="200"){
                 Toast.info('已发送',3);
                 this.setState({
@@ -170,7 +170,7 @@ class Register extends Component{
             this.phoneToast()
         }
         else{
-            let result = await Http.get({url:'/api/user/signUped'})    //验证是否注册
+            let result = await this.$get({url:'/api/user/signUped'})    //验证是否注册
             if(result.code === '200'){
                 this.setState({
                     resultPhone:true
