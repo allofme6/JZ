@@ -89,6 +89,7 @@ const ArticleDetailContainer =
       font-size:.14rem;
       line-height:.2rem;
       color:#333333;
+      bottom:0;
     }
     .mask{
       background: rgba(0, 0, .49, 0.52) !important;
@@ -101,7 +102,7 @@ const ArticleDetailContainer =
       top:0;
       bottom:0;
     
-    }
+    } 
    
 `
 
@@ -148,30 +149,50 @@ const FooterContainer = iconStyled(
       .left{
         padding: .12rem 0 .1rem .18rem;
         height:.28rem;
-        .lcontext{
+        .authccc{
+          display:flex;
+          /* box-sizing:content-box; */
           width:1.09rem;
           height:.28rem;
           background :#DFDFDF;
           border-radius:.14rem;
-          display:flex;
           i{
-            font-family: 'iconfont';
-            color:#7D7D7D;
-            font-size:.17rem;
-            padding:0rem 0 .06rem .14rem;
-          }
-          span{
-            color:#7D7D7D;
-            font-size:.14rem;
-            width:.56rem;
-            height:.20rem;
-            display: inline-block;
+              font-family: 'iconfont';
+              color:#7D7D7D;
+              font-size:.17rem;
+              padding:0rem 0 .06rem .14rem;
+            }
+          .lcontext{
+            width:100%;
+            height:100%;
+            display:flex;
+            border:0;
             padding: .04rem .13rem .04rem .09rem;
-            box-sizing:content-box;
+            font-size:.14rem;
             line-height:.2rem;
+            background :#DFDFDF;
+            border-radius:.14rem;
+
+            /* i{
+              font-family: 'iconfont';
+              color:#7D7D7D;
+              font-size:.17rem;
+              padding:0rem 0 .06rem .14rem;
+            } */
+            /* span{
+              color:#7D7D7D;
+              font-size:.14rem;
+              width:.56rem;
+              height:.20rem;
+              display: inline-block;
+              padding: .04rem .13rem .04rem .09rem;
+              box-sizing:content-box;
+              line-height:.2rem;
+            } */
           }
-        }
     }
+}
+        
     .cc{
       height:100%;
       padding:0.16rem 0 .14rem .59rem;

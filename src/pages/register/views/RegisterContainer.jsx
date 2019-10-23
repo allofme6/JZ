@@ -5,7 +5,7 @@ import {GlobalStyle} from 'components/styled/styledPublish'
 import {withRouter,Route} from 'react-router-dom'
 import { Toast} from 'antd-mobile';
 
-// import {Get, Post} from 'utils/https'
+import Http from 'utils/http'
 
 
 class Register extends Component{
@@ -20,7 +20,7 @@ class Register extends Component{
             password:'',
             resultPhone:false,
             resultverificationCode:false,
-            showPasswordInput:true,
+            showPasswordInput:false,
             showPassword:false
         }
     }
@@ -50,7 +50,7 @@ class Register extends Component{
                     testPassword = {this.testPassword}
                     changeShowpassword = {this.changeShowpassword}
                     showPassword={this.state.showPassword}
-                    
+                    submit={this.submit}
                 >
                     <Route path='/findPassword'></Route>
                 </RegisterUI>
@@ -66,32 +66,50 @@ class Register extends Component{
         console.log(this.props)
         this.props.history.push({pathname:'/register/'})
     }
-
-    //验证手机号
-    testPhone(){
-
+    submit=async ()=>{
+        if(this.state.phoneNumber&&this.state.verificationCode&&this.state.password){
+            let result =await Http.post('/api/user/regist',{
+                phone : this.state.phoneNumber,
+                code  : this.state.verificationCode,
+                password : this.state.password
+            })
+            if(result.code==='200'){
+                Toast.info(result.msg,1)
+            }else if(result.code='400'){
+                Toast.info(result.msg,1)
+            }else if(result.code==='401'){
+                Toast.info(result.msg,1)
+            }
+        }else{
+            Toast.info('请完善登录信息',1)
+        }
     }
-    sentToast=()=> {
+
+    sentToast=async ()=> {
         console.log(this.state.resultPhone)
         if(this.state.resultPhone){
-            Toast.info('已发送',3);
-            this.setState({
-                testState:'time'
-            })
-            this.timer = setInterval(()=>{
+            let result = await Http.Post('/api/user/auth')   //发送验证码
+            if(result.code = '200'){
+                Toast.info('已发送',3)
                 this.setState({
-                    count:this.state.count-1
-                },()=>{
-                    console.log(this.state.count)
-                    if(this.state.count===0){
-                        clearInterval(this.timer)
-                        this.setState({
-                            count:60,
-                            testState:'resend'
-                        })
-                    }
+                    testState:'time',
+                    showPasswordInput:true
                 })
-            },1000)
+                this.timer = setInterval(()=>{
+                    this.setState({
+                        count:this.state.count-1
+                    },()=>{
+                        console.log(this.state.count)
+                        if(this.state.count===0){
+                            clearInterval(this.timer)
+                            this.setState({
+                                count:60,
+                                testState:'resend'
+                            })
+                        }
+                    })
+                },1000)
+            }
         }else{
             this.phoneToast()
         }
@@ -99,27 +117,29 @@ class Register extends Component{
     sentToast=async ()=> {
         console.log(this.state.resultPhone)
         if(this.state.resultPhone){
-            let result = await
-            Toast.info('已发送',3);
-            this.setState({
-                testState:'time'
-            })
-            this.timer = setInterval(()=>{
+            let result = await Http.Post('api/user/auth',{phone:this.state.phoneNumber})
+            if(result.code==="200"){
+                Toast.info('已发送',3);
                 this.setState({
-                    count:this.state.count-1
-                },()=>{
-                    console.log(this.state.count)
-                    if(this.state.count===0){
-                        clearInterval(this.timer)
-                        this.setState({
-                            count:60,
-                            testState:'resend'
-                        })
-                    }
+                    testState:'time'
                 })
-            },1000)
-        }else{
-            this.phoneToast()
+                this.timer = setInterval(()=>{
+                    this.setState({
+                        count:this.state.count-1
+                    },()=>{
+                        console.log(this.state.count)
+                        if(this.state.count===0){
+                            clearInterval(this.timer)
+                            this.setState({
+                                count:60,
+                                testState:'resend'
+                            })
+                        }
+                    })
+                },1000)
+            }else{
+                Toast.info('发送异常',1)
+            }
         }
     }
     getPhoneNumber=(e)=>{
@@ -140,13 +160,9 @@ class Register extends Component{
             password:e.target.value
         })
     }
-    testPhoneNumber=()=>{
-        console.log('test')
-        if(!(
-            (/^1[3456789]\d{9}$/.test(this.state.phoneNumber))
-            ||(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(this.state.phoneNumber))
-            )
-            ){
+    testPhoneNumber=async ()=>{
+        console.log(this.state.phoneNumber,'test')
+        if(!(/^1[3456789]\d{9}$/.test(this.state.phoneNumber))){
             console.log(this.state.phoneNumber)
             this.setState({
                 resultPhone:false
@@ -154,38 +170,17 @@ class Register extends Component{
             this.phoneToast()
         }
         else{
-            this.setState({
-                resultPhone:true
-            })
+            let result = await Http.get({url:'/api/user/signUped'})    //验证是否注册
+            if(result.code === '200'){
+                this.setState({
+                    resultPhone:true
+                })
+            }else{
+                this.usernameToast()
+            }
+            
         }
     }
-    // testPhoneNumber= async ()=>{
-    //     console.log('test')
-    //     if(!(
-    //         (/^1[3456789]\d{9}$/.test(this.state.phoneNumber))
-    //         ||(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(this.state.phoneNumber))
-    //         )
-    //         ){
-    //         console.log(this.state.phoneNumber)
-    //         this.setState({
-    //             resultPhone:false
-    //         })
-    //         this.phoneToast()
-    //     }
-    //     else{
-    //         let result = await Post('http：//localhost/user/regist',{
-    //             username:this.state.phoneNumber
-    //         })
-    //         if(result.code === '200'){
-    //             this.setState({
-    //                 resultPhone:true
-    //             })
-    //         }else{
-    //             this.usernameToast()
-    //         }
-            
-    //     }
-    // }
     testverificationCode=()=>{
         if(this.state.resultverificationCode){
             this.setState({

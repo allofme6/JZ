@@ -27,9 +27,16 @@ export default (props) => {
                     <img src={close} alt=""/>                    
                 </div>
                 <div className="pulish-camerabg">
+                    
                     <img src={cameraBg} alt=""/>
                 </div>
-                <div className="publish-camera" onClick={showActionSheet}>
+                <div className="publish-camera">
+                    <input type="file" 
+                        accept="image/*" 
+                        capture="camera"
+                        multiple="multiple" id="file" 
+                        onChange={(e)=>{props.handlecamera(e)}} 
+                    /> 
                     <img src={camera} alt=""/>
                 </div>
             </div>

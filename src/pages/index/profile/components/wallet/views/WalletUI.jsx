@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import {WalletContainer} from '../StyledWallet';
+import {WalletContainer,OptionStyle} from '../StyledWallet';
 import NavBar from 'components/navBar/NavBar';
 
 
-class WalletUI extends Component {
-    render() {
-        return (
-            <WalletContainer>
-                <NavBar
-                    titleText="钱包"
-                    aligns="center"
-                    colors="#000"
-                />
-                <div className="wallet-main">
-                    <div className="wallet-box">
-                        <div className="wallet-title">余额</div>
-                        <div className="wallet-count">0.00</div>
-                    </div>
+export default (props)=>{
+    return (
+        <WalletContainer>
+            <OptionStyle />
+            <NavBar
+                titleText="钱包"
+                aligns="center"
+                colors="#000"
+            />
+            <div className="wallet-main">
+                <div className="wallet-box">
+                    <div className="wallet-title">余额</div>
+                    <div className="wallet-count">0.00</div>
                 </div>
-            </WalletContainer>
-        );
-    }
+                <div className="recharge" onClick={props.handleRecharge}>
+                    充值
+                </div>
+            </div>
+        </WalletContainer>
+    )
 }
-
-export default WalletUI;

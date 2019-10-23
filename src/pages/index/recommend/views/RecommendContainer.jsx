@@ -7,10 +7,14 @@ class RecommendContainer extends Component {
             <RecommendUi 
             collectActive={this.props.collectActive}
             onClick={this.props.handleCollect} 
+            onChangeClick={this.changeClick}
             >   
             </RecommendUi>
         )
     }
+    changeClick = (() => {
+        this.props.history.push('/articleSearch')
+    })
 }
 
 export default connect(RecommendContainer)

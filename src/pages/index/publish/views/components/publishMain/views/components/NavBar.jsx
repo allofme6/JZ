@@ -15,7 +15,7 @@ export default withRouter((props) => {
                 <div className="publish-drafts">
                     <App question="要保存到草稿箱吗？" title="草稿箱"></App>
                 </div>
-                <div className="publish-save">
+                <div onClick={props.publish} className="publish-save">
                     发布
                 </div>
             </div>

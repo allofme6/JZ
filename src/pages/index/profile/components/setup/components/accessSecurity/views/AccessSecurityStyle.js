@@ -10,6 +10,17 @@ const OptionStyle = styled.div`
             font-size: .17rem !important;
         }
     }
+    .text{
+        position: absolute;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        a{
+            width: 100%;
+            display: inline-block;
+            text-align: left;
+        }
+    }
 `
 
 export {
