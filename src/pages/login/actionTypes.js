@@ -1,0 +1,1 @@
+export const INIT_ID = 'login/init_ID'

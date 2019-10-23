@@ -25,7 +25,6 @@ import {JoinTalk} from './pages/index/topic/components/joinTalk/';
 //登录注册
 import {Register} from './pages/register/'
 import {Login} from './pages/login/'
-import { ForgetPassword } from './pages/forgetPassword/'
 
 import {Profile} from './pages/index/profile/'
 
@@ -38,7 +37,6 @@ export default class App extends Component {
 
         <Route path="/register" component={Register}></Route>
         <Route path="/login" component={Login}></Route>
-        <Route path='/forgetPassword' component={ForgetPassword}></Route>
 
         <Route path="/index" component={Index}></Route>
         <Route path="/articleDetail" component={ArticleDetail}></Route>

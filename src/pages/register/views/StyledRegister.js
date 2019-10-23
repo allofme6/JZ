@@ -121,7 +121,7 @@ const RegisterContainer1 = styled.div `
         }
         footer{
             position:absolute;
-            bottom:.27rem;
+            top:6.15rem;
             width:100%;
             ul{
                 display:flex;
