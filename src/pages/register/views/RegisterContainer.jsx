@@ -2,8 +2,10 @@ import React,{Component} from 'react'
 import RegisterUI from './RegisterUI'
 import {GlobalStyle} from 'components/styled/styledPublish'
 
-import {withRouter} from 'react-router-dom'
+import {withRouter,Route} from 'react-router-dom'
 import { Toast} from 'antd-mobile';
+
+// import {Get, Post} from 'utils/https'
 
 
 class Register extends Component{
@@ -21,6 +23,9 @@ class Register extends Component{
             showPasswordInput:true,
             showPassword:false
         }
+    }
+    componentDidUpdate(){
+        console.log(this.props)
     }
     render(){
         return (
@@ -47,6 +52,7 @@ class Register extends Component{
                     showPassword={this.state.showPassword}
                     
                 >
+                    <Route path='/findPassword'></Route>
                 </RegisterUI>
             </>
             
@@ -90,6 +96,32 @@ class Register extends Component{
             this.phoneToast()
         }
     }
+    sentToast=async ()=> {
+        console.log(this.state.resultPhone)
+        if(this.state.resultPhone){
+            let result = await
+            Toast.info('已发送',3);
+            this.setState({
+                testState:'time'
+            })
+            this.timer = setInterval(()=>{
+                this.setState({
+                    count:this.state.count-1
+                },()=>{
+                    console.log(this.state.count)
+                    if(this.state.count===0){
+                        clearInterval(this.timer)
+                        this.setState({
+                            count:60,
+                            testState:'resend'
+                        })
+                    }
+                })
+            },1000)
+        }else{
+            this.phoneToast()
+        }
+    }
     getPhoneNumber=(e)=>{
         console.log(e.target.value)
         this.setState({
@@ -110,7 +142,11 @@ class Register extends Component{
     }
     testPhoneNumber=()=>{
         console.log('test')
-        if(!(/^1[3456789]\d{9}$/.test(this.state.phoneNumber))){
+        if(!(
+            (/^1[3456789]\d{9}$/.test(this.state.phoneNumber))
+            ||(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(this.state.phoneNumber))
+            )
+            ){
             console.log(this.state.phoneNumber)
             this.setState({
                 resultPhone:false
@@ -123,6 +159,33 @@ class Register extends Component{
             })
         }
     }
+    // testPhoneNumber= async ()=>{
+    //     console.log('test')
+    //     if(!(
+    //         (/^1[3456789]\d{9}$/.test(this.state.phoneNumber))
+    //         ||(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(this.state.phoneNumber))
+    //         )
+    //         ){
+    //         console.log(this.state.phoneNumber)
+    //         this.setState({
+    //             resultPhone:false
+    //         })
+    //         this.phoneToast()
+    //     }
+    //     else{
+    //         let result = await Post('http：//localhost/user/regist',{
+    //             username:this.state.phoneNumber
+    //         })
+    //         if(result.code === '200'){
+    //             this.setState({
+    //                 resultPhone:true
+    //             })
+    //         }else{
+    //             this.usernameToast()
+    //         }
+            
+    //     }
+    // }
     testverificationCode=()=>{
         if(this.state.resultverificationCode){
             this.setState({
@@ -153,6 +216,9 @@ class Register extends Component{
     }
     passwordToast(){
         Toast.info('密码长度为9个字符')
+    }
+    usernameToast(){
+        Toast.info('该用户名已注册')
     }
 }
 export default withRouter(Register)

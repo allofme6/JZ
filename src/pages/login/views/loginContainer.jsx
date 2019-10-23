@@ -60,7 +60,6 @@ class Login extends Component{
         })
     }
     testUsername=()=>{
-        console.log('test')
         if(!(/^1[3456789]\d{9}$/.test(this.state.username))){
             console.log(this.state.username)
             this.phoneToast()
@@ -73,7 +72,7 @@ class Login extends Component{
     }
     findPassword=()=>{
         console.log('find',this.props)
-        this.props.history.push({pathname:'/forgetPassword'})
+        this.props.history.push({pathname:'/forgetPassword/'})
         
     }
     phoneToast(){

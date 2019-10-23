@@ -15,7 +15,7 @@ export default (props)=>{
                         <LiContainer>
                             <div>
                                 <div className='user'><img src="./user.png" alt=""/></div>
-                                <input type="text" value={props.phoneNumber} onChange={(e)=>{props.getPhoneNumber(e)}} onBlur={props.testPhoneNumber} placeholder="请输入手机号" maxLength='12'/>
+                                <input type="text" value={props.phoneNumber} onChange={(e)=>{props.getPhoneNumber(e)}} onBlur={props.testPhoneNumber} placeholder="请输入手机号/邮箱" maxLength='12'/>
                             </div>
                         </LiContainer>
                         <LiContainer>
