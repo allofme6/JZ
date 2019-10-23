@@ -2,13 +2,13 @@ import {connect} from 'react-redux'
 import {initID}  from '../actionCreator'
 const mapStateToProps = (state)=>{
     return {
-        userID : state.login.userID
+        userMessage : state.login.userMessage
     }
 }
 const mapDispatchToProps = (dispatch)=>{
     return {
         initID:(id)=>{
-            dispatch(initID(id))
+           return dispatch(initID(id))
         }
     }
 } 

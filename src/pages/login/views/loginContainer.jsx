@@ -57,7 +57,6 @@ class Login extends Component{
         this.props.history.push('login')
     }
     registerClick=()=>{
-        console.log(this.props)
         this.props.history.push({pathname:'/register/'})
     }
     submit= async ()=>{
@@ -68,13 +67,17 @@ class Login extends Component{
             }else{
                 method = 'email'
             }
-            let result =await this.$post('/api/user/login',{
-                method : this.state.username,
+            let result =(await this.$post('/api/user/login',{
+                phone : this.state.username,
                 password : this.state.password
-            })
-            if(result.code==='200'){
+            })).data
+            if(result.code=='200'){
                 Toast.info(result.msg,1)
-                this.props.initID(result.userID)      //======>传ID
+               
+                this.props.initID(result.data)      //======>传ID
+                setTimeout(()=>{
+                    console.log(this.props)
+                })
             }else if(result.code='500'){
                 Toast.info(result.message,1)
             }
