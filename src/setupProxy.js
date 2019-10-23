@@ -9,4 +9,8 @@ module.exports = function(app) {
     target: 'http://m.maoyan.com',
     changeOrigin: true,
   }))
+  app.use('/addblog',proxy({
+    target: 'http://10.9.28.152:8080',
+    changeOrigin: true
+  }))
 }

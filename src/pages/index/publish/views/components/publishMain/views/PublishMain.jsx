@@ -51,10 +51,13 @@ export default class PublishMain extends Component {
 
     publish = () => {
         this.state.formdata.append('content', this.state.publishContent)
-
+        this.state.formdata.append('title', '1234')
+        this.state.formdata.append('blogstate', 1)
+        this.state.formdata.append('pubDate','2019-09-10' )
+        this.state.formdata.append('editDate', '2019-09-10')
         axios({
             method: 'post',
-            url: 'localhost',
+            url: '/addblog',
             data: this.state.formdata
         })
     }
