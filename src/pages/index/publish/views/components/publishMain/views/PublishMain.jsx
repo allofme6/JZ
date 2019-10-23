@@ -66,9 +66,9 @@ export default class PublishMain extends Component {
         let url = this.state.fromPage === 'publish' ? '/api/addblog' : '/api/insertAnswer'
         let form = this.state.formdata
         form.append('content', this.state.publishContent)
-        form.append('uid', 'uid')
+        form.append('uId', '1')
 
-        if(!this.state.publishContent) {
+        if(!this.state.publishContent) { 
             this.setState({
                 contentToast: true
             })
@@ -83,10 +83,16 @@ export default class PublishMain extends Component {
         if(this.state.fromPage === 'publish') {
             form.append('title', this.state.title)
             form.append('blogstate', '1')
+            form.append('cimage', '1')
+            form.append('reply', '1')
     
-            form.append('pubdate', 'pubdata')
-            form.append('editDate', 'editDate')
+            form.append('pubDate', '2019-02-03')
+            form.append('editDate', '2019-03-02')
     
+            this.$get({
+                url: '/ajax/movieOnInfoList?token='
+            })
+
             axios({
                 method: 'post',
                 url,
@@ -97,7 +103,14 @@ export default class PublishMain extends Component {
             })
 
         }else {
-            form.append('tid', 'tid')
+            // form.append('tId', 'tid')
+
+            form.append('cimage', '1')
+            form.append('reply', '1')
+    
+            form.append('pubDate', '2019-02-03')
+            form.append('editDate', '2019-03-02')
+
             if(this.state.files.length === 0) {
                 form.append('anImage' , '')
             }
@@ -149,11 +162,11 @@ export default class PublishMain extends Component {
         let form = this.state.formdata
         form.append('content', this.state.publishContent)
         form.append('blogstate', '0')
-        form.append('uid', 'uid')
-        form.append('tid', 'tid')
+        form.append('uId', '1')
+        form.append('title', '1')
 
-        form.append('pubdate', 'pubdata')
-        form.append('editDate', 'editDate')
+        form.append('pubDate', '2019-02-03')
+        form.append('editDate', '2019-03-02')
 
         let url = '/api/addblog'
 
