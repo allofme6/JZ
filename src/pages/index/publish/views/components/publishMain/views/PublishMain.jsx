@@ -8,7 +8,7 @@ export default class PublishMain extends Component {
         formdata: '',
         publishContent: '',
         files: [],
-        title: '哈哈',
+        title: '',
         fromPage: '',
         contentToast: false
     }
@@ -77,6 +77,7 @@ export default class PublishMain extends Component {
                     contentToast: false
                 })
             }, 1000)
+            return 
         }
 
         if(this.state.fromPage === 'publish') {
