@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
 import ProfileUI from './ProfileUI'
-export default class profileContainer extends Component {
+import connect from '../store/connect'
+
+
+import card from 'images/profile/cardImg.png'
+@connect
+class ProfileContainer extends Component {
     render() {
-        return  <ProfileUI handleClick={this.handleClick}></ProfileUI>
+        console.log(this);
+        return  <ProfileUI 
+            handleClick={this.handleClick}
+            cardImg={this.props.userMessage.cardImg}
+            userName={this.props.userMessage.userName}
+            ></ProfileUI>
     }
     handleClick = (type)=>{
         type === "index" ? this.props.history.push('/index') : this.props.history.push(`/profile/${type}`)
     }
-    componentDidMount(){
-        // 这里做获取头像请求或者是个人信息请求
-    }
 }
+export default ProfileContainer
