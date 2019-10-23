@@ -80,7 +80,6 @@ export default class PublishMain extends Component {
         }
 
         if(this.state.fromPage === 'publish') {
-            ``
             form.append('title', this.state.title)
             form.append('blogstate', '1')
     
