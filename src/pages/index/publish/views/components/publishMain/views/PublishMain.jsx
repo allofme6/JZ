@@ -3,14 +3,14 @@ import PublishMainUi from './PublishMainUi'
 import axios from 'axios'
 
 export default class PublishMain extends Component {
+
     state = {
-        formdata: new FormData(),
-        publishContent: 'asdf',
-        files: [
-            {
-                url: 'https://zos.alipayobjects.com/rmsportal/hqQWgTXdrlmVVYi.jpeg',
-            }
-        ]
+        formdata: '',
+        publishContent: '',
+        files: [],
+        title: '哈哈',
+        fromPage: '',
+        contentToast: false
     }
 
     render() {
@@ -22,7 +22,18 @@ export default class PublishMain extends Component {
                     publish={this.publish}
                     textareaContent={this.textareaContent}
                     deleteImage={this.deleteImage}
+                    title={this.state.title}
+                    changeTitle={this.changeTitle}
+                    fromPage={this.state.fromPage}
+                    addDrafts={this.addDrafts}
+                    contentToast={this.state.contentToast}
                 />
+    }
+
+    changeTitle = (e) => {
+        this.setState({
+            title: e.target.value
+        })
     }
 
     onChange = (files, type, index) => {
@@ -34,14 +45,16 @@ export default class PublishMain extends Component {
 
     chooseImg = (e) => {
         let file = e.target.files[0]
-        this.state.formdata.append('file', file)
+        this.state.fromPage === 'publish' ? this.state.formdata.append('file', file) : this.state.formdata.append('anImage', file)
 
         let reader = new FileReader()
         reader.onload = ()=>{
+            console.log(reader.result)
             // 当 FileReader 读取文件时候，读取的结果会放在 FileReader.result 属性中
             this.state.files.push({
                 url: reader.result
             })
+            
             this.setState({
                 files: this.state.files
             })
@@ -50,26 +63,72 @@ export default class PublishMain extends Component {
     }
 
     publish = () => {
-        this.state.formdata.append('content', this.state.publishContent)
-        this.state.formdata.append('title', '1234')
-        this.state.formdata.append('blogstate', 1)
-        this.state.formdata.append('pubDate','2019-09-10' )
-        this.state.formdata.append('editDate', '2019-09-10')
-        axios({
-            method: 'post',
-            url: '/addblog',
-            data: this.state.formdata
-        })
+        let url = this.state.fromPage === 'publish' ? '/api/addblog' : '/api/insertAnswer'
+        let form = this.state.formdata
+        form.append('content', this.state.publishContent)
+        form.append('uid', 'uid')
+
+        if(!this.state.publishContent) {
+            this.setState({
+                contentToast: true
+            })
+            setTimeout(() => {
+                this.setState({
+                    contentToast: false
+                })
+            }, 1000)
+        }
+
+        if(this.state.fromPage === 'publish') {
+            form.append('title', this.state.title)
+            form.append('blogstate', '1')
+    
+            form.append('pubdate', 'pubdata')
+            form.append('editDate', 'editDate')
+    
+            axios({
+                method: 'post',
+                url,
+                data: form
+            })
+            .then(() => {
+
+            })
+
+        }else {
+            form.append('tid', 'tid')
+            if(this.state.files.length === 0) {
+                form.append('anImage' , '')
+            }
+
+            axios({
+                method: 'post',
+                url,
+                data: form
+            })
+        }
     }
 
     componentDidMount() {
-        let url = this.props.location.query.img ? this.props.location.query.img : ''
-        this.state.files.push({
-            url
+        let url = this.props.location.query ? this.props.location.query.img : ''
+        this.setState({
+            fromPage: this.props.location.query ? this.props.location.query.fromPage : ''
         })
         this.setState({
-            files: this.state.files
+            formdata: this.props.location.query ? this.props.location.query.formdata : new FormData()
         })
+        this.setState({
+            image: ''
+        })
+        
+        if(url) {
+            this.setState({
+                files: [
+                    ...this.state.files,
+                    {url}
+                ]},     
+            )
+        }
     }
     
     textareaContent = (e) => {
@@ -82,6 +141,25 @@ export default class PublishMain extends Component {
         this.state.files.splice(index, 1)
         this.setState({
             files: this.state.files
+        })
+    }
+
+    addDrafts = () => {
+        let form = this.state.formdata
+        form.append('content', this.state.publishContent)
+        form.append('blogstate', '0')
+        form.append('uid', 'uid')
+        form.append('tid', 'tid')
+
+        form.append('pubdate', 'pubdata')
+        form.append('editDate', 'editDate')
+
+        let url = '/api/addblog'
+
+        axios({
+            method: 'post',
+            url,
+            data: form,
         })
     }
 }

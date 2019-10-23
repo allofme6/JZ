@@ -20,24 +20,24 @@ export default class PublishContainer extends Component {
     }
 
     handlecamera = (e)=>{
-        let file = e.target.files
+        let file = e.target.files[0]
         console.log(file)
         let formdata = new FormData()
-        for(let i=0; i<file.length; i++) {
-            formdata.append('file', file[i])
-        }
+        // for(let i=0; i<file.length; i++) {
+        //     formdata.append('file', file[i])
+        // }
         formdata.append('file', file)
         
         // this.$post('localhost' , {
         //     data: formdata,
         // })
 
-        axios({
-            method: 'post',
-            url: 'localhost',
-            // headers: {'Content-Type':'multipart/form-data'},
-            data: formdata
-        })
+        // axios({
+        //     method: 'post',
+        //     url: 'localhost',
+        //     // headers: {'Content-Type':'multipart/form-data'},
+        //     data: formdata
+        // })
         let reader = new FileReader()
         reader.onload = ()=>{
             console.log(reader)
@@ -45,7 +45,9 @@ export default class PublishContainer extends Component {
             this.props.history.push({
                 pathname: 'publishMain',
                 query: {
-                    img: reader.result
+                    img: reader.result,
+                    fromPage: 'publish',
+                    formdata: formdata
                 }
             })
             // this.setState({

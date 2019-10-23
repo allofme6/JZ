@@ -25,7 +25,7 @@ export default (props)=>{
                             </div>
                         </LiContainer>
                     </ul>
-                    <div className='sure'>确定</div>
+                    <div className='sure' onClick={props.submit}>确定</div>
                     <div className='forget' onClick={props.findPassword}>忘记密码</div>
                 </main>
                 <footer>

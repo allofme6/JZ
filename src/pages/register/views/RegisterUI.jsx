@@ -41,7 +41,7 @@ export default (props)=>{
                         }
                         
                     </ul>
-                    <div>确定</div>
+                    <div onClick={props.submit}>确定</div>
                 </main>
                 <footer>
                     <ul>
