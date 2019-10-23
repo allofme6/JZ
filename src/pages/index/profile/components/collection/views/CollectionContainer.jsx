@@ -14,11 +14,11 @@ class Collection extends Component {
                 collectionList = {this.state.collectionList}
             ></CollectionUI>
     }
-    async componentDidMount(){
-        this.setState({
-            collectionList: await this.props.loadCollection()
-        })
-    }
+    // async componentDidMount(){
+    //     this.setState({
+    //         collectionList: await this.props.loadCollection()
+    //     })
+    // }
 }
 
 export default Collection
