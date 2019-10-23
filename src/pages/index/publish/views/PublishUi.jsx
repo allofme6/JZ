@@ -33,7 +33,7 @@ export default (props) => {
                 <div className="publish-camera">
                     <input type="file" 
                         accept="image/*" 
-                        capture="camera"
+                        // capture="camera"
                         multiple="multiple" id="file" 
                         onChange={(e)=>{props.handlecamera(e)}} 
                     /> 

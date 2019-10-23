@@ -36,7 +36,36 @@ const PublishMainContainer = styled.div`
     display: flex;
     flex-direction: column;
     background: #fff;
+    .cover {
+        background: #55B4B4;
+        position: absolute;
+        color: #fff;
+        font-size: .14rem;
+        width: .9rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: .06rem;
+        transition: all .3s;
+        opacity: 0;
+        &.active {
+            opacity: 1;
+        }
+    }
     .publish-inputBox {
+        .titleBox {
+            margin-bottom: .15rem;
+            display: none;
+            &.active {
+                display: block;   
+            }
+            .title {
+                border: none;
+            }
+        }
         padding: .17rem .15rem 0;
         height: .97rem;
         textarea {
@@ -137,6 +166,10 @@ const NavBarContainer = styled.div`
             justify-content: center;
             align-items: center;
             margin-right: .21rem;
+            display: none;
+            &.active {
+                display: block;
+            }
             /* width: .6rem;
             height: .31rem;
             background: #fff;
