@@ -1,13 +1,17 @@
 import React from 'react'
 
+import {Route,Switch,withRouter,Redirect} from 'react-router-dom'
+
 import {CollectionContainer} from '../StyledCollection'
+import Wrapper from './commponnets/Wrapper'
 
 import NavBar from 'components/navBar/NavBar'
-import Item from 'components/profileItem/ProfileItem'
-import EmptyTip from 'components/emptyTip/EmptyTip'
+// import Item from 'components/profileItem/ProfileItem'
+// import EmptyTip from 'components/emptyTip/EmptyTip'
 
 
-export default (props)=>{
+const CollectionUI = (props)=>{
+    let path = props.match.path
     return (
         <CollectionContainer>
             <NavBar
@@ -15,7 +19,13 @@ export default (props)=>{
                 colors="#000"
                 titleText="我的收藏"
             />
-            {
+            <Switch>
+                <Route path={path+ '/wrapper'} render={function(){
+                    return(<Wrapper that={props}></Wrapper>)
+                }}></Route>
+                <Redirect from={path} to={path+ '/wrapper'}></Redirect>
+            </Switch>
+            {/* {
                 props.collectionList 
                 ? (
                 <div className="collection-list">
@@ -30,7 +40,10 @@ export default (props)=>{
                     ></EmptyTip>
                 )
 
-            }
+            } */}
+
         </CollectionContainer>
     )
 }
+
+export default withRouter(CollectionUI)
