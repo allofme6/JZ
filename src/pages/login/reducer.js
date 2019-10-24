@@ -1,12 +1,12 @@
 import {INIT_ID} from './actionTypes'
 const defaultState = {
-    userID : ""
+    userMessage : {}
 }
 export default (state = defaultState,action)=>{
     switch(action.type){
         case INIT_ID :  
-        console.log(action.id,{ userID: action.id})
-        return { userID: action.id}; break;
+        console.log(action.id,{ userMessage: action.id})
+        return { userMessage: action.id}; 
         default: return state
     }
     

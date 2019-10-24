@@ -42,7 +42,7 @@ module.exports = override(
     ['images']: path.resolve(__dirname, 'src/assets/images'),
     ['components']: path.resolve(__dirname, 'src/components'),
     ['utils']: path.resolve(__dirname, 'src/utils'),
-    ['store']: path.resolve(__dirname, 'src/store'),
+    ['store1']: path.resolve(__dirname, 'src/store'),
     ['profileComponents']: path.resolve(__dirname, 'src/pages/index/profile/components'),
     ['publishComponents']: path.resolve(__dirname, 'src/pages/index/publish/views/components'),
     ['profile']: path.resolve(__dirname,'src/pages/index/profile')
