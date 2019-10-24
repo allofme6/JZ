@@ -5,7 +5,6 @@ import {GlobalStyle} from 'components/styled/styledPublish'
 import {withRouter} from 'react-router-dom'
 import { Toast} from 'antd-mobile'
 
-import Http from 'utils/http'
 import connect from './connect'
 const store =  require('store') 
 console.log(store)
@@ -43,18 +42,8 @@ class Login extends Component{
             
         )
     }
-    // componentDidMount(){
-    //     console.log(this.props)
-    //     this.props.initID('feng')
-    //     // console.log(this.props)
-    // }
-    // componentDidUpdate(){
-    //     // this.props.initID('feng')
-    //     console.log(this.props)
-    // }
 
     loginClick=()=>{
-        console.log(this.props)
         this.props.history.push('login')
     }
     registerClick=()=>{
@@ -68,6 +57,10 @@ class Login extends Component{
             }else{
                 method = 'email'
             }
+            console.log({
+                [method] : this.state.username,
+                password : this.state.password
+            })
             let result =(await this.$post('/api/user/login',{
                 phone : this.state.username,
                 password : this.state.password
@@ -77,6 +70,7 @@ class Login extends Component{
                
                 this.props.initID(result.data)      //======>传ID
                 store.set('userMessage',{userID:result.data})
+                this.props.history.push({pathname:'/index/recommend'})
             }else if(result.code='500'){
                 Toast.info(result.message,1)
             }
@@ -102,7 +96,6 @@ class Login extends Component{
         if((!(/^1[3456789]\d{9}$/.test(this.state.username)))&&
         (!(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(this.state.phoneNumber))
         )){
-            console.log(this.state.username)
             this.phoneToast()
         }
     }

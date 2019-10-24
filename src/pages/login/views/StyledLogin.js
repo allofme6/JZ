@@ -12,7 +12,7 @@ const LoginContainer = styled.div `
     height:100%;
     background-image:url('./register_background.png');
     background-repeat:no-repeat;
-    background-size:100% 100%;
+    background-size:100% auto;
     display:flex;
     flex-direction:column;
     align-item:center;
@@ -24,7 +24,7 @@ const LoginContainer = styled.div `
         z-index:10;
         background:rgba(20,15,15,.28);
         header{
-            padding:1.99rem 1.27rem .69rem
+            padding:1.17rem 1.27rem .69rem
             >div{
                 font-size:.3rem;
                 color:#fff;
