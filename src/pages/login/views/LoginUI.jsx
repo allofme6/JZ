@@ -14,7 +14,7 @@ export default (props)=>{
                         <LiContainer>
                             <div>
                                 <div className='username'><img src="./user.png" alt=""/></div>
-                                <input type="text" value={props.username}  onChange={(e)=>{props.getUsername(e)}} onBlur={props.testUsername} placeholder="手机号/邮箱" maxLength='11'/>
+                                <input type="text" value={props.username}  onChange={(e)=>{props.getUsername(e)}} onBlur={props.testUsername} placeholder="手机号/邮箱" maxLength='20'/>
                             </div>
                         </LiContainer>
                         <LiContainer>
@@ -26,7 +26,7 @@ export default (props)=>{
                         </LiContainer>
                     </ul>
                     <div className='sure' onClick={props.submit}>确定</div>
-                    <div className='forget' onClick={props.findPassword}>忘记密码</div>
+                    {/* <div className='forget' onClick={props.findPassword}>忘记密码</div> */}
                 </main>
                 <footer>
                     <ul>
