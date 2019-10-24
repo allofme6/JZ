@@ -10,7 +10,8 @@ export default class PublishMain extends Component {
         files: [],
         title: '',
         fromPage: '',
-        contentToast: false
+        contentToast: false,
+        file: ''
     }
 
     render() {
@@ -37,7 +38,7 @@ export default class PublishMain extends Component {
     }
 
     onChange = (files, type, index) => {
-        console.log(files[0], type, index);
+        console.log(files[0], type, index)
         this.setState({
             files,
         })
@@ -45,11 +46,22 @@ export default class PublishMain extends Component {
 
     chooseImg = (e) => {
         let file = e.target.files[0]
-        this.state.fromPage === 'publish' ? this.state.formdata.append('file', file) : this.state.formdata.append('anImage', file)
+        this.setState({
+            file: file
+        })
+        // if(this.state.fromPage === 'publish') {
+        //     this.setState({
+        //         file: file
+        //     })
+        // }else {
+        //     this.setState({
+
+        //     })
+        // } ? this.state..append('file', file) : this.state.formdata.append('anImage', file)
 
         let reader = new FileReader()
         reader.onload = ()=>{
-            console.log(reader.result)
+            // console.log(reader.result)
             // 当 FileReader 读取文件时候，读取的结果会放在 FileReader.result 属性中
             this.state.files.push({
                 url: reader.result
@@ -64,9 +76,9 @@ export default class PublishMain extends Component {
 
     publish = () => {
         let url = this.state.fromPage === 'publish' ? '/api/addblog' : '/api/insertAnswer'
-        let form = this.state.formdata
-        form.append('content', this.state.publishContent)
-        form.append('uId', '1')
+        // let form = this.state.formdata
+        // form.append('content', this.state.publishContent)
+        // form.append('uId', '1')
 
         if(!this.state.publishContent) { 
             this.setState({
@@ -81,13 +93,17 @@ export default class PublishMain extends Component {
         }
 
         if(this.state.fromPage === 'publish') {
+            let form = new FormData()
+            form.append('file', this.state.file)
+            form.append('content', this.state.publishContent)
+            form.append('uId', '1')
             form.append('title', this.state.title)
-            form.append('blogstate', '1')
-            form.append('cimage', '1')
-            form.append('reply', '1')
+            // form.append('blogstate', '1')
+            // form.append('cimage', '1')
+            // form.append('reply', '1')
     
-            form.append('pubDate', '2019-02-03')
-            form.append('editDate', '2019-03-02')
+            // form.append('pubDate', '2019-02-03')
+            // form.append('editDate', '2019-03-02')
     
             this.$get({
                 url: '/ajax/movieOnInfoList?token='
@@ -103,13 +119,11 @@ export default class PublishMain extends Component {
             })
 
         }else {
-            // form.append('tId', 'tid')
-
-            form.append('cimage', '1')
-            form.append('reply', '1')
-    
-            form.append('pubDate', '2019-02-03')
-            form.append('editDate', '2019-03-02')
+            let form = new FormData()
+            form.append('anImage', this.state.file)
+            form.append('content', this.state.publishContent)
+            form.append('uId', '1')
+            form.append('tId', '1')
 
             if(this.state.files.length === 0) {
                 form.append('anImage' , '')
@@ -128,8 +142,11 @@ export default class PublishMain extends Component {
         this.setState({
             fromPage: this.props.location.query ? this.props.location.query.fromPage : ''
         })
+        // this.setState({
+        //     formdata: this.props.location.query ? this.props.location.query.formdata : new FormData()
+        // })
         this.setState({
-            formdata: this.props.location.query ? this.props.location.query.formdata : new FormData()
+            file: this.props.location.query ? this.props.location.query.file : ''
         })
         this.setState({
             image: ''
@@ -159,14 +176,13 @@ export default class PublishMain extends Component {
     }
 
     addDrafts = () => {
-        let form = this.state.formdata
+        let form = new FormData()
+        form.append('file', this.state.file)
         form.append('content', this.state.publishContent)
         form.append('blogstate', '0')
         form.append('uId', '1')
-        form.append('title', '1')
+        form.append('title', '1')   
 
-        form.append('pubDate', '2019-02-03')
-        form.append('editDate', '2019-03-02')
 
         let url = '/api/addblog'
 
