@@ -7,18 +7,22 @@ import { Toast} from 'antd-mobile'
 
 import connect from './connect'
 const store =  require('store') 
-console.log(store)
 @connect
 class Login extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
+        //免登录
+        let data = store.get('userMessage')
+        if(data){
+            this.props.history.push({pathname:'/index/recommend'})
+            this.props.initID(data)
+        }
         this.timer=null
         this.state={
            username:'',
            password:''
         }
-        this.staticState={
-        }
+        
     }
     render(){
         return (
