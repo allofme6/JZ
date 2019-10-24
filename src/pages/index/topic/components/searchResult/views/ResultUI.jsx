@@ -25,8 +25,8 @@ class ResultUI extends Component {
                                     <li key= {index}>
                                         <div className="title">话题</div>
                                         <h1>{value.title}</h1>
-                                        <div className="sketch">{value.sketch}</div>
-                                        <div className="count">{value.count}人参与征集</div>
+                                        <div className="sketch">{value.contents}</div>
+                                        <div className="count">{value.answer}人参与征集</div>
                                     </li>
                                 )
                             })

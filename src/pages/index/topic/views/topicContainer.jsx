@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import http from 'utils/http'
 
 import TopicUI from './TopicUI'
 export default class topicContainer extends Component {
@@ -27,25 +26,35 @@ export default class topicContainer extends Component {
             ></TopicUI>           
     }
 
-    // async componentDidMount() {
-    //     let result = await http.get({
-    //       url: '/api/classify'
-    //     })
-    //     this.setState({
-    //         classify: result.data.category
-    //     })
+    async componentDidMount() {
+        let result = await this.$get({
+          url: '/api/findType',
+          params: {
+            type: "家具闭坑"
+          }
+        })
+        console.log(result)
+        this.setState({
+            classify: result.data
+        })
     
-    // }
+    }
 
     changeClick = (type => {
         this.props.history.push(`/${type}`)
     })
 
-    handleClick = (value => {
+    handleClick = async (value) => {
         this.setState({
             defaultNav: value
         })
-    })
+        let result = await this.$get({
+            url: '/api/findType',
+            params: {
+              type: `${value}`
+            }
+        })
+    }
 
     backClick = ()=>{
         this.props.history.go(-1)

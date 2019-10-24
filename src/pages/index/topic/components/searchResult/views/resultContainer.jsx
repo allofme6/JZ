@@ -5,12 +5,12 @@ export default class resultContainer extends Component {
     state = {
         searchList:[
             { "title" : "装修时，你最庆幸的决定",
-              "sketch": "“幸好坚持这么做了！”装修时做哪个决定让你有这样的想法？",
-              "count" : "2100"
+              "contents": "“幸好坚持这么做了！”装修时做哪个决定让你有这样的想法？",
+              "answer" : "2100"
             },
             { "title" : "装修时，让你后悔遗憾的事",
-              "sketch": "把自己吃的垫，变成住友们长的智吧，让世界，充..满…爱！",
-              "count" : "20144"
+              "contents": "把自己吃的垫，变成住友们长的智吧，让世界，充..满…爱！",
+              "answer" : "20144"
             }
         ]
     }
@@ -21,6 +21,18 @@ export default class resultContainer extends Component {
             onJoinClick={this.joinClick}
             data={this.state.searchList}
             ></ResultUI>           
+    }
+
+    async componentDidMount() {
+        let topicWords = this.props.history.location.state.word
+        let result = await this.$get({
+          url: '/api/findTopic',
+          params: {
+              topicWords
+          }
+        })
+        console.log(result)
+    
     }
 
     backClick = ()=>{

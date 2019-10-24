@@ -48,7 +48,7 @@ class DetailUI extends Component {
                             <img src={contextImg2} alt=""/>
                         </div>
                     </div>
-                    <div className="join-review" onClick={()=>this.props.onJoinClick("joinTalk")}>
+                    <div className="join-review" onClick={()=>this.props.onJoinClick("publishTalk")}>
                         <img src={add} alt=""/>参与讨论
                     </div>
                 </div>

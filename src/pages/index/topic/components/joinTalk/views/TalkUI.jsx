@@ -16,7 +16,7 @@ class TalkUI extends Component {
                     </div>
                     <div className="talk-btn">
                          <span>存草稿</span>
-                         <span>发布</span>
+                         <span onClick={this.props.onPublishClick}>发布</span>
                     </div>
                 </div>
                 <div className="talk-content">

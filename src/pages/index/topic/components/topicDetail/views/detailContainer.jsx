@@ -24,14 +24,23 @@ export default class detailContainer extends Component {
             ></DetailUI>           
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         let path = this.props.location.pathname
         let nowPath = path.split("/")[2]
         // console.log(nowPath)
         this.setState({ 
             curPath: nowPath
         })
+
+        let result = await this.$get({
+          url: '/api/findTopicBytid',
+          params: {
+              tid: 1
+          }
+        })
+        console.log(result)
     }
+    
 
     backClick = ()=>{
         this.props.history.go(-1)
