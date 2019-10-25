@@ -16,7 +16,7 @@ class TopicUI extends Component {
                     <div className="nav-arrow" onClick={this.props.onBackClick}>
                         <img src={arrow} alt=""/>
                     </div>
-                    <div className = "TopicSearch" onClick={() => this.props.onChangeClick("topicSearch")}>
+                    <div className = "TopicSearch" onClick={() => this.props.onChangeSearchClick("topicSearch")}>
                         <img src={search} alt=""/>
                         <input type="text" placeholder="搜索话题" />
                     </div>
@@ -25,7 +25,7 @@ class TopicUI extends Component {
                 <div className="content">
                     <ul className="classify-nav">
                         {
-                            Object.keys(this.props.data).map((value,index) => {
+                            Object.values(this.props.data).map((value,index) => {
                                 return (
                                     <li 
                                         className={this.props.defaultNav === value ? 'active' : ''}
@@ -42,21 +42,21 @@ class TopicUI extends Component {
                     <div className="content-right">
                         <ul>
                             {
-                               (this.props.data[`${this.props.defaultNav}`]) ?
-                               ((this.props.data[`${this.props.defaultNav}`]).map((value,index) => {
+                               Object.values(this.props.dataRight).map((value,index) => {
                                     return (
                                         <li 
-                                            key = {value.id}
-                                            onClick={() => this.props.onChangeClick(`topicDetail/${index}`,value)}
+                                            key = {index}
+                                            onClick={() => this.props.onChangeClick(`topicDetail/${index}`,value.tId)}
                                         >
-                                            <img src={value.img} alt=""/>
+                                            <img src = {`/api/`+ value.tImage} alt=""/>
                                             <div className="content-texts">
-                                                <p>{value.name}</p>
-                                                <p>回答{value.favorites}</p>
+                                                <p>{value.title}</p>
+                                                <p>回答{value.answer}</p>
                                             </div>
                                         </li>
                                     )
-                                })  ) : null
+                                })
+                               
                             }
                         </ul>
                     </div>

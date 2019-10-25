@@ -9,17 +9,18 @@ const DetailContainer = styled.div`
     .detail-head{
         width: 100%;
         height: 1.8rem;
+        position: relative;
         background-size: 100% 1.8rem;
         .head-img{
             width: 100%;
             height: 1.8rem;
-            position: absolute;
-            top: 0;
+            
         }
         .arrow{
             width: .2rem;
             height: .2rem;
-            position: relative;
+            position: absolute;
+            z-index: 99;
             left: .15rem;
             top: .12rem;
             img{
@@ -29,7 +30,7 @@ const DetailContainer = styled.div`
         }
         .title{
             color: #FFFFFF;
-            position: relative;
+            position: absolute;
             left: .25rem;
             top: .84rem;
             p:nth-child(1){

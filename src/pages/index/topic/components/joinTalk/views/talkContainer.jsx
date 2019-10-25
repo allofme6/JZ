@@ -26,16 +26,16 @@ export default class talkContainer extends Component {
         this.props.history.go(-1)
     }
 
-    publishClick = async()=>{
-        let result = await this.$post(
-            '/api/insertAnswer',
-            {
-                tid: 1,
-                uid: 1,
-                content: "是炒藕正",
-                anImage: "..."
-            }
-        )
-        console.log(result)
-    }
+    // publishClick = async()=>{
+    //     let result = await this.$post(
+    //         '/api/insertAnswer',
+    //         {
+    //             tid: 1,
+    //             uid: 1,
+    //             content: "是炒藕正",
+    //             anImage: "..."
+    //         }
+    //     )
+    //     console.log(result)
+    // }
 }
