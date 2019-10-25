@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 
 import {ItemContainer} from './StyledProfileItem'
-import itemImg from 'images/profile/item1.jpg'
+
 
 class ProfileItem extends Component {
     render() {
         return (
-            <ItemContainer>
+            <ItemContainer onClick={this.props.handleAction || (()=>{}) }>
                 <div className="item-box">
                     <div className="item-content">
-                        专修的时候有些很小的细节都可能会是大麻烦，所以要把各个角度的数据测量......
+                        {this.props.item.content}
                     </div>
                     <div className="item-img">
-                        <img src={itemImg} alt=""/>
+                        <img src={'http://10.9.24.153:8080/' + (this.props.item.answerimage || this.props.item.imageUrl )} alt=""/>
                     </div>
                 </div>
             </ItemContainer>

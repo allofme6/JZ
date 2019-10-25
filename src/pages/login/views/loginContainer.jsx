@@ -8,7 +8,7 @@ import { Toast} from 'antd-mobile'
 import Http from 'utils/http'
 import connect from './connect'
 const store =  require('store') 
-console.log(store)
+
 @connect
 class Login extends Component{
     constructor(){
