@@ -16,7 +16,13 @@ class ArticleSearchUI extends Component {
                     </div>
                     <div className = "TopicSearch">
                         <img src={search} alt=""/>
-                        <input ref="Dom" type="text" placeholder="花砖" />
+                        <input 
+                            // ref="Dom" 
+                            type="text" 
+                            placeholder="花砖" 
+                            // value={this.props.keyWord}
+                            // onChange={this.props.changeKeyWord}
+                        />
                     </div>
                     <div className="search-word" onClick={()=>this.props.onResultClick("searchResult")}>搜索</div>
                 </div>

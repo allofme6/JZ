@@ -27,8 +27,8 @@ class Tops extends Component {
                   <p>{value.title}</p>
                   <div className="banners">
                     <div className="imgs1">
-                      {/* <img className="touxiang" src={`http://10.9.24.153:8080/${value.users.iconUrl}`} alt=""/> */}
-                      <img className="touxiang" src={value.users.iconUrl} alt=""/>
+                      <img className="touxiang" src={`http://47.95.121.255:8080/${value.users.iconUrl}`} alt=""/>
+                      {/* <img className="touxiang" src={value.users.iconUrl} alt=""/> */}
 
                       <span>{value.users.uname}</span>
                     </div>

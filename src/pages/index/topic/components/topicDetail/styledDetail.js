@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import detailHead from 'images/topic/detailHead.png'
 
 const DetailContainer = styled.div`
     width: 100%;
@@ -10,8 +9,13 @@ const DetailContainer = styled.div`
     .detail-head{
         width: 100%;
         height: 1.8rem;
-        background-image: url(${detailHead});
         background-size: 100% 1.8rem;
+        .head-img{
+            width: 100%;
+            height: 1.8rem;
+            position: absolute;
+            top: 0;
+        }
         .arrow{
             width: .2rem;
             height: .2rem;

@@ -8,6 +8,8 @@ import text from 'images/topic/text.png'
 
 class TopicUI extends Component {
     render(){
+        // console.log(this.props.defaultNav)
+        // console.log(this.props.data)
         return (
             <TopicContainer>
                 <div className="topic-head">
@@ -40,20 +42,21 @@ class TopicUI extends Component {
                     <div className="content-right">
                         <ul>
                             {
-                               (this.props.data[this.props.defaultNav]).map((value,index) => {
+                               (this.props.data[`${this.props.defaultNav}`]) ?
+                               ((this.props.data[`${this.props.defaultNav}`]).map((value,index) => {
                                     return (
                                         <li 
-                                            key = {value}
-                                            onClick={() => this.props.onChangeClick(`topicDetail/${index}`)}
+                                            key = {value.id}
+                                            onClick={() => this.props.onChangeClick(`topicDetail/${index}`,value)}
                                         >
-                                            <img src={text} alt=""/>
+                                            <img src={value.img} alt=""/>
                                             <div className="content-texts">
-                                                <p>{value}</p>
-                                                <p>回答1122</p>
+                                                <p>{value.name}</p>
+                                                <p>回答{value.favorites}</p>
                                             </div>
                                         </li>
                                     )
-                                })  
+                                })  ) : null
                             }
                         </ul>
                     </div>
