@@ -41,7 +41,6 @@ export default class topicContainer extends Component {
         let result = (await this.$get("/mock/classifyList.json"))
         let menu = result.data.classify
         let data = result.data.data
-        console.log(menu, data)
         let a = menu.reduce((list, item, index)=>{
             list[item] = data.slice(5*index , 5*index+5)
             return list
