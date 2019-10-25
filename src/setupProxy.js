@@ -12,4 +12,8 @@ module.exports = function(app) {
     target: 'http://m.maoyan.com',
     changeOrigin: true,
   }))
+  app.use('/pay',proxy({
+    target: 'https://luckych.club',
+    changeOrigin: true
+  }))
 }

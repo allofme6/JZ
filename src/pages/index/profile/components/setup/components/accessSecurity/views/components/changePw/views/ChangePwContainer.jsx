@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 import {Toast} from 'antd-mobile';
 import ChangePwUI from './ChangePwUI';
+import connect from 'profile/store/connect'
 
+@connect
 class ChangePwContainer extends Component {
     state = {
         newpwd :'',
@@ -57,6 +59,11 @@ class ChangePwContainer extends Component {
                 Toast.fail("家装宝典：新密码不一致",1,null,true)
             }else{
                 // 这里做提交请求
+                this.$post('/api/user/updatepassword' , {
+                    id: '1',
+                    newpass: this.state.newpwd,
+                    oldpass: this.state.original
+                })
             }
             
         }

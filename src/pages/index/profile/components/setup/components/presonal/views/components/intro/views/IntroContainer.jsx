@@ -4,8 +4,12 @@ import React, { Component } from 'react'
 
 import IntroUI from './IntroUI'
 import {Toast} from 'antd-mobile'
+import connect from 'profile/store/connect'
 
-export default class Intro extends Component {
+import store from 'store'
+
+@connect
+class Intro extends Component {
     state = {
         value : ''
     }
@@ -27,6 +31,14 @@ export default class Intro extends Component {
             },
             true
             )
+        this.$post('/api/user/updateself',{
+            id: this.props.userMessage.userID.uId,
+            self: this.state.value
+        })
+        let data = store.get('userMessage')
+        data.userID.self = this.state.value
+        store.set('userMessage',data)
+        
     }
     getValue = (value)=>{
         this.setState({
@@ -34,3 +46,6 @@ export default class Intro extends Component {
         })
     }
 }
+
+
+export default Intro

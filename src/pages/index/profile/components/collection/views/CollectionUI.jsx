@@ -4,8 +4,11 @@ import {Route,Switch,withRouter,Redirect} from 'react-router-dom'
 
 import {CollectionContainer} from '../StyledCollection'
 import Wrapper from './commponnets/Wrapper'
+import List from './commponnets/List'
 
 import NavBar from 'components/navBar/NavBar'
+
+
 // import Item from 'components/profileItem/ProfileItem'
 // import EmptyTip from 'components/emptyTip/EmptyTip'
 
@@ -20,10 +23,16 @@ const CollectionUI = (props)=>{
                 titleText="我的收藏"
             />
             <Switch>
-                <Route path={path+ '/wrapper'} render={function(){
-                    return(<Wrapper that={props}></Wrapper>)
-                }}></Route>
-                <Redirect from={path} to={path+ '/wrapper'}></Redirect>
+             
+                <Route  path={path+ '/wrapper'} children={function(){
+                            return(<Wrapper list={props.collectionList} handleAction={props.handleAction}></Wrapper>)
+                        }}></Route>)
+                <Route  path={path+ '/list'} children={
+                    function(){
+                        return(<List  list={props.list} handleAction={props.changeRout}></List>)
+                    }
+                }></Route>
+                 <Redirect exact from={path} to={path + '/wrapper'}></Redirect>
             </Switch>
             {/* {
                 props.collectionList 

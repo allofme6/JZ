@@ -6,6 +6,7 @@ import Item from 'components/profileItem/ProfileItem';
 import EmptyTip from 'components/emptyTip/EmptyTip';
 
 export default (props)=>{
+    console.log(props);
     return (
         <ProfileTopicContainer>
             <NavBar
@@ -14,11 +15,14 @@ export default (props)=>{
                 colors="#000"
             />
             {
-                props.topicList 
+                props.topicList.length
                 ?(
                     <div className="topic-list">
-                        <Item/>
-                        <Item/>
+                        {
+                            props.topicList.map((value,index)=>{
+                                return (<Item item={value} key={value.answerId} handleAction={props.handleAction}></Item>)
+                            })
+                        }
                      </div>
                 )
                 :(

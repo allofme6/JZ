@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import ChangePhoneUi from './ChangePhoneUi'
 
-export default class ChangePhone extends Component {
+class ChangePhone extends Component {
     state = {
-        passWord: 123,
+        passWord: '',
         promptInformation: {
             code: 1,
-            message: '密码正确'
+            message: '请输入正确的密码'
         }
     }
 
@@ -31,3 +31,5 @@ export default class ChangePhone extends Component {
     }
 
 }
+
+export default ChangePhone

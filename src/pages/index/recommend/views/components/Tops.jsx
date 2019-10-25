@@ -6,11 +6,10 @@ import { withRouter } from 'react-router-dom'
 
 import { GlobalStyle } from 'components/styled/styledPublish.js'
 
-import logos from 'images/logos.png'
-// import collect from 'images/collect.png'
+
 import collect from 'images/collect.png'
 import activecollect from 'images/activecollect.png'
-import touxiang from 'images/touxiang.png'
+
 
 class Tops extends Component {
 
@@ -19,57 +18,42 @@ class Tops extends Component {
       <TopContainer>
         <GlobalStyle />
         <ul>
-        <li>
-          <img src={logos}  onClick={this.handleClick} alt=""/>
-          <p>北欧客厅装饰画沙发背景墙现代简约餐厅墙面壁画</p>
-          <div className="banners">
-            <img className="touxiang" src={touxiang} alt=""/>
-            <span>久处不也</span>
-            {/* <p onClick={this.props.onClick} className={this.props.className}></p> */}
-            <img src={this.props.collectActive === true ? activecollect:collect } alt="" onClick={this.props.handleCollect} />
-            <span onClick={this.props.onClick} className={this.props.className}>241</span>
-          </div>
-        </li>
+          {
+            this.props.articleList.map((value, index)=>{
+              return(
+                <li key={index}>
+                  <img src={`http://47.95.121.255:8080/${value.imageUrl}`}  onClick={() => this.handleClick(value.bolgId)} alt=""/>
+                  {/* <img src={value.imageUrl}  onClick={() => this.handleClick(value.bolgId)} alt=""/> */}
+                  <p>{value.title}</p>
+                  <div className="banners">
+                    <div className="imgs1">
+                      {/* <img className="touxiang" src={`http://10.9.24.153:8080/${value.users.iconUrl}`} alt=""/> */}
+                      <img className="touxiang" src={value.users.iconUrl} alt=""/>
 
-        <li>
-          <img src={logos}  onClick={this.handleClick} alt=""/>
-          <p>北欧客厅装饰画沙发背景墙现代简约餐厅墙面壁画</p>
-          <div className="banners">
-            <img className="touxiang" src={touxiang} alt=""/>
-            <span>久处不也</span>
-            <img src={this.props.collectActive === true ? activecollect:collect } alt="" onClick={this.props.handleCollect} />
-            <span onClick={this.props.onClick} className={this.props.className}>241</span>
-          </div>
-        </li>
-
-        <li>
-          <img src={logos}  onClick={this.handleClick} alt=""/>
-          <p>北欧客厅装饰画沙发背景墙现代简约餐厅墙面壁画</p>
-          <div className="banners">
-            <img className="touxiang" src={touxiang} alt=""/>
-            <span>久处不也</span>
-            <img src={this.props.collectActive === true ? activecollect:collect } alt="" onClick={this.props.handleCollect} />
-            <span onClick={this.props.onClick} className={this.props.className}>241</span>
-          </div>
-        </li>
-
-        <li>
-          <img src={logos}  onClick={this.handleClick} alt=""/>
-          <p>北欧客厅装饰画沙发背景墙现代简约餐厅墙面壁画</p>
-          <div className="banners">
-            <img className="touxiang" src={touxiang} alt=""/>
-            <span>久处不也</span>
-            <img src={this.props.collectActive === true ? activecollect:collect } alt="" onClick={this.props.handleCollect} />
-            <span onClick={this.props.onClick} className={this.props.className}>241</span>
-          </div>
-        </li>
+                      <span>{value.users.uname}</span>
+                    </div>
+                    
+                    {/* <p onClick={this.props.onClick} className={this.props.className}></p> */}
+                    <div className="imgs2">
+                      <img 
+                        src={this.props.collectActive === true ? activecollect:collect } alt="" 
+                        onClick={this.props.handleCollect} />
+                      <span 
+                        onClick={this.props.onClick} 
+                        className={this.props.className}>{value.collect}</span>
+                    </div>
+                  </div>
+                </li>
+              )
+            })
+          }
         </ul>
       </TopContainer>
     )
   }
 
-  handleClick = ()=>{
-    this.props.history.push('/articleDetail')
+  handleClick = (id)=>{
+    this.props.history.push(`/articleDetail/${id}`)
   }
 
 }

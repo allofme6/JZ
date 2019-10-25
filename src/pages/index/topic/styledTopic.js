@@ -5,10 +5,10 @@ const TopicContainer = styled.div`
     height : 100%;
     background: #fff;
     display: flex;
-    flex-direction column;
+    flex-direction: column;
     .topic-head{
         display: flex;
-        flex-directive: row;
+        flex-direction: row;
         padding: .07rem 0;
         .nav-arrow{
             width: .2rem;
