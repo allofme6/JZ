@@ -3,6 +3,10 @@ import React, { Component } from 'react'
 import {Get} from 'utils/http'
 import ArticleSearchUI from './ArticleSearchUI'
 export default class ArticleSearchContainer extends Component {
+    state = {
+        keyWord: '',
+    }
+
     render() {
         return <ArticleSearchUI
             onBackClick={this.backClick}
@@ -21,4 +25,5 @@ export default class ArticleSearchContainer extends Component {
     componentDidMount(){
 
     }
+
 }
