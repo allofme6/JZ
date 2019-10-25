@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ProfileTopicUI from './ProfileTopicUI'
+import connect from 'profile/store/connect'
 
-
+@connect
 class ProfileTopicContainer extends Component {
     state = {
         topicList: []
@@ -15,16 +16,20 @@ class ProfileTopicContainer extends Component {
     
     async componentDidMount(){
         // 我的讨论
-        let res = await this.$get({
+        let res = (await this.$get({
             url:'/api/getAnswertopics',
             params:{
-                uid: ''  // 用户id
+                uid: this.props.userMessage.userID.uId  // 用户id
             }
-        })
+        })).data
+        console.log(res)
         this.setState({
             topicList: res.data
         })
 
+    }
+    handleAction = ()=>{
+        this.history.push('/topicDetail')
     }
 }
 

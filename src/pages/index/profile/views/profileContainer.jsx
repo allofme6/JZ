@@ -7,15 +7,17 @@ import card from 'images/profile/cardImg.png'
 @connect
 class ProfileContainer extends Component {
     render() {
-        console.log(this);
         return  <ProfileUI 
             handleClick={this.handleClick}
-            cardImg={this.props.userMessage.cardImg}
-            userName={this.props.userMessage.userName}
+            cardImg={'http://10.9.24.153:8080' + this.props.userMessage.userID.iconUrl}
+            userName={this.props.userMessage.userID.uname}
             ></ProfileUI>
     }
     handleClick = (type)=>{
         type === "index" ? this.props.history.push('/index') : this.props.history.push(`/profile/${type}`)
+    }
+    componentDidMount(){
+       
     }
 }
 export default ProfileContainer

@@ -8,6 +8,7 @@ import Item from 'components/profileItem/ProfileItem'
 import {ProfilePublishContainer} from '../StyledProfilePublish'
 
 export default (props)=>{
+    console.log(props);
     return (
         <ProfilePublishContainer>
             <div className="publish-card">
@@ -19,11 +20,19 @@ export default (props)=>{
             <div className="publish-main">
                 <h3>我的发布</h3>
                 {
-                    props.publishList 
+                    props.publishList.length
                     ?(
                         <div className="publish-list">
-                            <Item></Item>
-                            <Item></Item>
+                           {
+                               props.publishList.map((value,index)=>{
+                                    return(
+                                        <Item
+                                            item={value}
+                                            key={index}
+                                        ></Item>
+                                    )
+                               })
+                           }
                         </div>
                     )
                     :(

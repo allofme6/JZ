@@ -8,6 +8,7 @@ import EmptyTip from 'components/emptyTip/EmptyTip'
 
 
 export default (props)=>{
+    console.log(props);
     return (
         <DraftContainer>
             <NavBar
@@ -16,7 +17,7 @@ export default (props)=>{
                 titleText="草稿箱"
             />
             {
-                props.draftList
+                props.draftList.length
                 ?(
                     <div className="collection-list">
                         <Item></Item>

@@ -1,8 +1,8 @@
-const defaultState = {
-    masagee: '23'
-}
 
-export default (state = defaultState, action)=>{
+
+export default (state = {
+    profilePublishData:[]
+}, action)=>{
     switch(action.type){
         case 'collection' :
             return {
@@ -12,15 +12,9 @@ export default (state = defaultState, action)=>{
         case 'profilePublish':
             return{
                 ...state,
-                ProfilePublishData: action.data
-            }
-        case 'profileTopic':
-            return{
-                ...state,
-                profileTopicData : action.data
+                profilePublishData: action.data
             }
         case 'editCard' :
-            console.log(action.data);
             return{
                 ...state,
                 userMessage:{
