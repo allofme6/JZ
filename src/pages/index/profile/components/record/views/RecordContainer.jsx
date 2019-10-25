@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 
 import RecordUI from './RecordUI';
+
+import connect from 'profile/store/connect'
+
+@connect
 class RecordContainer extends Component {
     state = {
         recordList: []
     }
     render() {
         return (
-            <RecordUI recordList={this.state.recordList}/>
+            <RecordUI recordList={this.state.recordList} handleClick={this.handleClick}/>
         );
     }
+    handleClick= (value)=>{
+        // this.history.push()
+    }
     async componentDidMount(){
-        // console.log(this.state.recordList);
-        let res = await this.$get({
+        let res =( await this.$get({
             url: '/api/getRecord',
             params:{
-                uid: '' // 用户id
+                uid: this.props.userMessage.userID.uId
             }
-        })
+        })).data
         this.setState({
             recordList: res.data
         })

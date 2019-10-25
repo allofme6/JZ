@@ -5,15 +5,16 @@ import connect from 'profile/store/connect'
 
 @connect
 class ProfilePublishContainer extends Component {
-    state = {
-        publishList: [] 
-    }
+    // state = {
+    //     publishList: [] 
+    // }
     render() {
+        // console.log(this.props);
         return (
            <ProfilePublish 
                 changeRoute={this.changeRoute} 
-                cardImg={this.props.userMessage.cardImg}
-                publishList = {this.state.publishList}
+                cardImg={'http://10.9.24.153:8080'+this.props.userMessage.userID.iconUrl}
+                publishList = {this.props.profilePublishData}
             ></ProfilePublish>
         )
     }
@@ -21,13 +22,7 @@ class ProfilePublishContainer extends Component {
         this.props.history.push(type)
     }
     async componentDidMount(){
-        console.log(this.props)
-        if(this.props.ProfilePublishData === {}){
-            let res = await this.props.loadPublish()
-            this.setState({
-                publishList: res
-            })
-        }
+            this.props.loadPublish(this.props.userMessage.userID.uId )
     }
 }
 

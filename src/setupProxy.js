@@ -12,8 +12,13 @@ module.exports = function(app) {
     target: 'http://m.maoyan.com',
     changeOrigin: true,
   }))
+<<<<<<< HEAD
   app.use('/addblog',proxy({
     target: 'http://10.9.28.152:8080',
+=======
+  app.use('/pay',proxy({
+    target: 'https://luckych.club',
+>>>>>>> master
     changeOrigin: true
   }))
 }

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 import WalletUI from './WalletUI';
 import { ActionSheet } from 'antd-mobile'
+import connect from 'profile/store/connect'
+
+@connect
 class WalletContainer extends Component {
     state = {
         balance: 0.00,
@@ -14,10 +17,25 @@ class WalletContainer extends Component {
             />
         );
     }
+    componentDidMount(){
+        this.handleSeek()
+    }
+    handleSeek = async ()=>{
+        let res = (await this.$post('/api/user/findMoney',{
+            userid: this.props.userMessage.userID.uId
+        })).data
+        this.setState({
+            balance: res.data.money
+        })
+    }
     handleRecharge= async ()=> {
         let data = (await this.$get({
-            url: 'https://luckych.club/pay'
+            url: '/pay',
+            params:{
+                userid: this.props.userMessage.userID.uId
+            }
         })).data
+        console.log(data)
         const BUTTONS = [<img className="qrcode" src={data.image} alt="扫码支付"/>]
         ActionSheet.showActionSheetWithOptions({
             options: BUTTONS,
@@ -26,8 +44,9 @@ class WalletContainer extends Component {
             'data-seed': 'logId',
         },
         () => {
-            // 这里写查询接口
-        })
+            this.handleSeek()
+        }
+        )
     }
 }
 

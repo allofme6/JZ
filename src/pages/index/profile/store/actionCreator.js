@@ -13,11 +13,14 @@ const thunkLoadCollection = ()=>{
     }
 }
 
-const thunkLoadPublish = ()=>{
+const thunkLoadPublish = (uid)=>{
     return async(dispatch)=>{
-        let res = await http.Get({
-            url:'/api/publish' // 发布信息的路径
-        })
+        let res = (await http.Get({
+            url:'/api/findbyuid',
+            params:{
+                uId: 1
+            }
+        })).data
         dispatch({
             type: 'profilePublish',
             data: res.data
@@ -25,17 +28,6 @@ const thunkLoadPublish = ()=>{
     }
 }
 
-const thunkLoadTopic = ()=>{
-    return async(dispatch) =>{
-        let res = await http.Get({
-            url:'/api/topic' // 我的讨论
-        })
-        dispatch({
-            type: 'profileTopic',
-            data: res.data
-        })
-    }
-}
 
 const thunkEditCard = (data)=>{
     return async(dispatch) =>{
@@ -54,6 +46,5 @@ const thunkEditCard = (data)=>{
 export{
     thunkLoadCollection,
     thunkLoadPublish,
-    thunkLoadTopic,
     thunkEditCard
 }

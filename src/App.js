@@ -57,7 +57,7 @@ export default class App extends Component {
         <Route path="/profile" component={Profile}></Route>
 
 
-        <Redirect from="/" to="/index" exact></Redirect>
+        <Redirect from="/" to="/login/" exact></Redirect>
       </Switch>
     )
   }
