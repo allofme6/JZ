@@ -15,7 +15,9 @@ const RecommendUi =(props)=> {
                <Tops 
                collectActive = {props.collectActive}
                onClick={props.onClick} 
-               className={props.collectActive === true ? 'active' : ''}></Tops>
+               className={props.collectActive === true ? 'active' : ''}
+               articleList={props.articleList}
+               ></Tops>
             </RecommendContainer>
         )
     }

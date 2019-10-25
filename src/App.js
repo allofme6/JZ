@@ -39,7 +39,7 @@ export default class App extends Component {
         <Route path="/login" component={Login}></Route>
 
         <Route path="/index" component={Index}></Route>
-        <Route path="/articleDetail" component={ArticleDetail}></Route>
+        <Route path="/articleDetail/:id" component={ArticleDetail}></Route>
         <Route path="/articleSearch" component={ArticleSearch}></Route>
         <Route path="/articleresult" component={Articleresult}></Route>
         <Route path="/articleCollect" component={ArticleCollects}></Route>

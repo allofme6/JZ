@@ -3,30 +3,34 @@ import RecommendUi from './RecommendUi'
 import connect from './connect'
 
 class RecommendContainer extends Component {
+    state={
+        articleList:[]
+    }
     render() {
-        this.state={
-            articleList:[]
-        }
         return (
             <RecommendUi 
             collectActive={this.props.collectActive}
             onClick={this.props.handleCollect} 
             onChangeClick={this.changeClick}
+            articleList={this.state.articleList}
             >   
             </RecommendUi>
         )
     }
     changeClick = () => {
         this.props.history.push('/articleSearch')
-        // console.log(this.props.match.params.id)
-       
     }
     async componentDidMount(){
         let result = await this.$get({
-            url:"https://paas.allinmd.cn/modules/sps/eventMap/allinmdWapEventMap.json?_=1571797612740"
+            url:"/api/findAllblog",
+            params:{
+              uid: "1"
+            }
         })
-        this.state.articleList=result.data.data
-        console.log(result)
+        this.setState({
+            articleList : result.data.data
+        })
+        
     }   
 }
 
