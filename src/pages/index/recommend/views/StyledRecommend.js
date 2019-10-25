@@ -31,12 +31,15 @@ const TopContainer = styled.div`
             .banners{
                 width:1.43rem;
                 display:flex;
-                .touxiang{
-                    margin-top:.17rem;
+                justify-content:space-between;
+                .imgs1{
+                    >.touxiang{
+                    /* margin-top:.17rem; */
                     width:.22rem;
-                    height:.22rem
-                }
-                span:nth-child(1){
+                    height:.22rem;
+                    border-radius:50%;
+                    }
+                >span{
                     display:inline-block;
                     font-size:.12rem;
                     color:#707070;
@@ -45,8 +48,10 @@ const TopContainer = styled.div`
                     margin-top: .2rem;
                     margin-left:.05rem;
                 }
-                >img:nth-last-of-type(1){
-                    margin-top:.18rem;
+                }
+                .imgs2{
+                    >img:nth-last-of-type(1){
+                    /* margin-top:.18rem; */
                     width:.22rem;
                     height:.22rem;
                     margin-left:.22rem;
@@ -60,7 +65,9 @@ const TopContainer = styled.div`
                     &.active{
                         color:#FFCC00;
                     }
-            }
+                }
+                
+            }             
         }
     }
 }

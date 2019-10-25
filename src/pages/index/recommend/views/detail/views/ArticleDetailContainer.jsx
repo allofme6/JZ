@@ -11,7 +11,8 @@ import connect from '../../connect'
       visible: false,
       isShow:false,
       hidden:true,
-      isMask:false
+      isMask:false,
+      ArticleDetailList:[]
     }
   }
   render() {
@@ -29,6 +30,7 @@ import connect from '../../connect'
         handleCollect={this.props.handleCollect}
         isMask = {this.state.isMask}
         showMask = {this.showMask}
+        ArticleDetailList={this.state.ArticleDetailList}
         ></ArticleDetailUi>
     )
   }
@@ -67,8 +69,19 @@ import connect from '../../connect'
       })
     }
   }
-  
-  
-  
+
+  async componentDidMount(){
+    // console.log(this.props.match.params.id)
+    let result =await this.$get({
+      url:'/api/findbybid',
+      params: {
+        bolgId : this.props.match.params.id
+      }
+    })
+    this.setState({
+      ArticleDetailList:result.data.data
+    })
+    console.log(result.data.data.blog)
+  }
 }
 export default connect(ArticleDetail)

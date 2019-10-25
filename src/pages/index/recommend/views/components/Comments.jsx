@@ -43,12 +43,7 @@ class Comments extends Component {
               </p>
               <p className="times">08.01</p>
               <p className="context">其实个人觉得这件物品还是挺好的，因为家里刚搬进来没有多少家具，有了这件家具，家里有客人还是可以长面子的。   </p>
-              <div className="otherscomments">
-                <p className="others">
-                  <span className="othersni">ang-el5</span>
-                  <span className="otherscomment">：对的，挂在家里墙上很不错，非常好看</span>
-                </p>
-              </div>
+             
             </div>
           </div>
 
@@ -61,12 +56,6 @@ class Comments extends Component {
               </p>
               <p className="times">08.01</p>
               <p className="context">其实个人觉得这件物品还是挺好的，因为家里刚搬进来没有多少家具，有了这件家具，家里有客人还是可以长面子的。   </p>
-              <div className="otherscomments">
-                <p className="others">
-                  <span className="othersni">ang-el5</span>
-                  <span className="otherscomment">：对的，挂在家里墙上很不错，非常好看</span>
-                </p>
-              </div>
             </div>
           </div>
 
@@ -79,12 +68,7 @@ class Comments extends Component {
               </p>
               <p className="times">08.01</p>
               <p className="context">其实个人觉得这件物品还是挺好的，因为家里刚搬进来没有多少家具，有了这件家具，家里有客人还是可以长面子的。   </p>
-              <div className="otherscomments">
-                <p className="others">
-                  <span className="othersni">ang-el5</span>
-                  <span className="otherscomment">：对的，挂在家里墙上很不错，非常好看</span>
-                </p>
-              </div>
+              
             </div>
           </div>
         </div>
