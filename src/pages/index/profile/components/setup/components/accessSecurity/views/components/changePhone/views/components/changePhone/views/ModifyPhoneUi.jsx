@@ -43,7 +43,7 @@ export default (props) => {
                     >
                         <div className="Verification-Code">
                             <input 
-                                placeholder="输入验证码" 
+                                placeholder="输入验证码"
                                 value={props.verificationCode}
                                 onChange={props.changeCode}
                                 type="text" 
@@ -52,7 +52,7 @@ export default (props) => {
                         </div>
                     </InputPwdBorder>
                     <p className="problem">遇到问题?</p>
-                    <div className="submit">
+                    <div className="submit" onClick={props.submit}>
                         提交
                     </div>
                 </div>

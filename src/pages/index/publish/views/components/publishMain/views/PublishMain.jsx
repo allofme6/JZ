@@ -98,7 +98,7 @@ export default class PublishMain extends Component {
             form.append('content', this.state.publishContent)
             form.append('uId', '1')
             form.append('title', this.state.title)
-            // form.append('blogstate', '1')
+            form.append('blogstate', '1')
             // form.append('cimage', '1')
             // form.append('reply', '1')
     

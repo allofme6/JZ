@@ -28,7 +28,7 @@ export default (props) => {
                 <h2>验证登陆密码</h2>
                 <p>请输入登陆密码，以验证身份</p>
                 <InputBorderStyle>
-                    <input type="text" value={props.passWord} onChange={props.changePassWord} />
+                    <input type="password" value={props.passWord} onChange={props.changePassWord} />
                 </InputBorderStyle>
             </div>
         </ChangePhoneContainer>
