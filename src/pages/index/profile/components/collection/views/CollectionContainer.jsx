@@ -14,12 +14,15 @@ class Collection extends Component {
     render() {
         return <CollectionUI
                 collectionList = {this.state.collectionList}
-                handleAction= {this.handleAction}
-                paths={this.state.paths}
+                handleAction= {this.handleAction}   
+                list = {this.state.list}
+                changeRout={this.changeRout}
             ></CollectionUI>
     }
+    changeRout =(item)=>{
+        this.props.history.push(`/articleDetail/${item.bolgId}`)
+    }
     handleAction= async (value)=>{
-        this.props.history.push(this.props.match.path + '/list')
         let res = (await this.$post('/api/showcollect',{
             uid: this.props.userMessage.userID.uId,
             bookid : value.bId
@@ -27,6 +30,7 @@ class Collection extends Component {
         this.setState({
             list: res.data
         })
+        this.props.history.push(this.props.match.path + '/list')
     }
     async componentDidMount(){
         let res = (await this.$post('/api/findbookmark',{

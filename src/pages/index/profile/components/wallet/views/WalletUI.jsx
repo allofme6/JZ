@@ -16,7 +16,7 @@ export default (props)=>{
             <div className="wallet-main">
                 <div className="wallet-box">
                     <div className="wallet-title">余额</div>
-                    <div className="wallet-count">0.00</div>
+                    <div className="wallet-count">{props.balance}</div>
                 </div>
                 <div className="recharge" onClick={props.handleRecharge}>
                     充值

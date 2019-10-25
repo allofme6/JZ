@@ -6,7 +6,7 @@ import {
 } 
 from  '../StyledPresonal'
 
-import cardImg from 'images/profile/cardImg.png'
+// import cardImg from 'images/profile/cardImg.png'
 
 import NavBar from 'components/navBar/NavBar'
 import SetItem from 'components/setItem/SetItem'
@@ -15,7 +15,7 @@ import { Modal, Button, DatePicker} from 'antd-mobile';
 const operation = Modal.operation;
 
 export default (props)=>{
-    let { handleClickSex , sex ,chooseBirthday , changeRoute} = props
+    let { handleClickSex , sex ,chooseBirthday , changeRoute,userName,userSelf} = props
     return (
         <PresonalContainer>
             <GlobalStyle />
@@ -37,14 +37,14 @@ export default (props)=>{
                     </div>}
                 >
                     <div className="chooseCard">
-                        <img src={cardImg} alt=""/>
+                        <img src={props.imgsrc} alt=""/>
                     </div>
                 </SetItem>
                 <SetItem
                     title="昵称"
                     handleActions={() => {changeRoute('/profile/setup/nickname')}}
                 >
-                    <div className="choose">请选择</div>
+                    <div className="choose">{userName}</div>
                 </SetItem>
                 <SetItem
                     title={
@@ -58,9 +58,9 @@ export default (props)=>{
                 >
                     <div>{sex}</div>
                 </SetItem>
-                <SetItem
+                {/* <SetItem
                     title="位置"
-                />
+                /> */}
                 <SetItem
                     title={
                         <DatePicker
@@ -79,10 +79,9 @@ export default (props)=>{
                     title="个人简介"
                     handleActions={() => {changeRoute('/profile/setup/intro')}}
                 >
-                    <div className="choose">请选择</div>
+                    <div className="choose">{userSelf}</div>
                 </SetItem>
             </div>
-            <img src={props.imgsrc} alt=""/>
         </PresonalContainer>
     )
 }

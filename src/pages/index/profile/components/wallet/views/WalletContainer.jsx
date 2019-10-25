@@ -14,6 +14,7 @@ class WalletContainer extends Component {
         return (
             <WalletUI
                 handleRecharge={this.handleRecharge}
+                balance={this.state.balance}
             />
         );
     }
@@ -25,7 +26,7 @@ class WalletContainer extends Component {
             userid: this.props.userMessage.userID.uId
         })).data
         this.setState({
-            balance: res.data.money
+            balance: res.data +'.00'
         })
     }
     handleRecharge= async ()=> {

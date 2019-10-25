@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import NickNameUi from './NIckNameUi'
 import {Toast} from 'antd-mobile'
 
-export default class NickNameContainer extends Component {
+import connect from 'profile/store/connect'
+import store from 'store'
+@connect
+class NickNameContainer extends Component {
     state = {
         value: ''
     }
@@ -22,7 +25,14 @@ export default class NickNameContainer extends Component {
             },
             true
             )
-        console.log(this.state.value);
+        this.$post('/api/user/updateuname',{
+            uname:this.state.value,
+            id: this.props.userMessage.userID.uId
+        })
+       
+        let data = store.get('userMessage')
+        data.userID.uname = this.state.value
+        store.set('userMessage',data)
     }
     getValue = (value)=>{
         this.setState({
@@ -30,3 +40,5 @@ export default class NickNameContainer extends Component {
         })
     }
 }
+
+export default NickNameContainer
