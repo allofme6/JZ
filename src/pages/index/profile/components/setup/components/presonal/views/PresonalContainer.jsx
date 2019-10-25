@@ -5,6 +5,7 @@ import PresonalUI from './PresonalUI';
 import connect from 'profile/store/connect'
 
 import store from 'store'
+import { isNumber } from 'is-what';
 @connect
 class PresonalContainer extends Component {
     state = {
@@ -31,7 +32,8 @@ class PresonalContainer extends Component {
     }
     changeBirthday = ()=>{
         let birthday = this.props.userMessage.userID.birthday
-        if(birthday){
+        
+        if(!isNumber(birthday)){
             let birthdayList = birthday.split('-')
             if(birthdayList.length === 1){
                 return birthday

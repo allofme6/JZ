@@ -140,10 +140,10 @@ export default class PublishMain extends Component {
     }
 
     componentDidMount() {
-        let item = this.props.location.state === {} ? '' : this.props.location.state.item
-        this.setState({
-            item
-        })
+        // let item = this.props.location.state === {} ? '' : this.props.location.state.item
+        // this.setState({
+        //     item
+        // })
         let url = this.props.location.query ? this.props.location.query.img : ''
         this.setState({
             fromPage: this.props.location.query ? this.props.location.query.fromPage : ''
