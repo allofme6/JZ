@@ -14,13 +14,13 @@ export default (props)=>{
                     <ul>
                         <LiContainer>
                             <div>
-                                <div className='user'><img src="./user.png" alt=""/></div>
+                                <div className='user'><img src="https://luckych.club/register/user.png" alt=""/></div>
                                 <input type="text" value={props.phoneNumber} onChange={(e)=>{props.getPhoneNumber(e)}} onBlur={props.testPhoneNumber} placeholder="请输入手机号" maxLength='12'/>
                             </div>
                         </LiContainer>
                         <LiContainer>
                             <div>
-                                <div className='lock'><img src="./verificationCode.png" alt=""/></div>
+                                <div className='lock'><img src="https://luckych.club/register/verificationCode.png" alt=""/></div>
                                 <input type="text" maxLength='6' value={props.verificationCode} onChange={(e)=>{props.getverificationCode(e)}} onBlur={props.testverificationCode}  />
                                 { props.testState==='send'?<p onClick={props.sentToast}>获取验证码</p>:(props.testState==='time'?<p >{props.count}</p>:<p onClick={props.sentToast}>重新获取</p>)}
                                 
@@ -30,9 +30,9 @@ export default (props)=>{
                             props.showPasswordInput?
                             (<LiContainer>
                                 <div>
-                                    <div className='password'><img src="./lock.png" alt=""/></div>
+                                    <div className='password'><img src="https://luckych.club/register/lock.png" alt=""/></div>
                                     <input type={props.showPassword?'text':'password'} value={props.password} onChange={(e)=>{props.getPassword(e)}} onBlur={props.testPassword} placeholder="密码长度为9个字符" maxLength='9' minLength='9'/>
-                                    <div className='switch' onClick={props.changeShowpassword}><img src="./switch.png" alt=""/></div>
+                                    <div className='switch' onClick={props.changeShowpassword}><img src="https://luckych.club/register/switch.png" alt=""/></div>
                                 </div>
                             </LiContainer>)
                             :

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import ModifyPhoneUi from './ModifyPhoneUi'
-import { thisExpression } from 'C:/Users/晴天/AppData/Local/Microsoft/TypeScript/3.6/node_modules/@babel/types/lib'
 
 
 export default class ChangePhone extends Component {
