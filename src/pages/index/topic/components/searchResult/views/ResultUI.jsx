@@ -24,9 +24,9 @@ class ResultUI extends Component {
                                 return(
                                     <li key= {index}>
                                         <div className="title">话题</div>
-                                        <h1>{value.title}</h1>
-                                        <div className="sketch">{value.sketch}</div>
-                                        <div className="count">{value.count}人参与征集</div>
+                                        <h1 onClick={() => this.props.onChangeClick(`topicDetail/${index}`,value)}>{value.name}</h1>
+                                        <div className="sketch">{value.contents}</div>
+                                        <div className="count">{value.favorites}人参与征集</div>
                                     </li>
                                 )
                             })
