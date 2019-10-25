@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ModifyPhoneUi from './ModifyPhoneUi'
+import { thisExpression } from 'C:/Users/晴天/AppData/Local/Microsoft/TypeScript/3.6/node_modules/@babel/types/lib'
 
 
 export default class ChangePhone extends Component {
@@ -8,7 +9,8 @@ export default class ChangePhone extends Component {
         remind: '获取验证码',
         sendMessage: 'false',
         verificationCode: '',
-        loginButton: 'false'
+        loginButton: 'false',
+        verificationCodeStatus: true
     }
 
     render() {
@@ -21,6 +23,7 @@ export default class ChangePhone extends Component {
                     changeCode={this.changeCode}
                     loginButton={this.state.loginButton}
                     getVerificationCode={this.getVerificationCode}
+                    submit={this.submit}
                 />
     }
 
@@ -28,7 +31,7 @@ export default class ChangePhone extends Component {
         let inputValue = e.target.value
 
         //虽然重置了输入state的状态，但是每次触发仍然会拿到第一位，当输入的值位数大于零并且不为字母时才能发送验证码
-        if(inputValue.length > 0 && !isNaN(Number(inputValue))) {
+        if(inputValue.length > 0 && !isNaN(Number(inputValue)) && this.state.verificationCodeStatus) {
             this.setState({
                 sendMessage: 'true'
             })
@@ -70,6 +73,7 @@ export default class ChangePhone extends Component {
 
     getVerificationCode = () => {
         let time = 60
+        this.state.verificationCodeStatus = false
         if(/^1[3456789]\d{9}$/.test(this.state.phoneNumber) && this.state.sendMessage === 'true') {
             this.setState({
                 sendMessage: 'false'
@@ -88,10 +92,21 @@ export default class ChangePhone extends Component {
                         this.setState({
                             remind: '获取验证码'
                         })
+                        this.state.verificationCodeStatus = false
                         clearInterval(s1)
                     }
                 })
             }, 1000)
+            this.$post('/api/user/sendMessage', {
+                phone: this.state.phoneNumber
+            })
         }
     } 
+
+    submit = () => {
+        this.$post('/api/user/update', {
+            phone: this.state.phoneNumber,
+            code: this.state.verificationCode
+        })
+    }
 }

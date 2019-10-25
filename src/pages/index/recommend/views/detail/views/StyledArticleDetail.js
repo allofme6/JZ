@@ -464,7 +464,6 @@ const CollectContainer = styled.div`
   .collectcontainer{
     background:#fff;
     width:100%;
-    height:1.49rem;
     padding-left:.15rem;
     /* position:absolute!important;
     top:-1rem; */
@@ -498,14 +497,39 @@ const CollectContainer = styled.div`
     }
     .third{
       display:flex;
+      flex-direction: column;
       position: relative;
       top:-.6rem;
-      .add{
-        color:#9A9A9A;
-        height:100%;
-        font-size:.12rem;
-        padding-top:.11rem;
-        padding-left:.09rem;
+      .collections {
+        margin-bottom: .16rem;
+        display: flex;
+        .icon {
+          img {
+            width: .3rem;
+            height: .3rem;
+          }
+        }
+        p {
+            flex: 1;
+            margin-left: .1rem;
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            color: #333;
+            font-size: .14rem;
+          }
+      }
+      .addCollect {
+        display: flex;
+        .add{
+          flex: 1;
+          display: block;
+          height: 100%;
+          color:#9A9A9A;
+          height:100%;
+          font-size:.12rem;
+          margin-top: .15rem;
+          margin-left: .1rem;
       }
     }
   }

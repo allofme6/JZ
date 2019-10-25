@@ -4,6 +4,7 @@ import {CollectContainer,CollectBorder,AddContainer} from '../detail/views/Style
 import { withRouter } from 'react-router-dom'
 import { GlobalStyle } from 'components/styled/styledPublish.js'
 // import { Icon } from 'antd-mobile';
+import collectionIcon from 'assets/images/collection.png'
 
 
 class Collect extends Component {
@@ -22,8 +23,29 @@ class Collect extends Component {
               <CollectBorder></CollectBorder>
             </p>
             <div className="third">
-              <AddContainer onClick={this.handleCollets}>&#xe6d6;</AddContainer>
-              <span className="add">添加收藏夹</span>
+              {
+                this.props.collectionBook.map((value) => {
+                  console.log(value)
+                  return (
+                    <div 
+                      className="collections" 
+                      key={value.bId}
+                      onClick={() => this.props.selectCollect(this.props.ArticleDetailList.bolgId, value.bId, value.uid)}
+                    >
+                      <div className="icon">
+                        <img src={collectionIcon} alt=""/>
+                      </div>
+                      <p>
+                        {value.bName}
+                      </p>
+                    </div>
+                  )
+                })
+              }
+              <div className="addCollect">
+                <AddContainer onClick={this.handleCollets}>&#xe6d6;</AddContainer>
+                <span className="add">添加收藏夹</span>
+              </div>
             </div>
           </div>
         </CollectContainer>

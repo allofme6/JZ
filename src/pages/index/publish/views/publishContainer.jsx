@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PublishUi from './PublishUi'
-import axios from 'axios'
 
 export default class PublishContainer extends Component {
     state = {
@@ -22,22 +21,12 @@ export default class PublishContainer extends Component {
     handlecamera = (e)=>{
         let file = e.target.files[0]
         console.log(file)
-        let formdata = new FormData()
+        // let formdata = new FormData()
         // for(let i=0; i<file.length; i++) {
         //     formdata.append('file', file[i])
         // }
-        formdata.append('file', file)
+        // formdata.append('file', file)
         
-        // this.$post('localhost' , {
-        //     data: formdata,
-        // })
-
-        // axios({
-        //     method: 'post',
-        //     url: 'localhost',
-        //     // headers: {'Content-Type':'multipart/form-data'},
-        //     data: formdata
-        // })
         let reader = new FileReader()
         reader.onload = ()=>{
             console.log(reader)
@@ -47,12 +36,10 @@ export default class PublishContainer extends Component {
                 query: {
                     img: reader.result,
                     fromPage: 'publish',
-                    formdata: formdata
+                    // formdata: formdata
+                    file: file
                 }
             })
-            // this.setState({
-            //     imgsrc: reader.result
-            // })
           }
           reader.readAsDataURL(e.target.files[0]);
     }

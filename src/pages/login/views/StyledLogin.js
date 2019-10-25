@@ -10,7 +10,7 @@ const LiContainer = border({
 const LoginContainer = styled.div `
     width:100%;
     height:100%;
-    background-image:url('./register_background.png');
+    background-image:url('https://luckych.club/login/register_background.png');
     background-repeat:no-repeat;
     background-size:100% auto;
     display:flex;

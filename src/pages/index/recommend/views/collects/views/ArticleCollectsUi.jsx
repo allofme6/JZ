@@ -20,9 +20,26 @@ export default (props)=>{
         ]}
       >添加收藏夹</NavBar>
         <div className="slider"></div>
-        <div className="one"><input type="text" placeholder="收藏夹名称"/></div>
+        <div className="one">
+          <input
+           type="text" 
+           placeholder="收藏夹名称"
+           value={props.collectionName}
+           onChange={props.changeCollectionName}
+          />
+        </div>
         <BorderContainer></BorderContainer>
-        <div className="one three"><textarea name="" id="" placeholder='收藏夹描述' cols="30" rows="100"></textarea></div>
+        <div className="one three">
+          <textarea 
+            name="" 
+            id="" 
+            placeholder='收藏夹描述' 
+            cols="30" 
+            rows="100" 
+            value={props.description}
+            onChange={props.changeDescription}
+          />
+        </div>
       </div>
     </ArticleCollectsContainer>
   )
