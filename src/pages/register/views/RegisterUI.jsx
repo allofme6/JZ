@@ -22,7 +22,7 @@ export default (props)=>{
                             <div>
                                 <div className='lock'><img src="./verificationCode.png" alt=""/></div>
                                 <input type="text" maxLength='6' value={props.verificationCode} onChange={(e)=>{props.getverificationCode(e)}} onBlur={props.testverificationCode}  />
-                                { props.testState==='send'?<p onClick={props.sentToast}>获取验证码</p>:(props.testState==='time'?<p >{props.count}</p>:<p onClick={props.sentToast()}>重新获取</p>)}
+                                { props.testState==='send'?<p onClick={props.sentToast}>获取验证码</p>:(props.testState==='time'?<p >{props.count}</p>:<p onClick={props.sentToast}>重新获取</p>)}
                                 
                             </div>
                         </LiContainer>
