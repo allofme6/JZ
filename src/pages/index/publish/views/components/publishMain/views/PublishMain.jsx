@@ -10,11 +10,13 @@ export default class PublishMain extends Component {
         files: [],
         title: '哈哈',
         fromPage: '',
-        contentToast: false
+        contentToast: false,
+        item: ''
     }
 
     render() {
         return  <PublishMainUi 
+                    item={this.state.item}
                     publishContent={this.state.publishContent}
                     files={this.state.files}
                     onChange={this.onChange}
@@ -110,6 +112,10 @@ export default class PublishMain extends Component {
     }
 
     componentDidMount() {
+        let item = this.props.location.state === {} ? '' : this.props.location.state.item
+        this.setState({
+            item
+        })
         let url = this.props.location.query ? this.props.location.query.img : ''
         this.setState({
             fromPage: this.props.location.query ? this.props.location.query.fromPage : ''

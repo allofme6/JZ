@@ -3,21 +3,16 @@ import {connect} from 'react-redux'
 import {
   thunkLoadCollection,
   thunkLoadPublish,
-  thunkLoadTopic,
   thunkEditCard
 } from './actionCreator'
 
-import card from 'images/profile/cardImg.png'
+
+import store from 'store'
 
 const mapState = (state) => {
     return {
-      userMessage: {
-          userName: '可爱的小用户',
-          cardImg: card
-      },
-      ProfilePublishData:{
-        // 发布的信息
-      }
+      userMessage: store.get("userMessage"),
+      profilePublishData: state.profile.profilePublishData
     }
   }
 
@@ -26,11 +21,8 @@ const mapDispatch = (dispatch)=>{
     loadCollection(){
       dispatch(thunkLoadCollection())
     },
-    loadPublish(){
-      dispatch(thunkLoadPublish())
-    },
-    loadTopic(){
-      dispatch(thunkLoadTopic())
+    loadPublish(uid){
+      dispatch(thunkLoadPublish(uid))
     },
     editCard(data){
       dispatch(thunkEditCard(data))

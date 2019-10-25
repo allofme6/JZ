@@ -6,16 +6,24 @@ import connect from '../store/connect'
 import card from 'images/profile/cardImg.png'
 @connect
 class ProfileContainer extends Component {
+    state = {
+        imgsrc:''
+    }
     render() {
-        console.log(this);
         return  <ProfileUI 
             handleClick={this.handleClick}
-            cardImg={this.props.userMessage.cardImg}
-            userName={this.props.userMessage.userName}
+            cardImg={this.state.imgsrc}
+            userName={this.props.userMessage.userID.uname}
             ></ProfileUI>
     }
     handleClick = (type)=>{
         type === "index" ? this.props.history.push('/index') : this.props.history.push(`/profile/${type}`)
+    }
+    componentDidMount(){
+      let imgsrc= this.props.userMessage.userID.iconUrl
+        this.setState({
+            imgsrc: imgsrc.indexOf('base64') === -1 ? 'http://47.95.121.255:8080/'+imgsrc : imgsrc
+        })
     }
 }
 export default ProfileContainer

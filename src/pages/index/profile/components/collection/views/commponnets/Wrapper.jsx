@@ -6,21 +6,26 @@ import itemImg from 'images/profile/item1.jpg'
 
 class Wrapper extends Component {
     render() {
-        console.log(this.props);
         return (
             <>
                 {
-                this.props.that.collectionList 
+                    this.props.list && this.props.list.length
                 ? (
                 <div className="collection-wrapper">
                     <ul>
-                        <li>
-                            <img src={itemImg} alt=""/>
-                            <div className="collection-tiele">
-                                <div className="title">收藏夹一</div>
-                                <div className="count">2个内容·最近浏览</div>
-                            </div>
-                        </li>
+                       {
+                           this.props.list.map((value,index)=>{
+                               return(
+                                <li key={value.bId} onClick={()=>{this.props.handleAction(value)}}>
+                                    <img src={itemImg} alt=""/>
+                                    <div className="collection-tiele">
+                                        <div className="title">{value.bName}</div>
+                                        <div className="count">{value.dDecr}</div>
+                                    </div>
+                                </li>
+                               )
+                           })
+                       }
                     </ul>
                 </div>
                 ) 

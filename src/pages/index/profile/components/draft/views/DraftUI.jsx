@@ -16,10 +16,14 @@ export default (props)=>{
                 titleText="草稿箱"
             />
             {
-                props.draftList
+                props.draftList.length
                 ?(
                     <div className="collection-list">
-                        <Item></Item>
+                       {
+                           props.draftList.map((value,idexn)=>{
+                                return(<Item item={value} key={value.bolgId} handleAction={props.handleAction}></Item>)
+                           })
+                       }
                     </div>
                 )
                 :(

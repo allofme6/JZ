@@ -6,28 +6,30 @@ import connect from 'profile/store/connect'
 @connect
 class ProfilePublishContainer extends Component {
     state = {
-        publishList: [] 
+        imgsrc: ''
     }
     render() {
         return (
            <ProfilePublish 
                 changeRoute={this.changeRoute} 
-                cardImg={this.props.userMessage.cardImg}
-                publishList = {this.state.publishList}
+                cardImg={this.state.imgsrc}
+                publishList = {this.props.profilePublishData}
+                handleAction={this.handleAction}
             ></ProfilePublish>
         )
+    }
+    handleAction = (item)=>{
+        this.props.history.push(`/articleDetail/${item.bolgId}`)
     }
     changeRoute = (type)=>{
         this.props.history.push(type)
     }
     async componentDidMount(){
-        console.log(this.props)
-        if(this.props.ProfilePublishData === {}){
-            let res = await this.props.loadPublish()
-            this.setState({
-                publishList: res
-            })
-        }
+        let imgsrc= this.props.userMessage.userID.iconUrl
+        this.setState({
+            imgsrc: imgsrc.indexOf('base64') === -1 ? 'http://47.95.121.255:8080/'+imgsrc : imgsrc
+        })
+        this.props.loadPublish(this.props.userMessage.userID.uId )
     }
 }
 

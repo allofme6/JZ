@@ -8,6 +8,7 @@ import recordImg from 'images/profile/recordImg.jpg';
 
 
 export default (props)=>{
+    console.log(props);
     return (
         <RecordContainer>
             <NavBar
@@ -17,19 +18,19 @@ export default (props)=>{
             />
             <div className="record-list">
             {
-                props.recordList 
+                props.recordList.length
                 ?(
                     <div className="list-box">
                         <ul>
-                            <li>
-                                <img src={recordImg} alt=""/>
-                            </li>
-                            <li>
-                                <img src={recordImg} alt=""/>
-                            </li>
-                            <li>
-                                <img src={recordImg} alt=""/>
-                            </li>
+                            {
+                                props.recordList.map((value,index)=>{
+                                    return(
+                                        <li key={value.tTime} onClick={()=>{props.handleClick(value)}}>
+                                            <img src={'http://10.9.24.153:8080/'+value.tImage} alt=""/>
+                                        </li>
+                                    )
+                                })
+                            }
                         </ul>
                      </div>
                 )
@@ -44,28 +45,6 @@ export default (props)=>{
                 )
             }
             </div>
-            {/* <div className="record-list">
-                <div className="list-box">
-                    <ul>
-                        <li>
-                            <img src={recordImg} alt=""/>
-                        </li>
-                        <li>
-                            <img src={recordImg} alt=""/>
-                        </li>
-                        <li>
-                            <img src={recordImg} alt=""/>
-                        </li>
-                    </ul>
-                </div>
-                <EmptyTip
-                        bearPosition="top: 1.89rem;"
-                        tipTitle= "还没有浏览记录的哦"
-                        // actionTitle= "去讨论"
-                        tipPosition= "top: 3.78rem;"
-                        actionPosition= "top: 3.99rem;"
-                />
-            </div> */}
         </RecordContainer>
     )
 }
