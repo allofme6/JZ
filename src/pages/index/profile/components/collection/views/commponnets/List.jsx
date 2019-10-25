@@ -8,7 +8,7 @@ class List extends Component {
             <div className="collection-list">
                    {
                        this.props.list.map((value,index)=>{
-                            return(<Item item={value} key={value.blog.bolgId}></Item>)
+                            return(<Item item={value.blog} key={value.blog.bolgId} handleAction={this.props.handleAction}></Item>)
                        })
                    }
             </div>

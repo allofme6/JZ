@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 import {Toast} from 'antd-mobile';
 import ChangePwUI from './ChangePwUI';
+import connect from 'profile/store/connect'
 
+@connect
 class ChangePwContainer extends Component {
     state = {
         newpwd :'',

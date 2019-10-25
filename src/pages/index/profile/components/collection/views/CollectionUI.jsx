@@ -29,7 +29,7 @@ const CollectionUI = (props)=>{
                         }}></Route>)
                 <Route  path={path+ '/list'} children={
                     function(){
-                        return(<List  list={props.list}></List>)
+                        return(<List  list={props.list} handleAction={props.changeRout}></List>)
                     }
                 }></Route>
                  <Redirect exact from={path} to={path + '/wrapper'}></Redirect>

@@ -8,7 +8,6 @@ import EmptyTip from 'components/emptyTip/EmptyTip'
 
 
 export default (props)=>{
-    console.log(props);
     return (
         <DraftContainer>
             <NavBar
@@ -20,7 +19,11 @@ export default (props)=>{
                 props.draftList.length
                 ?(
                     <div className="collection-list">
-                        <Item></Item>
+                       {
+                           props.draftList.map((value,idexn)=>{
+                                return(<Item item={value} key={value.bolgId} handleAction={props.handleAction}></Item>)
+                           })
+                       }
                     </div>
                 )
                 :(

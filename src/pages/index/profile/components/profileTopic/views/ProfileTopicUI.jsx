@@ -20,7 +20,7 @@ export default (props)=>{
                     <div className="topic-list">
                         {
                             props.topicList.map((value,index)=>{
-                                return (<Item item={value} key={value.answerId}></Item>)
+                                return (<Item item={value} key={value.answerId} handleAction={props.handleAction}></Item>)
                             })
                         }
                      </div>
