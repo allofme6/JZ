@@ -15,7 +15,7 @@ class RecordContainer extends Component {
         );
     }
     handleClick= (value)=>{
-        // this.history.push()
+        this.history.push('topicDetail/'+ value.tId)
     }
     async componentDidMount(){
         let res =( await this.$get({
