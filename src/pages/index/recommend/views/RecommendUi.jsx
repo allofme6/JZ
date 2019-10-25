@@ -22,5 +22,4 @@ const RecommendUi =(props)=> {
         )
     }
    
-
 export default RecommendUi

@@ -22,11 +22,14 @@ class Tops extends Component {
             this.props.articleList.map((value, index)=>{
               return(
                 <li key={index}>
-                  <img src={`http://10.9.24.153:8080/${value.imageUrl}`}  onClick={() => this.handleClick(value.bolgId)} alt=""/>
+                  <img src={`http://47.95.121.255:8080/${value.imageUrl}`}  onClick={() => this.handleClick(value.bolgId)} alt=""/>
+                  {/* <img src={value.imageUrl}  onClick={() => this.handleClick(value.bolgId)} alt=""/> */}
                   <p>{value.title}</p>
                   <div className="banners">
                     <div className="imgs1">
-                      <img className="touxiang" src={`http://10.9.24.153:8080/${value.users.iconUrl}`} alt=""/>
+                      {/* <img className="touxiang" src={`http://10.9.24.153:8080/${value.users.iconUrl}`} alt=""/> */}
+                      <img className="touxiang" src={value.users.iconUrl} alt=""/>
+
                       <span>{value.users.uname}</span>
                     </div>
                     
@@ -39,7 +42,6 @@ class Tops extends Component {
                         onClick={this.props.onClick} 
                         className={this.props.className}>{value.collect}</span>
                     </div>
-                    
                   </div>
                 </li>
               )
@@ -51,10 +53,7 @@ class Tops extends Component {
   }
 
   handleClick = (id)=>{
-    console.log(id)
     this.props.history.push(`/articleDetail/${id}`)
-
-  
   }
 
 }
