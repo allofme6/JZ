@@ -6,18 +6,20 @@ import personImg from 'images/topic/detailPerson.png'
 import contextImg1 from 'images/topic/contextImg1.png'
 import contextImg2 from 'images/topic/contextImg2.png'
 import add from 'images/topic/add.png'
+import talkImg from 'images/topic/talkImg.png'
 
 class DetailUI extends Component {
     render(){
         return (
             <DetailContainer>
                 <div className="detail-head">
+                   <img src={this.props.data.img ? this.props.data.img : talkImg} alt="" className="head-img"/>
                    <div className="arrow" onClick={this.props.onBackClick}>
                        <img src={arrow} alt=""/>
                    </div>
                    <div className="title">
-                        <p>{(this.props.data["推荐"])[this.props.path]}</p>
-                        <p>回答 33</p>
+                        <p>{this.props.data.name}</p>
+                        <p>{this.props.data.favorites}</p>
                     </div>
                 </div>
                 <p className="instr">
@@ -48,7 +50,7 @@ class DetailUI extends Component {
                             <img src={contextImg2} alt=""/>
                         </div>
                     </div>
-                    <div className="join-review" onClick={()=>this.props.onJoinClick("publishTalk")}>
+                    <div className="join-review" onClick={()=>this.props.onJoinClick("publishMain",this.props.data.id)}>
                         <img src={add} alt=""/>参与讨论
                     </div>
                 </div>

@@ -19,7 +19,7 @@ import {Topic} from './pages/index/topic/';
 import {TopicSearch} from './pages/index/topic/components/topicSearch/';
 import {TopicDetail} from './pages/index/topic/components/topicDetail/';
 import {SearchResult} from './pages/index/topic/components/searchResult/';
-import {PublishTalk} from './pages/index/topic/components/publishTalk/';
+
 
 
 //登录注册
@@ -52,7 +52,7 @@ export default class App extends Component {
         <Route path="/topicSearch" component={TopicSearch}></Route>
         <Route path="/topicDetail" component={TopicDetail}></Route>
         <Route path="/searchResult" component={SearchResult}></Route>
-        <Route path="/publishTalk" component={PublishTalk}></Route>
+
 
         <Route path="/profile" component={Profile}></Route>
 
