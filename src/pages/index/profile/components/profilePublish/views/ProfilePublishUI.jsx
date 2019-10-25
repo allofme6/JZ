@@ -29,6 +29,7 @@ export default (props)=>{
                                         <Item
                                             item={value}
                                             key={index}
+                                            handleAction={props.handleAction}
                                         ></Item>
                                     )
                                })

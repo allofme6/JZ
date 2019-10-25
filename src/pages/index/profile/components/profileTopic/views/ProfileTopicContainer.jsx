@@ -10,10 +10,9 @@ class ProfileTopicContainer extends Component {
 
     render() {
         return (
-            <ProfileTopicUI topicList={ this.state.topicList}/>
+            <ProfileTopicUI topicList={ this.state.topicList} handleAction={this.handleAction}/>
         )
     }
-    
     async componentDidMount(){
         // 我的讨论
         let res = (await this.$get({
@@ -22,14 +21,13 @@ class ProfileTopicContainer extends Component {
                 uid: this.props.userMessage.userID.uId  // 用户id
             }
         })).data
-        console.log(res)
         this.setState({
             topicList: res.data
         })
 
     }
-    handleAction = ()=>{
-        this.history.push('/topicDetail')
+    handleAction = (item)=>{
+        this.props.history.push('/topicDetail/'+item.answerId)
     }
 }
 

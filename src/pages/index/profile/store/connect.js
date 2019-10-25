@@ -21,8 +21,8 @@ const mapDispatch = (dispatch)=>{
     loadCollection(){
       dispatch(thunkLoadCollection())
     },
-    loadPublish(){
-      dispatch(thunkLoadPublish())
+    loadPublish(uid){
+      dispatch(thunkLoadPublish(uid))
     },
     editCard(data){
       dispatch(thunkEditCard(data))

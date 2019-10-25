@@ -14,11 +14,13 @@ const thunkLoadCollection = ()=>{
 }
 
 const thunkLoadPublish = (uid)=>{
+    console.log(uid);
     return async(dispatch)=>{
         let res = (await http.Get({
             url:'/api/findbyuid',
             params:{
-                uId: 1
+                uId: uid,
+                blogState: 1
             }
         })).data
         dispatch({
@@ -31,14 +33,14 @@ const thunkLoadPublish = (uid)=>{
 
 const thunkEditCard = (data)=>{
     return async(dispatch) =>{
-        let res = await http.Get({
-            url: '/api/user/updateheadimg',
-            data,
-            method: 'POST'
-        })
+        // let res = await http.Get({
+        //     url: '/api/user/updateheadimg',
+        //     data,
+        //     method: 'POST'
+        // })
         dispatch({
             type: 'editCard',
-            data: res.data
+            // data: res.data
         })
     }
 }

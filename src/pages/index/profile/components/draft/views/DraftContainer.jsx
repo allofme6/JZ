@@ -12,7 +12,16 @@ class DraftContainer extends Component {
         console.log(this.props);
         return <DraftUI
             draftList= {this.state.draftList}
+            handleAction={this.handleAction}
         ></DraftUI>
+    }
+    handleAction = (item)=>{
+        this.props.history.push({
+            pathname:'/publishMain',
+            state:{
+                item
+            }
+        })
     }
     async componentDidMount(){
         // if(this.props.ProfilePublishData === {}){
@@ -25,10 +34,12 @@ class DraftContainer extends Component {
             url:'/api/findbyuid',
             params:{
                 uId: this.props.userMessage.userID.uId,
-                blogState:1
+                blogState:0
             }
         })).data
-        console.log(res);
+        this.setState({
+            draftList:res.data
+        })
     }
 }
 
