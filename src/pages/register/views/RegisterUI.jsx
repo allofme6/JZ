@@ -32,7 +32,7 @@ export default (props)=>{
                                 <div>
                                     <div className='password'><img src="https://luckych.club/register/lock.png" alt=""/></div>
                                     <input type={props.showPassword?'text':'password'} value={props.password} onChange={(e)=>{props.getPassword(e)}} onBlur={props.testPassword} placeholder="密码长度为9个字符" maxLength='9' minLength='9'/>
-                                    <div className='switch' onClick={props.changeShowpassword}><img src="./switch.png" alt=""/></div>
+                                    <div className='switch' onClick={props.changeShowpassword}><img src="https://luckych.club/register/switch.png" alt=""/></div>
                                 </div>
                             </LiContainer>)
                             :

@@ -25,7 +25,6 @@ const TopContainer = styled.div`
                 font-family:PingFang SC;
                 margin-top:.12rem;
                 width:1.43rem;
-                height: .37rem;
                 text-align:left;
             }
             .banners{

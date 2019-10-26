@@ -148,7 +148,7 @@ const RegisterContainer1 = styled.div `
 const RegisterContainer2 = styled.div `
     width:100%;
     height:100%;
-    background-image:url('https://luckych.club/register_background.png');
+    background-image:url('https://luckych.club/register/register_background.png');
     background-repeat:no-repeat;
     background-size:100% auto;
     display:flex;
@@ -283,7 +283,7 @@ const RegisterContainer2 = styled.div `
         }
         footer{
             position:absolute;
-            bottom:5.51rem;
+            top:5.51rem;
             width:100%;
             ul{
                 display:flex;

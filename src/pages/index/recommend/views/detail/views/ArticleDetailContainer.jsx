@@ -48,8 +48,17 @@ import profileConnect from 'profile/store/connect'
         replyblogList={this.state.replyblogList}
         collectionBook={this.state.collectionBook}
         selectCollect={this.selectCollect}
+        reward={this.reward}
         ></ArticleDetailUi>
     )
+  }
+
+  componentWillMount() {
+    console.log(this.props)
+  }
+
+  reward = (money, blogid, authid) => {
+    console.log(money, blogid, authid)
   }
 
   selectCollect = (blogid, uid, bookid) => {
