@@ -3,7 +3,9 @@ import React, { Component } from 'react'
 import ArticleDetailUi from './ArticleDetailUi'
 
 import connect from '../../connect'
+import profileConnect from 'profile/store/connect'
 
+@profileConnect
  class ArticleDetail extends Component {
   constructor(props) {
     super(props)
@@ -96,7 +98,7 @@ import connect from '../../connect'
     this.$get({
       url: '/api/findbookmark',
       params: {
-        uid: '1'
+        uid: this.props.userMessage.userID.uId
       }
     })
     .then((result) => {

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import ChangePhoneUi from './ChangePhoneUi'
+import connect from 'profile/store/connect'
 
+
+@connect
 class ChangePhone extends Component {
     state = {
         passWord: '',
@@ -16,6 +19,7 @@ class ChangePhone extends Component {
                     changePassWord={this.changePassWord}
                     passWord={this.state.passWord}
                     changeRoute={this.changeRoute.bind(this)}
+                    userpassword={this.props.userMessage.userID.password}
                 />
     }
 
@@ -26,7 +30,6 @@ class ChangePhone extends Component {
     }
 
     changeRoute() {
-        console.log(this)
         this.props.history.push('/profile/setup/changePhone')
     }
 

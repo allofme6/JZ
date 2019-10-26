@@ -121,7 +121,7 @@ const RegisterContainer1 = styled.div `
         }
         footer{
             position:absolute;
-            top:5.51rem;
+            top:6.15rem;
             width:100%;
             ul{
                 display:flex;
@@ -283,7 +283,7 @@ const RegisterContainer2 = styled.div `
         }
         footer{
             position:absolute;
-            top:5.51rem;
+            top:6.15rem;
             width:100%;
             ul{
                 display:flex;

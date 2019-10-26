@@ -32,6 +32,7 @@ export default (props)=>{
                         actionTitle= "去讨论"
                         tipPosition= "top: 3.78rem;"
                         actionPosition= "top: 3.99rem;"
+                        handleChange= {props.handleChange}
                     />
                 )
             }

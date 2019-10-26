@@ -9,7 +9,6 @@ class DraftContainer extends Component {
         draftList: []
     }
     render() {
-        console.log(this.props);
         return <DraftUI
             draftList= {this.state.draftList}
             handleAction={this.handleAction}

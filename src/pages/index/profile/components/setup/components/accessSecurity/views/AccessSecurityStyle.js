@@ -22,7 +22,25 @@ const OptionStyle = styled.div`
         }
     }
 `
+const Signout = styled.div`
+    width:100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: .5rem;
+    div{
+        height: .55rem;
+        width: 80%;
+        line-height: .55rem;
+        text-align: center;
+        font-size: .2rem;
+        background-color: #FF6633;
+        color: #fff;
+        border-radius: .1rem;
+    }
+`
 
 export {
-    OptionStyle
+    OptionStyle,
+    Signout
 }
