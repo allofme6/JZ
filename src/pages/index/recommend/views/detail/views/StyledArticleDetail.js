@@ -146,6 +146,15 @@ const FooterContainer = iconStyled(
       height:.49rem;
       display:flex;
       box-shadow: 0px -1px 17px #cecdcd;
+      .reward {
+        margin-top: .1rem;
+        margin-left: .18rem;
+        width: 100%;
+        text-align: center;
+        img {
+            height: .32rem;
+        }
+      }
       .left{
         padding: .12rem 0 .1rem .18rem;
         height:.28rem;

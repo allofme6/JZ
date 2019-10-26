@@ -3,9 +3,11 @@ import {connect} from 'react-redux'
 import { handleCollect ,changeState } from '../actionCreator'
 
 const mapStateToProps = (state)=>{
+    console.log(state);
     return {
         collectActive: state.recommend.collectActive,
         color: state.recommend.color,
+        userid: ''
     }
 }
 const mapDispatchToProps = (dispatch)=>{

@@ -10,6 +10,7 @@ import {
 
 import collect from 'images/collect.png'
 import activecollect from 'images/activecollect.png'
+import reward from 'assets/images/reward.png'
 
  class Foot extends Component {
 
@@ -40,14 +41,23 @@ import activecollect from 'images/activecollect.png'
           onClick={this.props.handleCollect} 
           className={this.props.collectActive === true ? 'active' : ''}>{this.props.ArticleDetailList.collect}</span>
         </div></div>
-        <DzContainer 
+        <div className="reward">
+          <img 
+            onClick={() => this.props.reward(10, this.props.ArticleDetailList.bolgId, this.props.ArticleDetailList.uId)} 
+            src={reward} 
+            alt=""
+          />
+        </div>
+        {/* <DzContainer 
           onClick={this.props.changeState} 
           className={this.props.color === true ? 'active' : ''}>&#xe601;
           <span 
-          onClick={this.props.changeState} 
-          className={this.props.color === true ? 'active' : ''} 
-          >{this.props.ArticleDetailList.like}</span>
-        </DzContainer>
+            onClick={this.props.changeState} 
+            className={this.props.color === true ? 'active' : ''} 
+          >
+            {this.props.ArticleDetailList.like}
+          </span>
+        </DzContainer> */}
       </FooterContainer>
     )
   }

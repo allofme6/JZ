@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import ModifyPhoneUi from './ModifyPhoneUi'
 import connect from 'profile/store/connect'
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 
 import store from 'store';
 
@@ -109,7 +113,7 @@ class ChangePhone extends Component {
         let res = (await this.$post('/api/user/update', {
             phone: this.state.phoneNumber,
             code: this.state.verificationCode,
-            password: this.props.userMessage.userID.password
+            uid: this.props.userMessage.userID.uId
         })).data
         if (res.code === 200){
             store.remove('userMessage')

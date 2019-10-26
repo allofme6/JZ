@@ -4,6 +4,8 @@ import {Toast} from 'antd-mobile';
 import ChangePwUI from './ChangePwUI';
 import connect from 'profile/store/connect'
 
+import store from 'store'
+
 @connect
 class ChangePwContainer extends Component {
     state = {
@@ -50,20 +52,24 @@ class ChangePwContainer extends Component {
             this.isShowBtn()
         })
     }
-    handleSubmit = ()=>{
+    handleSubmit = async ()=>{
         if(this.state.isBtnClick){
             if(this.state.original === this.state.newpwd){
                 Toast.fail("家装宝典：新旧密码不能相同",1,null,true)
             }else if(this.state.newpwd !== this.state.confirmpwd){
                 // Toast.fail(content, duration, onClose, mask)
                 Toast.fail("家装宝典：新密码不一致",1,null,true)
-            }else{
+            }else if(this.state.original !== this.props.userMessage.userID.password){
                 // 这里做提交请求
-                this.$post('/api/user/updatepassword' , {
-                    id: '1',
+                Toast.fail("家装宝典：密码输入有误",1,null,true)
+            }else{
+                let res = await this.$post('/api/user/updatepassword' , {
+                    id: this.props.userMessage.userID.uId,
                     newpass: this.state.newpwd,
-                    oldpass: this.state.original
+                    oldpass: this.props.userMessage.userID.password
                 })
+                store.remove('userMessage')
+                this.props.history.push('/login')
             }
             
         }
@@ -77,9 +83,9 @@ class ChangePwContainer extends Component {
     // }
     isShowBtn = ()=>{
         if(
-            (this.state.original.length >= 6) 
-            && (this.state.newpwd.length >= 6)
-            && (this.state.confirmpwd.length >= 6)
+            (this.state.original.length === 9) 
+            && (this.state.newpwd.length === 9)
+            && (this.state.confirmpwd.length === 9)
             && (this.state.newpwd.length === this.state.confirmpwd.length)
         ){
             this.setState({isBtnClick: true})
