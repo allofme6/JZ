@@ -6,7 +6,7 @@ import { Toast } from 'antd-mobile'
 
 import connect from '../../connect'
 import profileConnect from 'profile/store/connect'
-
+import store from 'store'
 
 function successToast() {
   Toast.success('Load success', 1);
@@ -17,6 +17,7 @@ class ArticleCollectsContainer extends Component {
   state = {
     collectionName: '',
     description: '',
+    bolgId: ''
   }
 
   render() {
@@ -32,8 +33,8 @@ class ArticleCollectsContainer extends Component {
       </ArticleCollectsUi>
     )
   }
-  handleBack =() => {
-    this.$get({
+  handleBack = async () => {
+    await this.$get({
       url: '/api/addbookmark',
       params: {
         bname: this.state.collectionName,
@@ -41,6 +42,29 @@ class ArticleCollectsContainer extends Component {
         uid: this.props.userMessage.userID.uId
       }
     })
+    let bookMark = (await this.$post(
+      '/api/findbookmark',
+      {
+        uid: this.props.userMessage.userID.uId
+    })).data
+
+    let item = bookMark.data.filter((value) => {
+      return value.bName === this.state.collectionName
+    })
+    
+    store.set('collection',store.get('collection') ? [...store.get('collection'),this.state.bolgId] : [this.state.bolgId])
+    this.$get({
+      url: '/api/addcollect',
+      params: {
+        blogid: this.state.bolgId,
+        uid: this.props.userMessage.userID.uId,
+        bookid: item[0].bId
+      }
+    }
+    )
+    
+
+
     this.props.history.go(-1);
     Toast.success('提交成功', 300, () => {
       
@@ -55,7 +79,10 @@ class ArticleCollectsContainer extends Component {
   }
   
   componentDidMount(){
-    console.log(this)
+    console.log(this.props.location.state)
+    this.setState({
+      bolgId: this.props.location.state.blogId
+    })
   }
 
   changeCollectionName = (e) => {

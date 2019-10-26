@@ -8,6 +8,8 @@ const CollectionContainer = styled.div`
     .collection-wrapper{
         width: 100%;
         padding: 0.15rem;
+        overflow: scroll;
+        height: 100%;
         >ul{
             width: 100%;
             li{

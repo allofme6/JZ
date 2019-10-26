@@ -61,9 +61,9 @@ const TopContainer = styled.div`
                     color:#7D7D7D;
                     margin-left:.02rem;
                     margin-top:.21rem;
-                    &.active{
+                    /* &.active{
                         color:#FFCC00;
-                    }
+                    } */
                 }
                 
             }             

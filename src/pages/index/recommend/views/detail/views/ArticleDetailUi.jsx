@@ -2,11 +2,11 @@ import React from 'react'
 import Zmage from 'react-zmage'
 
 import { NavBar} from 'antd-mobile'
-// import { ActionSheet, WingBlank, WhiteSpace, Button, Toast } from 'antd-mobile';
 
 import {
   ArticleDetailContainer,
   SlideContainer,
+  GlobalStyleReward
 } from './StyledArticleDetail'
 
 import Foot from '../../components/Foot'
@@ -19,18 +19,24 @@ import backD from 'images/backD.png'
 
 
 const ArticleDetailUi=(props)=>{
-    let pubDate = new Date(props.ArticleDetailList.pubDate)
-    let editDate = new Date(props.ArticleDetailList.editDate)
-    let pubDateFormat = '' + pubDate.getFullYear() + '.' + (pubDate.getMonth()+1) + '.' + pubDate.getDate()
-    let editDateFormat = '' + editDate.getFullYear() + '.' + (editDate.getMonth()+1) + '.' + editDate.getDate()
+    if(props.ArticleDetailList) {
+      let pubDate = new Date(props.ArticleDetailList.pubDate)
+      let editDate = new Date(props.ArticleDetailList.editDate)
+      let pubDateFormat = '' + pubDate.getFullYear() + '.' + (pubDate.getMonth()+1) + '.' + pubDate.getDate()
+      let editDateFormat = '' + editDate.getFullYear() + '.' + (editDate.getMonth()+1) + '.' + editDate.getDate()
+    }else {
+      var pubDateFormat = ''
+      var editDateFormat = ''
+    }
     return (
       <ArticleDetailContainer >
         <GlobalStyle/>
+        <GlobalStyleReward />
         <div className="boxs">
           <div className="nav"><NavBar><img onClick={props.onBack} src={backD} alt=""/></NavBar></div>
             <div className="detailbox">
               <div className="bigpic">
-                <Zmage hotKey={{close: true}} className="pic" src={`http://47.95.121.255:8080/${props.ArticleDetailList.imageUrl}`} alt=""/>
+                <Zmage hotKey={{close: true}} className="pic" src={`http://47.95.121.255:8080/${props.ArticleDetailList? props.ArticleDetailList.imageUrl : ''}`} alt=""/>
               </div>
               <p className="details1">
                 {props.ArticleDetailList.content}
@@ -57,6 +63,7 @@ const ArticleDetailUi=(props)=>{
             isMask = {props.isMask}
             showMask = {props.showMask}
             ArticleDetailList={props.ArticleDetailList}
+            isReward={props.isReward}
             ></Foot>
           
           <Comments

@@ -4,6 +4,9 @@ import ArticleDetailUi from './ArticleDetailUi'
 
 import connect from '../../connect'
 import profileConnect from 'profile/store/connect'
+import { Toast } from 'antd-mobile'
+
+import store from 'store'
 
 @profileConnect
  class ArticleDetail extends Component {
@@ -49,20 +52,41 @@ import profileConnect from 'profile/store/connect'
         collectionBook={this.state.collectionBook}
         selectCollect={this.selectCollect}
         reward={this.reward}
+        isReward={this.isReward}
         ></ArticleDetailUi>
     )
   }
 
-  componentWillMount() {
-    console.log(this.props)
+  isReward = async (value, blogid, authid) => {
+    let money = (await this.$post('/api/user/findMoney',{
+                    userid: this.props.userMessage.userID.uId
+                })).data.data
+    if(value > money) {
+      Toast.fail('余额不足', 1, () => {
+        this.props.history.push('/profile/wallet')
+      })
+    }else {
+      this.reward(value, blogid, authid)
+    }
+  
   }
 
   reward = (money, blogid, authid) => {
-    console.log(money, blogid, authid)
+    this.$post('/api/addBlogMoney', {
+      userid: this.props.userMessage.userID.uId,
+      money, 
+      blogid, 
+      authid
+    })
+    .then(() => {
+      Toast.success('打赏成功', 1);
+    })
   }
 
   selectCollect = (blogid, uid, bookid) => {
-    console.log(blogid, uid, bookid)
+    console.log(store.get('collection'))
+    store.set('collection',(store.get('collection') ? [...store.get('collection'),blogid] : [blogid]))
+
     this.$get({
       url: '/api/addcollect',
       params: {
@@ -71,10 +95,15 @@ import profileConnect from 'profile/store/connect'
         bookid
       }
     })
+    .then(() => {
+      Toast.success('收藏成功', 1, () => {
+        this.props.history.go(-1)
+      })
+    })
   }
 
   handleBack = () => {
-    this.props.history.go(-1)
+    this.props.history.push('/index')
   }
 
   showDialog = () => {

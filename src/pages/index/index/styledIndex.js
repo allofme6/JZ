@@ -1,22 +1,12 @@
 import styled from 'styled-components'
+import border from 'components/styled/border'
 
-const IndexContainer = styled.div`
-    background: #fff;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    main {
-        flex: 1;
-        overflow-y: scroll;
-    }
-    footer {
-        height: 48px;
-        .tabBar {
+const TableBorder = border({
+    width: '1px 0 0 0',
+    comp: styled.ul`
             height: 100%;
             display: flex;
             background:rgba(255,255,255,1);
-            border:1px solid rgba(112,112,112,1);
             box-shadow:1px 3px 6px rgba(0,0,0,0.16);
             li {
                 flex: 1;
@@ -42,9 +32,26 @@ const IndexContainer = styled.div`
                     opacity: 1;
                 }
             }
-        }
+    `
+})
+
+
+const IndexContainer = styled.div`
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    main {
+        flex: 1;
+        overflow-y: scroll;
+    }
+    footer {
+        height: 48px;
+        
     }
 `
 export {
-    IndexContainer
+    IndexContainer,
+    TableBorder
 }
