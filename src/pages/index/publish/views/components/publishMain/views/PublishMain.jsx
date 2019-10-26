@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import PublishMainUi from './PublishMainUi'
 import axios from 'axios'
+import connect from 'profile/store/connect'
 
-export default class PublishMain extends Component {
+@connect
+class PublishMain extends Component {
 
     state = {
         formdata: '',
@@ -124,7 +126,7 @@ export default class PublishMain extends Component {
             let form = new FormData()
             form.append('anImage', this.state.file)
             form.append('content', this.state.publishContent)
-            form.append('uId', '1')
+            form.append('uId', this.props.userMessage.userID.uId)
             form.append('tId', '1')
 
             if(this.state.files.length === 0) {
@@ -186,7 +188,7 @@ export default class PublishMain extends Component {
         form.append('file', this.state.file)
         form.append('content', this.state.publishContent)
         form.append('blogstate', '0')
-        form.append('uId', '1')
+        form.append('uId', this.props.userMessage.userID.uId)
         form.append('title', '1')   
 
 
@@ -199,3 +201,5 @@ export default class PublishMain extends Component {
         })
     }
 }
+
+export default PublishMain

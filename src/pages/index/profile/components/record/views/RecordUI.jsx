@@ -18,7 +18,7 @@ export default (props)=>{
             />
             <div className="record-list">
             {
-                props.recordList.length
+               props.recordList && props.recordList.length
                 ?(
                     <div className="list-box">
                         <ul>
