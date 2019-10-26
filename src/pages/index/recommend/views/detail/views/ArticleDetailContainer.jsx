@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import ArticleDetailUi from './ArticleDetailUi'
 
 import connect from '../../connect'
+// import connect from 'profile/store/connect'
 
  class ArticleDetail extends Component {
   constructor(props) {
@@ -46,8 +47,17 @@ import connect from '../../connect'
         replyblogList={this.state.replyblogList}
         collectionBook={this.state.collectionBook}
         selectCollect={this.selectCollect}
+        reward={this.reward}
         ></ArticleDetailUi>
     )
+  }
+
+  componentWillMount() {
+    console.log(this.props)
+  }
+
+  reward = (money, blogid, authid) => {
+    console.log(money, blogid, authid)
   }
 
   selectCollect = (blogid, uid, bookid) => {

@@ -35,12 +35,17 @@ class Tops extends Component {
                     
                     {/* <p onClick={this.props.onClick} className={this.props.className}></p> */}
                     <div className="imgs2">
+                      {/* <div className="reward">
+                        <img src={reward} alt=""/>
+                      </div> */}
                       <img 
                         src={this.props.collectActive === true ? activecollect:collect } alt="" 
-                        onClick={this.props.handleCollect} />
+                        onClick={this.props.handleCollect} 
+                      />
                       <span 
                         onClick={this.props.onClick} 
-                        className={this.props.className}>{value.collect}</span>
+                        className={this.props.className}>{value.collect}
+                      </span>
                     </div>
                   </div>
                 </li>

@@ -19,14 +19,15 @@ import backD from 'images/backD.png'
 
 
 const ArticleDetailUi=(props)=>{
+    let pubDate = new Date(props.ArticleDetailList.pubDate)
+    let editDate = new Date(props.ArticleDetailList.editDate)
+    let pubDateFormat = '' + pubDate.getFullYear() + '.' + (pubDate.getMonth()+1) + '.' + pubDate.getDate()
+    let editDateFormat = '' + editDate.getFullYear() + '.' + (editDate.getMonth()+1) + '.' + editDate.getDate()
     return (
       <ArticleDetailContainer >
         <GlobalStyle/>
         <div className="boxs">
           <div className="nav"><NavBar><img onClick={props.onBack} src={backD} alt=""/></NavBar></div>
-          {/* {
-            props.ArticleDetailList.map((value)=>{
-              return ( */}
             <div className="detailbox">
               <div className="bigpic">
                 <Zmage hotKey={{close: true}} className="pic" src={`http://47.95.121.255:8080/${props.ArticleDetailList.imageUrl}`} alt=""/>
@@ -36,17 +37,14 @@ const ArticleDetailUi=(props)=>{
               </p>
               <SlideContainer></SlideContainer>
                 <p className="auth">
-                  创建于{props.ArticleDetailList.pubDate} 更新于{props.ArticleDetailList.editDate}<br/>
+                  创建于{pubDateFormat} 更新于{editDateFormat}<br/>
                   文章仅代表作者观点，与家装宝典立场无关。
                   本文版权归家装宝典编辑部所有，任何形式转载请联系作者。
                 </p>
               </div>
-              {/* )
-            })
-          } */}
-         
           <Foot 
             comment={props.comment}
+            reward={props.reward}
             replyblogList={props.replyblogList}
             changeComment={props.changeComment}
             sendComment={props.sendComment}

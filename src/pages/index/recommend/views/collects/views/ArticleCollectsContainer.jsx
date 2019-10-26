@@ -66,5 +66,7 @@ class ArticleCollectsContainer extends Component {
       description: e.target.value
     })
   }
+
+  
 }
 export default connect(ArticleCollectsContainer)
