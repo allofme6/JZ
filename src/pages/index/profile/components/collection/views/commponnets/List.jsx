@@ -4,10 +4,11 @@ import Item from 'components/profileItem/ProfileItem'
 
 class List extends Component {
     render() {
+        console.log(this.props)
         return (
             <div className="collection-list">
                    {
-                       this.props.list.map((value,index)=>{
+                       this.props.list && this.props.list.map((value,index)=>{
                             return(<Item item={value.blog} key={value.blog.bolgId} handleAction={this.props.handleAction}></Item>)
                        })
                    }

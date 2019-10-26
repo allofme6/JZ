@@ -17,7 +17,7 @@ export default (props)=>{
                     <input placeholder="请输入原始密码"  type="password" onChange={props.original}/>
                 </Input>
                 <Input>
-                    <input placeholder="请输入新密码"  type="password" onChange={props.newpwd}/>
+                    <input placeholder="请输入9位新密码"  type="password" onChange={props.newpwd}/>
                 </Input>
                 <Input>
                     <input placeholder="请确认新密码"  type="password" onChange={props.confirmpwd}/>
