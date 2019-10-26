@@ -5,31 +5,40 @@ export default class detailContainer extends Component {
     state = {
         classifyList:{ 
         },
+        talkList:[]
     }
 
     render() {
         return <DetailUI
             path={this.state.curPath}
             data={this.state.classifyList}
+            talkList={this.state.talkList}
             onBackClick={this.backClick}
             onJoinClick={this.joinClick}
             ></DetailUI>           
     }
 
     async componentDidMount() {
-        console.log(this.props.location.state.word)
-        let path = this.props.location.state.word
-        this.setState({ 
-            classifyList: path
-        })
+        // console.log(this.props.location.state.word)
+        // let path = this.props.location.state.word
+        let top = this.props.location.state.top
+        // this.setState({ 
+        //     classifyList: path
+        // })
 
         let result = await this.$get({
           url: '/api/findTopicBytid',
           params: {
-              tid: 1
+              tid: top
           }
         })
+
+        this.setState({ 
+           talkList: result.data.data.answertopics,
+           classifyList: result.data.data.topic
+        })
         console.log(result)
+       
     }
     
 
@@ -38,7 +47,7 @@ export default class detailContainer extends Component {
     }
 
     joinClick = ((type,value) => {
-        console.log(value)
+       
         this.props.history.push({
             pathname:`/${type}`,
             state: {
