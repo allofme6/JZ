@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from 'components/navBar/NavBar'
 import SetItem from 'components/setItem/SetItem'
-import { OptionStyle } from './AccessSecurityStyle'
+import { OptionStyle,Signout } from './AccessSecurityStyle'
 import App from 'components/modal/Modal'
 
 export default (props) => {
@@ -22,6 +22,11 @@ export default (props) => {
                     handleActions={()=>{props.changeRoute('/profile/setup/changePwd')}}
                 />
             </OptionStyle>
+            <Signout className="signout" onClick={props.handleClick}>
+                <div>
+                    退出登录
+                </div>
+            </Signout>
         </div>
     )
 }

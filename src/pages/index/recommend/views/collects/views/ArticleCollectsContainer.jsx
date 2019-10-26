@@ -5,11 +5,14 @@ import ArticleCollectsUi from './ArticleCollectsUi'
 import { Toast } from 'antd-mobile'
 
 import connect from '../../connect'
+import profileConnect from 'profile/store/connect'
+
 
 function successToast() {
   Toast.success('Load success', 1);
 }
 
+@profileConnect
 class ArticleCollectsContainer extends Component {
   state = {
     collectionName: '',
@@ -35,7 +38,7 @@ class ArticleCollectsContainer extends Component {
       params: {
         bname: this.state.collectionName,
         ddecr: this.state.description,
-        uid: '1'
+        uid: this.props.userMessage.userID.uId
       }
     })
     this.props.history.go(-1);

@@ -3,26 +3,24 @@ import { ChangePhoneContainer, InputBorderStyle } from './ChangePhoneStyle'
 import NavBar from 'components/navBar/NavBar'
 import { Button, Toast } from 'antd-mobile'
 
-function showToast(info, changeRoute) {
-    Toast.config(
-        {
-            duration: 1
-        }
-    )
-    if(info.code === 1) {
+
+
+function showToast(info, changeRoute,pwd,repwd) {
+    if(pwd===repwd){
         changeRoute()
-    }else {
-        Toast.info(info.message);
+    }else{
+        Toast.fail('密码输入有误请重新输入',1)
     }
 }
 
-export default (props) => {
+
+const ChangPhoneUi = (props) => {
     return (
         <ChangePhoneContainer>
             <NavBar
                 isBack={true}
             >
-                <Button onClick={() => showToast(props.promptInformation , props.changeRoute)}>下一步</Button>
+                <Button onClick={() => showToast(props.promptInformation , props.changeRoute,props.userpassword,props.passWord)}>下一步</Button>
             </NavBar>
             <div className="Verify">
                 <h2>验证登陆密码</h2>
@@ -35,3 +33,4 @@ export default (props) => {
     )
 }
 
+export default ChangPhoneUi

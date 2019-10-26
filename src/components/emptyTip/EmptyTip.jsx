@@ -17,7 +17,7 @@ class EmptyTip extends Component {
                 </div>
                 <div className="empty-tips">{this.props.tipTitle}</div>
                 {  this.props.actionTitle && 
-                    <div className="actions">
+                    <div className="actions" onClick={this.props.handleChange}>
                         {this.props.actionTitle}
                         <img src={forward} alt=""/>
                     </div>

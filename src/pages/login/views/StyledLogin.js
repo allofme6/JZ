@@ -130,7 +130,7 @@ const LoginContainer = styled.div `
         }
         footer{
             position:absolute;
-            top:6.15rem;
+            top:5.51rem;
             width:100%;
             ul{
                 display:flex;

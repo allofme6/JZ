@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import ModifyPhoneUi from './ModifyPhoneUi'
+import connect from 'profile/store/connect'
 
+import store from 'store';
 
-
-export default class ChangePhone extends Component {
+@connect
+class ChangePhone extends Component {
     state = {
         phoneNumber: '',
         remind: '获取验证码',
@@ -103,10 +105,17 @@ export default class ChangePhone extends Component {
         }
     } 
 
-    submit = () => {
-        this.$post('/api/user/update', {
+    submit = async () => {
+        let res = (await this.$post('/api/user/update', {
             phone: this.state.phoneNumber,
-            code: this.state.verificationCode
-        })
+            code: this.state.verificationCode,
+            password: this.props.userMessage.userID.password
+        })).data
+        if (res.code === 200){
+            store.remove('userMessage')
+            this.props.history.push('/login')
+        }
     }
 }
+
+export default ChangePhone

@@ -10,8 +10,15 @@ class ProfileTopicContainer extends Component {
 
     render() {
         return (
-            <ProfileTopicUI topicList={ this.state.topicList} handleAction={this.handleAction}/>
+            <ProfileTopicUI 
+                topicList={ this.state.topicList} 
+                handleAction={this.handleAction}
+                handleChange={this.handleChange}
+                />
         )
+    }
+    handleChange = ()=>{
+        this.props.history.push('/topicTalk')
     }
     async componentDidMount(){
         // 我的讨论
