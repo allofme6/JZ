@@ -70,7 +70,6 @@ class Login extends Component{
                 password : this.state.password
             })).data
             if(result.code=='200'){
-                Toast.info(result.msg,1)
                
                 this.props.initID(result.data)      //======>传ID
                 store.set('userMessage',{userID:result.data})
