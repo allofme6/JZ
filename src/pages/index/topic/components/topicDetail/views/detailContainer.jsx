@@ -52,7 +52,6 @@ export default class detailContainer extends Component {
             pathname:`/${type}`,
             state: {
                 tId: value,
-                uId: 1
             }
         })
     })

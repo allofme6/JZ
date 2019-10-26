@@ -24,7 +24,14 @@ class TopicUI extends Component {
                 <div className="imgNav"><img src={imgNav} alt=""/></div>
                 <div className="content">
                     <ul className="classify-nav">
+                        <li className={this.props.defaultNav === "推荐" ? 'active' : ''}
+                            onClick={this.props.onInitClick}
+                        >
+                            <i></i>
+                            <span>推荐</span>    
+                        </li>
                         {
+    
                             Object.values(this.props.data).map((value,index) => {
                                 return (
                                     <li 

@@ -5,7 +5,7 @@ export default class topicContainer extends Component {
     state = {
         classifyList:{
         },
-        defaultNav: "家电推荐",
+        defaultNav: "推荐",
         classify:{},
     }
 
@@ -18,6 +18,7 @@ export default class topicContainer extends Component {
             onChangeClick={this.changeClick}
             onNavClick={this.handleClick}
             onBackClick={this.backClick}
+            onInitClick={this.initClick}
             ></TopicUI>           
     }
 
@@ -25,7 +26,7 @@ export default class topicContainer extends Component {
         let result = await this.$get({
           url: '/api/findType',
         })
-        console.log(result)
+        // console.log(result.data.data.topics)
         this.setState({
             classifyList: result.data.data.types,
             classify: result.data.data.topics
@@ -75,7 +76,18 @@ export default class topicContainer extends Component {
         })
     }
 
-    backClick = ()=>{
+    backClick = () =>{
         this.props.history.go(-1)
+    }
+
+    initClick = async() =>{
+        let result = await this.$get({
+            url: '/api/findType',
+        })
+
+        this.setState({
+            defaultNav: "推荐",
+            classify: result.data.data.topics
+        })
     }
 }
