@@ -16,7 +16,7 @@ import profileActive from 'images/profileActive.png'
 
 import { Route , Link , Switch , Redirect} from 'react-router-dom'
 
-import { IndexContainer } from './styledIndex'
+import { IndexContainer, TableBorder } from './styledIndex'
 
 class Index extends PureComponent {
     state = {
@@ -38,7 +38,7 @@ class Index extends PureComponent {
                     </Switch>
                 </main>
                 <footer>
-                    <ul className="tabBar">
+                    <TableBorder>
                         <li>
                             <Link to={`${path}/recommend`}>
                                 <img src={this.state.path === '/index/recommend' ? recommendActive : recommend} alt=""/>
@@ -63,7 +63,7 @@ class Index extends PureComponent {
                                 <p>我的</p> 
                             </Link>
                         </li>
-                    </ul>
+                    </TableBorder>
                 </footer>
             </IndexContainer>
         )

@@ -19,17 +19,20 @@ class ArticleResultUI extends Component {
                 </div>
                 <div className="content">
                     <ul>
-                        {
+                        {   
+                            this.props.data ? 
                             (this.props.data).map((value,index)=>{
                                 return(
-                                    <li key= {index}>
+                                    <li key= {value.bolgId}>
                                         <div className="title">文章</div>
-                                        <h1>{value.title}</h1>
-                                        <div className="sketch">{value.sketch}</div>
-                                        <div className="count">{value.count}人参与征集</div>
+                                        <h1 onClick={() => this.props.onChangeClick(`articleDetail/${value.bolgId}`,value)}>{value.title}</h1>
+                                        <div className="sketch">{value.contents}</div>
+                                        <div className="count">{value.answer}人参与征集</div>
                                     </li>
                                 )
-                            })
+                            }) 
+                            : null  
+                                
                         }
                     </ul>
                 </div>

@@ -9,10 +9,13 @@ import { GlobalStyle } from 'components/styled/styledPublish.js'
 
 import collect from 'images/collect.png'
 import activecollect from 'images/activecollect.png'
+import store from 'store'
 
 
 class Tops extends Component {
-
+  state = {
+    list:[]
+  }
   render() {
     return (
       <TopContainer>
@@ -22,7 +25,7 @@ class Tops extends Component {
             this.props.articleList.map((value, index)=>{
               return(
                 <li key={index}>
-                  <img src={`http://47.95.121.255:8080/${value.imageUrl}`}  onClick={() => this.handleClick(value.bolgId)} alt=""/>
+                  <img src={value.imageUrl.indexOf('https') === -1 ? `http://47.95.121.255:8080/${value.imageUrl}` : value.imageUrl}  onClick={() => this.handleClick(value.bolgId)} alt=""/>
                   {/* <img src={value.imageUrl}  onClick={() => this.handleClick(value.bolgId)} alt=""/> */}
                   <p>{value.title}</p>
                   <div className="banners">
@@ -39,7 +42,8 @@ class Tops extends Component {
                         <img src={reward} alt=""/>
                       </div> */}
                       <img 
-                        src={this.props.collectActive === true ? activecollect:collect } alt="" 
+                        // src={this.props.collectActive === true ? activecollect:collect } alt="" 
+                        src={this.state.list.length > 0 ? (this.state.list.includes(value.bolgId) ? activecollect : collect) :collect}
                         onClick={this.props.handleCollect} 
                       />
                       <span 
@@ -60,7 +64,11 @@ class Tops extends Component {
   handleClick = (id)=>{
     this.props.history.push(`/articleDetail/${id}`)
   }
-
+  componentDidMount(){
+    store.get('collection') && this.setState({
+      list : store.get('collection')
+    })
+  }
 }
 
 export default withRouter(Tops)

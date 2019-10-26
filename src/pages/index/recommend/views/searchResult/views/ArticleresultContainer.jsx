@@ -1,26 +1,35 @@
 import React, { Component } from 'react'
 
-import ResultUI from './ArticleResultUI'
+import ArticleResultUI from './ArticleResultUI'
 export default class ArticleresultContainer extends Component {
     state = {
-        searchList:[
-            { "title" : "装修时，你最庆幸的决定",
-              "sketch": "“幸好坚持这么做了！”装修时做哪个决定让你有这样的想法？",
-              "count" : "2100"
-            },
-            { "title" : "装修时，让你后悔遗憾的事",
-              "sketch": "把自己吃的垫，变成住友们长的智吧，让世界，充..满…爱！",
-              "count" : "20144"
-            }
-        ]
+        searchList:[],
+        dataNull: "文章搜索结果为0，请换个词汇搜索！"
     }
 
     render() {
-        return <ResultUI
+        return <ArticleResultUI
             onBackClick={this.backClick}
             onJoinClick={this.joinClick}
+            onChangeClick={this.changeClick}
             data={this.state.searchList}
-            ></ResultUI>           
+            dataNull={this.state.dataNull}
+            ></ArticleResultUI>           
+    }
+
+    async componentDidMount() {
+        let title = this.props.history.location.state.word
+        console.log(title)
+        let result = await this.$get({
+          url: '/api/findAllblog',
+          params: {
+            uid: "1",
+            title  
+          }
+        })
+        this.setState({
+            searchList: result.data.data
+        })
     }
 
     backClick = ()=>{
@@ -29,5 +38,15 @@ export default class ArticleresultContainer extends Component {
 
     joinClick = (type=>{
         this.props.history.push(`/${type}`)
+    })
+
+    changeClick = ((type,value) => {
+        console.log(value)
+        this.props.history.push({
+            pathname:`/${type}`,
+            state: {
+                top: value.tId
+            }
+        })
     })
 }

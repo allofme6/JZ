@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { withRouter } from 'react-router-dom'
+import { Modal, Button } from 'antd-mobile'
 
 import {
   FooterContainer,
@@ -12,6 +13,7 @@ import collect from 'images/collect.png'
 import activecollect from 'images/activecollect.png'
 import reward from 'assets/images/reward.png'
 
+const prompt = Modal.prompt;
  class Foot extends Component {
 
   render() {
@@ -42,11 +44,15 @@ import reward from 'assets/images/reward.png'
           className={this.props.collectActive === true ? 'active' : ''}>{this.props.ArticleDetailList.collect}</span>
         </div></div>
         <div className="reward">
-          <img 
-            onClick={() => this.props.reward(10, this.props.ArticleDetailList.bolgId, this.props.ArticleDetailList.uId)} 
-            src={reward} 
-            alt=""
-          />
+          <Button onClick={() => prompt('请输入打赏金额', '', [
+            { text: '取消' },
+            { text: '确定', onPress: value => this.props.isReward(value, this.props.ArticleDetailList.bolgId, this.props.ArticleDetailList.uId)},
+          ], 'default', '10')}
+          ><img 
+          src={reward} 
+          alt=""
+        /></Button>
+          
         </div>
         {/* <DzContainer 
           onClick={this.props.changeState} 

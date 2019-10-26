@@ -3,9 +3,6 @@ import React, { Component } from 'react'
 import {Get} from 'utils/http'
 import ArticleSearchUI from './ArticleSearchUI'
 export default class ArticleSearchContainer extends Component {
-    state = {
-        keyWord: '',
-    }
 
     render() {
         return <ArticleSearchUI
@@ -18,9 +15,17 @@ export default class ArticleSearchContainer extends Component {
         this.props.history.go(-1)
     }
 
-    resultClick = (type)=>{
-        console.log(this.ref)
-        this.props.history.push(`/${type}`)
+    resultClick = (type,keyWords)=>{
+         if(keyWords){
+            this.props.history.push({
+                pathname:`/${type}`,
+                state: {
+                    word: `${keyWords}`
+                }
+            })
+        }else{
+            console.log("搜索内容不能为空")
+        }
     }
     componentDidMount(){
 

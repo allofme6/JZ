@@ -3,6 +3,8 @@ import PublishMainUi from './PublishMainUi'
 import axios from 'axios'
 import connect from 'profile/store/connect'
 
+import { Toast } from 'antd-mobile';
+
 @connect
 class PublishMain extends Component {
 
@@ -14,7 +16,8 @@ class PublishMain extends Component {
         fromPage: '',
         contentToast: false,
         file: '',
-        item: ''
+        item: '',
+        tId: ''
     }
 
     render() {
@@ -119,7 +122,7 @@ class PublishMain extends Component {
                 data: form
             })
             .then(() => {
-
+                Toast.success('发布成功', 1);
             })
 
         }else {
@@ -127,16 +130,23 @@ class PublishMain extends Component {
             form.append('anImage', this.state.file)
             form.append('content', this.state.publishContent)
             form.append('uId', this.props.userMessage.userID.uId)
-            form.append('tId', '1')
+            form.append('tId', this.state.tId)
 
             if(this.state.files.length === 0) {
                 form.append('anImage' , '')
             }
 
+
             axios({
                 method: 'post',
                 url,
                 data: form
+            })
+            .then(() => {
+                Toast.success('评论成功', 1);
+                setTimeout(() => {
+                    this.props.history.go(-1)
+                }, 1000)
             })
         }
     }
@@ -146,6 +156,7 @@ class PublishMain extends Component {
         // this.setState({
         //     item
         // })
+        this.state.tId = this.props.location.state ? this.props.location.state.tId : ''
         let url = this.props.location.query ? this.props.location.query.img : ''
         this.setState({
             fromPage: this.props.location.query ? this.props.location.query.fromPage : ''
@@ -198,6 +209,11 @@ class PublishMain extends Component {
             method: 'post',
             url,
             data: form,
+        })
+        .then(() => {
+            Toast.success('存储成功', 1, () => {
+                this.props.history.push('/profile/draft')
+            })
         })
     }
 }

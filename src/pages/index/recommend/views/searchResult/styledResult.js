@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import searchImg from 'images/topic/searchImg.png'
+import searchImg from 'images/topic/resulthead.png'
 
 const ResultContainer = styled.div`
     width: 100%;
@@ -8,9 +8,9 @@ const ResultContainer = styled.div`
     background: #fff;
     .result-head{
         width: 100%;
-        height: 1.8rem;
+        height:3rem;
         background-image: url(${searchImg});
-        background-size: 100% 1.8rem;
+        background-size: 100% 3rem;
         .arrow{
             width: .2rem;
             height: .2rem;

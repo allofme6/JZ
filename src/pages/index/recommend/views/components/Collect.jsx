@@ -52,7 +52,9 @@ class Collect extends Component {
       )
     }
     handleCollets= () => {
-      this.props.history.push('/articleCollect')
+      this.props.history.push('/articleCollect', {
+        blogId: this.props.ArticleDetailList.bolgId
+      })
     }
     handleToCollect =() => {
       this.props.history.push('/profile/collection')

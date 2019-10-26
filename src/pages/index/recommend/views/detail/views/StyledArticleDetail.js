@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 import border from 'components/styled/border.js'
 import iconStyled from 'components/styled/iconb.js'
@@ -7,7 +7,11 @@ import iconStyledz from 'components/styled/iconz.js'
 import iconStyledss from 'components/styled/iconss.js'
 import iconStyleda from 'components/styled/icona.js'
 
-
+const GlobalStyleReward = createGlobalStyle`
+  .am-toast-text-info {
+    width: 1rem;
+  }
+`
 
 const ArticleDetailContainer =
   styled.div`
@@ -147,8 +151,11 @@ const FooterContainer = iconStyled(
       display:flex;
       box-shadow: 0px -1px 17px #cecdcd;
       .reward {
-        margin-top: .1rem;
-        margin-left: .18rem;
+        .am-button::before {
+          height: 0 !important;
+        }
+        /* margin-top: .1rem;
+        margin-left: .18rem; */
         width: 100%;
         text-align: center;
         img {
@@ -579,5 +586,6 @@ export {
   SendContainer,
   CollectContainer,
   CollectBorder,
-  AddContainer
+  AddContainer,
+  GlobalStyleReward
 }
